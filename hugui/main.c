@@ -20,7 +20,7 @@ int main(void)
     /* Infinite loop. */
     while (1) {
     	//waits 1 second
-    	palTogglePad(GPIOD, GPIOD_LED_FRONT);
+    	palTogglePad(GPIOB, GPIOB_LED_BODY);
         chThdSleepMilliseconds(1000);
     }
 }
