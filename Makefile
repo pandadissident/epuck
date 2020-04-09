@@ -15,9 +15,6 @@ endif
 ifeq ($(USE_OPT),)
   USE_OPT = -O2 -ggdb -fomit-frame-pointer -falign-functions=16
 
-  # Aseba doesn't build with strict aliasing
-  USE_OPT += -fno-strict-aliasing
-
   # Protection against stack overflows
   USE_OPT += -fstack-protector-all -L .
 endif
@@ -83,9 +80,6 @@ ifeq ($(USE_EXCEPTIONS_STACKSIZE),)
   USE_EXCEPTIONS_STACKSIZE = 0x400
 endif
 
-ifeq ($(USE_ASEBA_BOOTLOADER),)
-	USE_ASEBA_BOOTLOADER=no
-endif
 
 # Enables the use of FPU on Cortex-M4 (no, softfp, hard).
 ifeq ($(USE_FPU),)
@@ -117,17 +111,10 @@ include $(CHIBIOS)/os/rt/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
 include $(CHIBIOS)/test/rt/test.mk
 
 include $(CHIBIOS_EXT)/ext/fatfs/fatfs.mk
-include $(GLOBAL_PATH)/src/aseba_vm/aseba.mk
 include $(GLOBAL_PATH)/src/src.mk
 
 # Define linker script file here
-LDSCRIPT= $(STARTUPLD)/STM32F407xG.ld
-
-ifeq ($(USE_ASEBA_BOOTLOADER),yes)
-	LDSCRIPT= $(GLOBAL_PATH)/stm32f407xG.ld
-else
-	LDSCRIPT= $(GLOBAL_PATH)/stm32f407xG_no_bootloader.ld
-endif
+LDSCRIPT= $(GLOBAL_PATH)/stm32f407xG_no_bootloader.ld
 
 
 # C sources that can be compiled in ARM or THUMB mode depending on the global
@@ -144,7 +131,6 @@ CSRC += $(STARTUPSRC) \
         $(CHIBIOS)/os/hal/lib/streams/memstreams.c \
         $(CHIBIOS)/os/hal/lib/streams/chprintf.c \
         $(FATFSSRC) \
-        $(ASEBASRC)
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
@@ -177,7 +163,6 @@ INCDIR += $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
           $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
           $(CHIBIOS)/os/various \
           $(CHIBIOS)/os/hal/lib/streams \
-          $(ASEBAINC) \
           $(FATFSINC) \
           $(GLOBAL_PATH)/src \
 
@@ -231,10 +216,6 @@ CPPWARN = -Wall -Wextra -Wundef -Wno-implicit-fallthrough
 UDEFS =
 
 UDEFS += -DSTDOUT_SD=SDU1 -DSTDIN_SD=SDU1 -DARM_MATH_CM4 -D__FPU_PRESENT
-
-ifeq ($(USE_ASEBA_BOOTLOADER),yes)
-	UDEFS += -DCORTEX_VTOR_INIT=0x08020000
-endif
 
 # Define ASM defines here
 UADEFS =

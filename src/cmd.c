@@ -8,8 +8,8 @@
 #include "shell.h"
 #include "usbcfg.h"
 #include "chtm.h"
-#include "common/types.h"
-#include "vm/natives.h"
+//#include "common/types.h" aseba ?
+//#include "vm/natives.h" aseba ?
 #include "audio/audio_thread.h"
 #include "audio/microphone.h"
 #include "camera/po8030.h"
@@ -410,9 +410,6 @@ static void cmd_readclock(BaseSequentialStream *chp, int argc, char *argv[])
              STM32_SYSCLK, STM32_HCLK, STM32_PCLK1, STM32_PCLK2);
 }
 
-
-extern sint16 aseba_sqrt(sint16 num);
-
 static void cmd_sqrt(BaseSequentialStream *chp, int argc, char *argv[])
 {
     uint16_t input, result;
@@ -422,17 +419,11 @@ static void cmd_sqrt(BaseSequentialStream *chp, int argc, char *argv[])
 
     if (argc != 2) {
         chprintf(chp,
-                 "Usage: sqrt mode int\r\nModes: a (aseba), b (math), c (assembler) is default mode\r\n");
+                 "Usage: sqrt mode int\r\nModes: m (math), a (assembler) is default mode\r\n");
     } else {
         input = (uint16_t) atoi(argv[1]);
 
-        if (!strcmp(argv[0], "a")) {
-            chSysLock();
-            chTMStartMeasurementX(&tmp);
-            result = aseba_sqrt(input);
-            chTMStopMeasurementX(&tmp);
-            chSysUnlock();
-        } else if (!strcmp(argv[0], "b")) {
+        if (!strcmp(argv[0], "m")) {
             chSysLock();
             chTMStartMeasurementX(&tmp);
             result = sqrtf(input);
@@ -456,7 +447,6 @@ static void cmd_sqrt(BaseSequentialStream *chp, int argc, char *argv[])
     }
 }
 
-extern sint16 aseba_atan2(sint16 y, sint16 x);
 
 static void cmd_atan2(BaseSequentialStream *chp, int argc, char *argv[])
 {
@@ -465,24 +455,16 @@ static void cmd_atan2(BaseSequentialStream *chp, int argc, char *argv[])
     chTMObjectInit(&tmp);
 
     if (argc != 3) {
-        chprintf(chp, "Usage: atan2 mode a b\r\nModes: a (aseba), b (math) is default mode\r\n");
+        chprintf(chp, "Usage: atan2 mode a b\r\nModes: m (math) is default mode\r\n");
     } else {
         a = (int16_t) atoi(argv[1]);
         b = (int16_t) atoi(argv[2]);
 
-        if (!strcmp(argv[0], "a")) {
-            chSysLock();
-            chTMStartMeasurementX(&tmp);
-            result = aseba_atan2(a, b);
-            chTMStopMeasurementX(&tmp);
-            chSysUnlock();
-        } else {
-            chSysLock();
-            chTMStartMeasurementX(&tmp);
-            result = (int16_t)(atan2f(a, b) * 32768 / M_PI);
-            chTMStopMeasurementX(&tmp);
-            chSysUnlock();
-        }
+		chSysLock();
+		chTMStartMeasurementX(&tmp);
+		result = (int16_t)(atan2f(a, b) * 32768 / M_PI);
+		chTMStopMeasurementX(&tmp);
+		chSysUnlock();
 
 
         chprintf(chp, "atan2(%d, %d) = %d \r\n", a, b, result);

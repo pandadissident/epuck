@@ -116,19 +116,18 @@ build/obj/cmd.o: ..//src/cmd.c \
  ..//ChibiOS//os/hal/include/serial_usb.h ..//ChibiOS//test/rt/test.h \
  ..//ChibiOS//os/hal/lib/streams/chprintf.h \
  ..//ChibiOS//os/various/shell.h ..//src/usbcfg.h \
- ..//ChibiOS//os/rt/include/chtm.h ..//aseba/common/types.h \
- c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h \
- c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h \
- c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h \
- ..//aseba/vm/natives.h ..//aseba/vm/../common/types.h ..//aseba/vm/vm.h \
- ..//src/audio/audio_thread.h ..//src/audio/microphone.h \
- ..//src/audio/mp45dt02_processing.h ..//src/camera/po8030.h \
- ..//src/camera/dcmi_camera.h ..//ChibiOS_ext/os/hal/include/dcmi.h \
+ ..//ChibiOS//os/rt/include/chtm.h ..//src/audio/audio_thread.h \
+ ..//src/audio/microphone.h ..//src/audio/mp45dt02_processing.h \
+ ..//src/camera/po8030.h ..//src/camera/dcmi_camera.h \
+ ..//ChibiOS_ext/os/hal/include/dcmi.h \
  ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h \
  ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h \
  ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h \
  ..//src/camera/po8030.h ..//src/sensors/battery_level.h \
  ..//src/config_flash_storage.h ..//src/parameter/parameter.h \
+ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h \
+ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h \
+ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h \
  ..//src/leds.h main.h ..//src/camera/dcmi_camera.h \
  ..//src/msgbus/messagebus.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h \
@@ -408,20 +407,6 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 
 ..//ChibiOS//os/rt/include/chtm.h:
 
-..//aseba/common/types.h:
-
-c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h:
-
-c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h:
-
-c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h:
-
-..//aseba/vm/natives.h:
-
-..//aseba/vm/../common/types.h:
-
-..//aseba/vm/vm.h:
-
 ..//src/audio/audio_thread.h:
 
 ..//src/audio/microphone.h:
@@ -447,6 +432,12 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 ..//src/config_flash_storage.h:
 
 ..//src/parameter/parameter.h:
+
+c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h:
+
+c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h:
+
+c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h:
 
 ..//src/leds.h:
 
