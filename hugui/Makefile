@@ -10,6 +10,7 @@ GLOBAL_PATH = ../
 
 #Source files to include
 CSRC += ./main.c \
+		./calibration.c \
 
 #Header folders to include
 INCDIR += 
