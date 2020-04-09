@@ -9,6 +9,7 @@
 
 #include "selector.h"
 #include "calibration.h"
+#include "pid_regulator.h"
 #include "memory_protection.h"
 
 #define MEASUREMENT 0

@@ -11,6 +11,7 @@ GLOBAL_PATH = ../
 #Source files to include
 CSRC += ./main.c \
 		./calibration.c \
+		./pid_regulator.c \
 
 #Header folders to include
 INCDIR += 

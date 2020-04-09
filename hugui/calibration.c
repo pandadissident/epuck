@@ -1,10 +1,5 @@
 #include "calibration.h"
 
-messagebus_t bus;
-MUTEX_DECL(bus_lock);
-CONDVAR_DECL(bus_condvar);
-
-
 // LED avant qui clignotte
 static THD_WORKING_AREA(waThdFrontLed, 128);
 static THD_FUNCTION(ThdFrontLed, arg) {
