@@ -158,8 +158,8 @@ int main(void) {
 		// wait for new measurement task
 		newTask = get_selector(); // + aboveCritAngle();
         if (newTask) {
-        	main();
         	newTask = false;
+        	main();
         }
         set_front_led(TOGGLE);
         chThdSleepMilliseconds(500);
