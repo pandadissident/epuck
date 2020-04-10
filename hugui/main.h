@@ -9,6 +9,16 @@ extern "C" {
 #include "msgbus/messagebus.h"
 #include "parameter/parameter.h"
 
+#define MEASUREMENT 0
+#define IMU_CALIBRATION 1
+#define TOF_CALIBRATION 2
+
+#define OFF 0
+#define ON 1
+#define TOGGLE 2
+
+int main(void);
+
 /** Robot wide IPC bus. */
 extern messagebus_t bus;
 

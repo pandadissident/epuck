@@ -60,9 +60,9 @@ int main(void) {
 
 	static bool newTask = FALSE;
 	static bool sysInitialised = FALSE;
-	static uint8_t eqPosEstimate = 0;
-	static uint8_t eqPos = 0;
-	static uint8_t mass = 0;
+	//static uint8_t eqPosEstimate = 0;
+	//static uint8_t eqPos = 0;
+	//static uint8_t mass = 0;
 
 
 	/**********************/
@@ -106,7 +106,7 @@ int main(void) {
     switch (get_selector()) {
 
     	case IMU_CALIBRATION :
-    		//calibrate_imu();
+    		calibrate_imu();
     		break;
 
     	case TOF_CALIBRATION :

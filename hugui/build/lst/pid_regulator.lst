@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
   55              	.LBE50:
   56              	.LBE52:
   57              		.loc 1 44 0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 2
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 2
 
 
   58 000c 1B68     		ldr	r3, [r3]
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  112              	.LBE57:
  113              	.LBE63:
  114              	.LBE74:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 3
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 3
 
 
  115              	.LBB75:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  169              		.loc 4 546 0
  170              		.syntax unified
  171              	@ 546 "..//ChibiOS//os/ext/CMSIS/include/core_cmFunc.h" 1
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 4
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 4
 
 
  172 0048 86F31188 		MSR basepri, r6
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  226              		.cfi_offset 14, -4
  227              		.loc 1 20 0
  228 0002 70EE600A 		vsub.f32	s1, s0, s1
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 5
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 5
 
 
  229              	.LVL14:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  283 005c 5DF804FB 		ldr	pc, [sp], #4
  284              	.LVL19:
  285              	.L18:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 6
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 6
 
 
  286              		.cfi_restore_state
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  340 0000 10B5     		push	{r4, lr}
  341              		.cfi_def_cfa_offset 8
  342              		.cfi_offset 4, -8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 7
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 7
 
 
  343              		.cfi_offset 14, -4
@@ -405,12 +405,12 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  384              		.cfi_endproc
  385              	.LFE259:
  386              		.size	pdi_regulator_start, .-pdi_regulator_start
- 387              		.section	.bss.sum_error.11843,"aw",%nobits
+ 387              		.section	.bss.sum_error.11845,"aw",%nobits
  388              		.align	2
  389              		.set	.LANCHOR2,. + 0
- 390              		.type	sum_error.11843, %object
- 391              		.size	sum_error.11843, 4
- 392              	sum_error.11843:
+ 390              		.type	sum_error.11845, %object
+ 391              		.size	sum_error.11845, 4
+ 392              	sum_error.11845:
  393 0000 00000000 		.space	4
  394              		.section	.bss.waPidRegulator,"aw",%nobits
  395              		.align	3
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  397              		.type	waPidRegulator, %object
  398              		.size	waPidRegulator, 632
  399              	waPidRegulator:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 8
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 8
 
 
  400 0000 00000000 		.space	632
@@ -426,12 +426,12 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  400      00000000 
  400      00000000 
  400      00000000 
- 401              		.section	.rodata.__FUNCTION__.11848,"a",%progbits
+ 401              		.section	.rodata.__FUNCTION__.11850,"a",%progbits
  402              		.align	2
  403              		.set	.LANCHOR0,. + 0
- 404              		.type	__FUNCTION__.11848, %object
- 405              		.size	__FUNCTION__.11848, 13
- 406              	__FUNCTION__.11848:
+ 404              		.type	__FUNCTION__.11850, %object
+ 405              		.size	__FUNCTION__.11850, 13
+ 406              	__FUNCTION__.11850:
  407 0000 50696452 		.ascii	"PidRegulator\000"
  407      6567756C 
  407      61746F72 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  445              		.file 34 "..//ChibiOS//os/hal/ports/STM32/LLD/ext_lld.h"
  446              		.file 35 "..//ChibiOS//os/hal/include/gpt.h"
  447              		.file 36 "..//ChibiOS//os/hal/ports/STM32/LLD/TIMv1/gpt_lld.h"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 9
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 9
 
 
  448              		.file 37 "..//ChibiOS//os/hal/ports/STM32/LLD/TIMv1/stm32_tim.h"
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  502 0038 06       		.byte	0x6
  503 0039 D8       		.byte	0xd8
  504 003a 3E000000 		.4byte	0x3e
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 10
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 10
 
 
  505 003e 02       		.uleb128 0x2
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  559 00a7 07       		.byte	0x7
  560 00a8 4F       		.byte	0x4f
  561 00a9 AD000000 		.4byte	0xad
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 11
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 11
 
 
  562 00ad 02       		.uleb128 0x2
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  616 0122 45       		.byte	0x45
  617 0123 FC000000 		.4byte	0xfc
  618 0127 04       		.uleb128 0x4
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 12
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 12
 
 
  619 0128 A1050000 		.4byte	.LASF25
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  673 01a0 04       		.uleb128 0x4
  674 01a1 9C030000 		.4byte	.LASF36
  675 01a5 0A       		.byte	0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 13
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 13
 
 
  676 01a6 33       		.byte	0x33
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  730 0215 D2       		.byte	0xd2
  731 0216 06110000 		.4byte	0x1106
  732 021a 18       		.byte	0x18
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 14
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 14
 
 
  733 021b 08       		.uleb128 0x8
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  787 028a 0A       		.uleb128 0xa
  788 028b DD080000 		.4byte	.LASF53
  789 028f 0B       		.byte	0xb
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 15
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 15
 
 
  790 0290 4001     		.2byte	0x140
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  844 0302 F7110000 		.4byte	.LASF38
  845 0306 0B       		.byte	0xb
  846 0307 B1       		.byte	0xb1
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 16
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 16
 
 
  847 0308 E4020000 		.4byte	0x2e4
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  901 0378 900D0000 		.4byte	0xd90
  902 037c 0C       		.byte	0xc
  903 037d 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 17
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 17
 
 
  904 037e B7130000 		.4byte	.LASF70
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  958 03f0 23110000 		.4byte	0x1123
  959 03f4 04       		.byte	0x4
  960 03f5 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 18
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 18
 
 
  961 03f6 72140000 		.4byte	.LASF78
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1015 046a 04       		.uleb128 0x4
  1016 046b 300B0000 		.4byte	.LASF84
  1017 046f 0A       		.byte	0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 19
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 19
 
 
  1018 0470 6B       		.byte	0x6b
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1072 04e6 1D040000 		.4byte	0x41d
  1073 04ea 1C       		.byte	0x1c
  1074 04eb 09       		.uleb128 0x9
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 20
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 20
 
 
  1075 04ec 64626700 		.ascii	"dbg\000"
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1129 0567 17       		.uleb128 0x17
  1130 0568 50       		.byte	0x50
  1131 0569 0E       		.byte	0xe
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 21
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 21
 
 
  1132 056a C4       		.byte	0xc4
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1186 05d5 07010000 		.4byte	0x107
  1187 05d9 20       		.byte	0x20
  1188 05da 18       		.uleb128 0x18
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 22
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 22
 
 
  1189 05db 48545200 		.ascii	"HTR\000"
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1243 0647 03220000 		.4byte	.LASF112
  1244 064b 0E       		.byte	0xe
  1245 064c D8       		.byte	0xd8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 23
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 23
 
 
  1246 064d 07010000 		.4byte	0x107
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1300 06b5 18       		.uleb128 0x18
  1301 06b6 52495200 		.ascii	"RIR\000"
  1302 06ba 0E       		.byte	0xe
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 24
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 24
 
 
  1303 06bb F7       		.byte	0xf7
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1357 0727 57080000 		.4byte	0x857
  1358 072b 09       		.uleb128 0x9
  1359 072c 4D435200 		.ascii	"MCR\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 25
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 25
 
 
  1360 0730 0E       		.byte	0xe
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1414 07a5 0E       		.byte	0xe
  1415 07a6 1601     		.2byte	0x116
  1416 07a8 67080000 		.4byte	0x867
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 26
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 26
 
 
  1417 07ac 8001     		.2byte	0x180
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1471 082a 1802     		.2byte	0x218
  1472 082c 11       		.uleb128 0x11
  1473 082d F4030000 		.4byte	.LASF135
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 27
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 27
 
 
  1474 0831 0E       		.byte	0xe
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1528 08ac 0E       		.byte	0xe
  1529 08ad 2301     		.2byte	0x123
  1530 08af 21070000 		.4byte	0x721
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 28
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 28
 
 
  1531 08b3 19       		.uleb128 0x19
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1585 0924 DF1F0000 		.4byte	.LASF146
  1586 0928 0E       		.byte	0xe
  1587 0929 4001     		.2byte	0x140
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 29
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 29
 
 
  1588 092b 07010000 		.4byte	0x107
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1642 099d 04       		.byte	0x4
  1643 099e 0A       		.uleb128 0xa
  1644 099f 9F0A0000 		.4byte	.LASF152
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 30
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 30
 
 
  1645 09a3 0E       		.byte	0xe
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1699 0a14 F9030000 		.4byte	.LASF158
  1700 0a18 0E       		.byte	0xe
  1701 0a19 6501     		.2byte	0x165
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 31
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 31
 
 
  1702 0a1b 7D090000 		.4byte	0x97d
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1756 0a91 00       		.byte	0
  1757 0a92 06       		.uleb128 0x6
  1758 0a93 820A0000 		.4byte	0xa82
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 32
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 32
 
 
  1759 0a97 13       		.uleb128 0x13
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1813 0b0a 07010000 		.4byte	0x107
  1814 0b0e 18       		.byte	0x18
  1815 0b0f 09       		.uleb128 0x9
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 33
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 33
 
 
  1816 0b10 43435200 		.ascii	"CCR\000"
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1870 0b85 0E       		.byte	0xe
  1871 0b86 C502     		.2byte	0x2c5
  1872 0b88 0C010000 		.4byte	0x10c
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 34
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 34
 
 
  1873 0b8c 10       		.byte	0x10
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1927 0c01 34       		.byte	0x34
  1928 0c02 09       		.uleb128 0x9
  1929 0c03 49435200 		.ascii	"ICR\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 35
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 35
 
 
  1930 0c07 0E       		.byte	0xe
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  1984 0c7b 0E       		.byte	0xe
  1985 0c7c DD02     		.2byte	0x2dd
  1986 0c7e 07010000 		.4byte	0x107
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 36
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 36
 
 
  1987 0c82 00       		.byte	0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2041 0cf2 6D0C0000 		.4byte	0xc6d
  2042 0cf6 19       		.uleb128 0x19
  2043 0cf7 1C       		.byte	0x1c
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 37
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 37
 
 
  2044 0cf8 0E       		.byte	0xe
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2098 0d6e 14       		.uleb128 0x14
  2099 0d6f 3E000000 		.4byte	0x3e
  2100 0d73 0E       		.byte	0xe
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 38
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 38
 
 
  2101 0d74 00       		.byte	0
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2155 0de0 7A0D0000 		.4byte	0xd7a
  2156 0de4 0C       		.byte	0xc
  2157 0de5 18       		.uleb128 0x18
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 39
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 39
 
 
  2158 0de6 73323000 		.ascii	"s20\000"
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2212 0e55 73323900 		.ascii	"s29\000"
  2213 0e59 10       		.byte	0x10
  2214 0e5a 0301     		.2byte	0x103
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 40
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 40
 
 
  2215 0e5c 7A0D0000 		.4byte	0xd7a
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2269 0ecb 7A0D0000 		.4byte	0xd7a
  2270 0ecf 58       		.byte	0x58
  2271 0ed0 09       		.uleb128 0x9
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 41
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 41
 
 
  2272 0ed1 72313100 		.ascii	"r11\000"
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2326 0f39 620F0000 		.4byte	0xf62
  2327 0f3d 08       		.uleb128 0x8
  2328 0f3e CB0E0000 		.4byte	.LASF200
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 42
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 42
 
 
  2329 0f42 11       		.byte	0x11
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2383 0fab 08       		.uleb128 0x8
  2384 0fac 65080000 		.4byte	.LASF206
  2385 0fb0 12       		.byte	0x12
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 43
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 43
 
 
  2386 0fb1 49       		.byte	0x49
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2440 1018 E60F0000 		.4byte	0xfe6
  2441 101c 08       		.byte	0x8
  2442 101d 08       		.uleb128 0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 44
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 44
 
 
  2443 101e A9000000 		.4byte	.LASF214
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2497 1094 D9020000 		.4byte	0x2d9
  2498 1098 07       		.uleb128 0x7
  2499 1099 FC160000 		.4byte	.LASF223
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 45
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 45
 
 
  2500 109d 0C       		.byte	0xc
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2554 1106 0B       		.uleb128 0xb
  2555 1107 04       		.byte	0x4
  2556 1108 18110000 		.4byte	0x1118
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 46
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 46
 
 
  2557 110c 06       		.uleb128 0x6
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2611 117b 06       		.byte	0x6
  2612 117c 08       		.uleb128 0x8
  2613 117d 27000000 		.4byte	.LASF236
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 47
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 47
 
 
  2614 1181 02       		.byte	0x2
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2668 11ed 02       		.byte	0x2
  2669 11ee 43       		.byte	0x43
  2670 11ef C6000000 		.4byte	0xc6
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 48
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 48
 
 
  2671 11f3 11       		.byte	0x11
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2725 1262 370C0000 		.4byte	.LASF253
  2726 1266 16       		.byte	0x16
  2727 1267 34       		.byte	0x34
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 49
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 49
 
 
  2728 1268 6C120000 		.4byte	0x126c
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2782 12d4 04       		.uleb128 0x4
  2783 12d5 5A140000 		.4byte	.LASF262
  2784 12d9 16       		.byte	0x16
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 50
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 50
 
 
  2785 12da 4E       		.byte	0x4e
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2839 1349 1C       		.byte	0x1c
  2840 134a 08       		.uleb128 0x8
  2841 134b E21A0000 		.4byte	.LASF272
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 51
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 51
 
 
  2842 134f 17       		.byte	0x17
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2896 13c4 C1030000 		.4byte	0x3c1
  2897 13c8 0E       		.uleb128 0xe
  2898 13c9 79130000 		.4byte	0x1379
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 52
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 52
 
 
  2899 13cd 0E       		.uleb128 0xe
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  2953 143f 09       		.byte	0x9
  2954 1440 08       		.uleb128 0x8
  2955 1441 73030000 		.4byte	.LASF280
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 53
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 53
 
 
  2956 1445 18       		.byte	0x18
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3010 14be 04       		.byte	0x4
  3011 14bf A9140000 		.4byte	0x14a9
  3012 14c3 20       		.uleb128 0x20
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 54
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 54
 
 
  3013 14c4 33000000 		.4byte	0x33
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3067 153c 22       		.uleb128 0x22
  3068 153d C81E0000 		.4byte	.LASF289
  3069 1541 06       		.byte	0x6
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 55
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 55
 
 
  3070 1542 22       		.uleb128 0x22
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3124 15b1 FC000000 		.4byte	0xfc
  3125 15b5 0E       		.uleb128 0xe
  3126 15b6 79130000 		.4byte	0x1379
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 56
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 56
 
 
  3127 15ba 0E       		.uleb128 0xe
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3181 162f D80D0000 		.4byte	.LASF297
  3182 1633 1A       		.byte	0x1a
  3183 1634 B5       		.byte	0xb5
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 57
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 57
 
 
  3184 1635 E1000000 		.4byte	0xe1
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3238 169a 07010000 		.4byte	0x107
  3239 169e 10       		.byte	0x10
  3240 169f 18       		.uleb128 0x18
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 58
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 58
 
 
  3241 16a0 4F445200 		.ascii	"ODR\000"
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3295 170c 1A       		.byte	0x1a
  3296 170d C5       		.byte	0xc5
  3297 170e FC000000 		.4byte	0xfc
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 59
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 59
 
 
  3298 1712 04       		.byte	0x4
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3352 177b 08       		.uleb128 0x8
  3353 177c A0010000 		.4byte	.LASF316
  3354 1780 1A       		.byte	0x1a
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 60
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 60
 
 
  3355 1781 E4       		.byte	0xe4
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3409 17ee E8160000 		.4byte	0x16e8
  3410 17f2 15       		.uleb128 0x15
  3411 17f3 B41F0000 		.4byte	.LASF325
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 61
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 61
 
 
  3412 17f7 1A       		.byte	0x1a
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3466 1867 22       		.uleb128 0x22
  3467 1868 20020000 		.4byte	.LASF336
  3468 186c 01       		.byte	0x1
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 62
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 62
 
 
  3469 186d 00       		.byte	0
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3523 18e2 A90D0000 		.4byte	.LASF345
  3524 18e6 1C       		.byte	0x1c
  3525 18e7 BE01     		.2byte	0x1be
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 63
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 63
 
 
  3526 18e9 50120000 		.4byte	0x1250
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3580 1960 0E       		.uleb128 0xe
  3581 1961 3D190000 		.4byte	0x193d
  3582 1965 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 64
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 64
 
 
  3583 1966 6E180000 		.4byte	0x186e
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3637 19db 18       		.byte	0x18
  3638 19dc 0A       		.uleb128 0xa
  3639 19dd 37010000 		.4byte	.LASF356
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 65
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 65
 
 
  3640 19e1 1C       		.byte	0x1c
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3694 1a51 64140000 		.4byte	0x1464
  3695 1a55 15       		.uleb128 0x15
  3696 1a56 63180000 		.4byte	.LASF362
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 66
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 66
 
 
  3697 1a5a 1C       		.byte	0x1c
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3751 1ac9 6D637200 		.ascii	"mcr\000"
  3752 1acd 1E       		.byte	0x1e
  3753 1ace FA       		.byte	0xfa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 67
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 67
 
 
  3754 1acf FC000000 		.4byte	0xfc
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3808 1b43 2A01     		.2byte	0x12a
  3809 1b45 D4120000 		.4byte	0x12d4
  3810 1b49 1C       		.byte	0x1c
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 68
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 68
 
 
  3811 1b4a 0A       		.uleb128 0xa
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3865 1bbc 22       		.uleb128 0x22
  3866 1bbd 6A0F0000 		.4byte	.LASF383
  3867 1bc1 02       		.byte	0x2
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 69
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 69
 
 
  3868 1bc2 22       		.uleb128 0x22
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3922 1c30 FC000000 		.4byte	0xfc
  3923 1c34 14       		.byte	0x14
  3924 1c35 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 70
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 70
 
 
  3925 1c36 1E180000 		.4byte	.LASF391
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  3979 1cad 8F01     		.2byte	0x18f
  3980 1caf 201E0000 		.4byte	0x1e20
  3981 1cb3 10       		.byte	0x10
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 71
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 71
 
 
  3982 1cb4 0A       		.uleb128 0xa
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4036 1d27 3B1D0000 		.4byte	0x1d3b
  4037 1d2b 0E       		.uleb128 0xe
  4038 1d2c 3B1D0000 		.4byte	0x1d3b
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 72
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 72
 
 
  4039 1d30 0E       		.uleb128 0xe
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4093 1da0 EE100000 		.4byte	.LASF351
  4094 1da4 20       		.byte	0x20
  4095 1da5 5601     		.2byte	0x156
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 73
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 73
 
 
  4096 1da7 FC000000 		.4byte	0xfc
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4150 1e1b 04       		.byte	0x4
  4151 1e1c E01D0000 		.4byte	0x1de0
  4152 1e20 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 74
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 74
 
 
  4153 1e21 04       		.byte	0x4
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4207 1e91 04       		.byte	0x4
  4208 1e92 00       		.byte	0
  4209 1e93 04       		.uleb128 0x4
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 75
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 75
 
 
  4210 1e94 4E240000 		.4byte	.LASF416
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4264 1eff 051F0000 		.4byte	0x1f05
  4265 1f03 00       		.byte	0
  4266 1f04 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 76
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 76
 
 
  4267 1f05 13       		.uleb128 0x13
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4321 1f74 781F0000 		.4byte	0x1f78
  4322 1f78 0C       		.uleb128 0xc
  4323 1f79 29180000 		.4byte	.LASF429
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 77
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 77
 
 
  4324 1f7d 10       		.byte	0x10
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4378 1fed 07010000 		.4byte	0x107
  4379 1ff1 00       		.byte	0
  4380 1ff2 09       		.uleb128 0x9
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 78
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 78
 
 
  4381 1ff3 43523200 		.ascii	"CR2\000"
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4435 2067 50534300 		.ascii	"PSC\000"
  4436 206b 25       		.byte	0x25
  4437 206c A901     		.2byte	0x1a9
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 79
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 79
 
 
  4438 206e 07010000 		.4byte	0x107
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4492 20e2 920A0000 		.4byte	0xa92
  4493 20e6 58       		.byte	0x58
  4494 20e7 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 80
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 80
 
 
  4495 20e8 1A       		.uleb128 0x1a
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4549 215c EB230000 		.4byte	.LASF447
  4550 2160 24       		.byte	0x24
  4551 2161 F201     		.2byte	0x1f2
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 81
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 81
 
 
  4552 2163 6D1F0000 		.4byte	0x1f6d
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4606 21d6 22       		.uleb128 0x22
  4607 21d7 92040000 		.4byte	.LASF458
  4608 21db 01       		.byte	0x1
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 82
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 82
 
 
  4609 21dc 22       		.uleb128 0x22
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4663 224b 8C01     		.2byte	0x18c
  4664 224d 16220000 		.4byte	0x2216
  4665 2251 08       		.byte	0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 83
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 83
 
 
  4666 2252 00       		.byte	0
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4720 22ca 24       		.byte	0x24
  4721 22cb 0A       		.uleb128 0xa
  4722 22cc 70090000 		.4byte	.LASF473
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 84
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 84
 
 
  4723 22d0 27       		.byte	0x27
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4777 233f 0F010000 		.4byte	.LASF480
  4778 2343 02       		.byte	0x2
  4779 2344 22       		.uleb128 0x22
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 85
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 85
 
 
  4780 2345 97190000 		.4byte	.LASF481
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4834 23ba 29       		.byte	0x29
  4835 23bb 3401     		.2byte	0x134
  4836 23bd 4F1A0000 		.4byte	0x1a4f
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 86
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 86
 
 
  4837 23c1 14       		.byte	0x14
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4891 242f FF       		.byte	0xff
  4892 2430 33000000 		.4byte	0x33
  4893 2434 08       		.byte	0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 87
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 87
 
 
  4894 2435 0A       		.uleb128 0xa
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  4948 24a6 22       		.uleb128 0x22
  4949 24a7 B8100000 		.4byte	.LASF495
  4950 24ab 02       		.byte	0x2
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 88
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 88
 
 
  4951 24ac 00       		.byte	0
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5005 251f 74696D00 		.ascii	"tim\000"
  5006 2523 2B       		.byte	0x2b
  5007 2524 9901     		.2byte	0x199
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 89
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 89
 
 
  5008 2526 55210000 		.4byte	0x2155
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5062 259c 2C250000 		.4byte	0x252c
  5063 25a0 04       		.byte	0x4
  5064 25a1 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 90
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 90
 
 
  5065 25a2 1A       		.uleb128 0x1a
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5119 2616 1A       		.uleb128 0x1a
  5120 2617 C20C0000 		.4byte	.LASF506
  5121 261b 2B       		.byte	0x2b
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 91
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 91
 
 
  5122 261c 7401     		.2byte	0x174
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5176 2693 07       		.uleb128 0x7
  5177 2694 E7210000 		.4byte	.LASF515
  5178 2698 78       		.byte	0x78
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 92
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 92
 
 
  5179 2699 2C       		.byte	0x2c
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5233 2703 2D       		.byte	0x2d
  5234 2704 1501     		.2byte	0x115
  5235 2706 88260000 		.4byte	0x2688
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 93
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 93
 
 
  5236 270a 07       		.uleb128 0x7
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5290 2776 00       		.byte	0
  5291 2777 05       		.uleb128 0x5
  5292 2778 0A270000 		.4byte	0x270a
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 94
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 94
 
 
  5293 277c 0B       		.uleb128 0xb
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5347 27eb F2       		.byte	0xf2
  5348 27ec 93280000 		.4byte	0x2893
  5349 27f0 18       		.uleb128 0x18
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 95
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 95
 
 
  5350 27f1 766D7400 		.ascii	"vmt\000"
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5404 285f 09080000 		.4byte	.LASF344
  5405 2863 2F       		.byte	0x2f
  5406 2864 0C01     		.2byte	0x10c
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 96
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 96
 
 
  5407 2866 D9020000 		.4byte	0x2d9
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5461 28d5 2F       		.byte	0x2f
  5462 28d6 EC       		.byte	0xec
  5463 28d7 9C150000 		.4byte	0x159c
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 97
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 97
 
 
  5464 28db 00       		.byte	0
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5518 2944 610C0000 		.4byte	0xc61
  5519 2948 15       		.uleb128 0x15
  5520 2949 2A0B0000 		.4byte	.LASF547
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 98
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 98
 
 
  5521 294d 2F       		.byte	0x2f
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5575 29be 0A       		.uleb128 0xa
  5576 29bf 09080000 		.4byte	.LASF344
  5577 29c3 31       		.byte	0x31
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 99
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 99
 
 
  5578 29c4 C701     		.2byte	0x1c7
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5632 2a38 04       		.byte	0x4
  5633 2a39 8B290000 		.4byte	0x298b
  5634 2a3d 19       		.uleb128 0x19
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 100
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 100
 
 
  5635 2a3e 0C       		.byte	0xc
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5689 2ab3 D52B0000 		.4byte	0x2bd5
  5690 2ab7 0A       		.uleb128 0xa
  5691 2ab8 30160000 		.4byte	.LASF339
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 101
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 101
 
 
  5692 2abc 33       		.byte	0x33
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5746 2b31 33       		.byte	0x33
  5747 2b32 A501     		.2byte	0x1a5
  5748 2b34 33000000 		.4byte	0x33
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 102
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 102
 
 
  5749 2b38 3C       		.byte	0x3c
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5803 2bad 5C       		.byte	0x5c
  5804 2bae 0A       		.uleb128 0xa
  5805 2baf 21090000 		.4byte	.LASF576
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 103
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 103
 
 
  5806 2bb3 33       		.byte	0x33
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5860 2c20 32       		.byte	0x32
  5861 2c21 1801     		.2byte	0x118
  5862 2c23 522C0000 		.4byte	0x2c52
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 104
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 104
 
 
  5863 2c27 22       		.uleb128 0x22
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5917 2c92 201A0000 		.4byte	.LASF599
  5918 2c96 32       		.byte	0x32
  5919 2c97 2C01     		.2byte	0x12c
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 105
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 105
 
 
  5920 2c99 5E2C0000 		.4byte	0x2c5e
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  5974 2d11 0E       		.uleb128 0xe
  5975 2d12 D52B0000 		.4byte	0x2bd5
  5976 2d16 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 106
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 106
 
 
  5977 2d17 1A       		.uleb128 0x1a
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6031 2d92 34       		.byte	0x34
  6032 2d93 35       		.byte	0x35
  6033 2d94 F92D0000 		.4byte	0x2df9
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 107
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 107
 
 
  6034 2d98 08       		.uleb128 0x8
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6088 2e04 17       		.uleb128 0x17
  6089 2e05 20       		.byte	0x20
  6090 2e06 34       		.byte	0x34
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 108
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 108
 
 
  6091 2e07 46       		.byte	0x46
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6145 2e73 53       		.byte	0x53
  6146 2e74 042E0000 		.4byte	0x2e04
  6147 2e78 17       		.uleb128 0x17
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 109
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 109
 
 
  6148 2e79 20       		.byte	0x20
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6202 2ee2 F0080000 		.4byte	.LASF628
  6203 2ee6 34       		.byte	0x34
  6204 2ee7 64       		.byte	0x64
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 110
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 110
 
 
  6205 2ee8 782E0000 		.4byte	0x2e78
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6259 2f57 08       		.uleb128 0x8
  6260 2f58 03090000 		.4byte	.LASF637
  6261 2f5c 34       		.byte	0x34
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 111
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 111
 
 
  6262 2f5d 73       		.byte	0x73
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6316 2fc9 7F       		.byte	0x7f
  6317 2fca 07010000 		.4byte	0x107
  6318 2fce 0001     		.2byte	0x100
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 112
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 112
 
 
  6319 2fd0 27       		.uleb128 0x27
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6373 3045 27       		.uleb128 0x27
  6374 3046 BA1D0000 		.4byte	.LASF655
  6375 304a 34       		.byte	0x34
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 113
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 113
 
 
  6376 304b 8F       		.byte	0x8f
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6430 30bf 99       		.byte	0x99
  6431 30c0 07010000 		.4byte	0x107
  6432 30c4 1008     		.2byte	0x810
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 114
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 114
 
 
  6433 30c6 27       		.uleb128 0x27
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6487 313b 27       		.uleb128 0x27
  6488 313c D6070000 		.4byte	.LASF673
  6489 3140 34       		.byte	0x34
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 115
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 115
 
 
  6490 3141 AA       		.byte	0xaa
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6544 31b4 B4       		.byte	0xb4
  6545 31b5 87320000 		.4byte	0x3287
  6546 31b9 040E     		.2byte	0xe04
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 116
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 116
 
 
  6547 31bb 27       		.uleb128 0x27
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6601 3237 3E000000 		.4byte	0x3e
  6602 323b 3F       		.byte	0x3f
  6603 323c 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 117
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 117
 
 
  6604 323d 06       		.uleb128 0x6
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6658 32b6 C6       		.byte	0xc6
  6659 32b7 E0320000 		.4byte	0x32e0
  6660 32bb 08       		.uleb128 0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 118
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 118
 
 
  6661 32bc 110A0000 		.4byte	.LASF682
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6715 3322 33       		.byte	0x33
  6716 3323 DC       		.byte	0xdc
  6717 3324 3F330000 		.4byte	0x333f
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 119
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 119
 
 
  6718 3328 2A       		.uleb128 0x2a
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6772 3391 33       		.byte	0x33
  6773 3392 0101     		.2byte	0x101
  6774 3394 A6330000 		.4byte	0x33a6
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 120
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 120
 
 
  6775 3398 0A       		.uleb128 0xa
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6829 3404 04       		.byte	0x4
  6830 3405 08       		.uleb128 0x8
  6831 3406 5F090000 		.4byte	.LASF697
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 121
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 121
 
 
  6832 340a 33       		.byte	0x33
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6886 347b 3901     		.2byte	0x139
  6887 347d E1000000 		.4byte	0xe1
  6888 3481 10       		.byte	0x10
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 122
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 122
 
 
  6889 3482 0A       		.uleb128 0xa
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  6943 34f6 00       		.byte	0
  6944 34f7 0A       		.uleb128 0xa
  6945 34f8 30230000 		.4byte	.LASF711
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 123
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 123
 
 
  6946 34fc 33       		.byte	0x33
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7000 3572 3E000000 		.4byte	0x3e
  7001 3576 3E       		.byte	0x3e
  7002 3577 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 124
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 124
 
 
  7003 3578 15       		.uleb128 0x15
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7057 35e6 A4350000 		.4byte	0x35a4
  7058 35ea 08       		.byte	0x8
  7059 35eb 08       		.uleb128 0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 125
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 125
 
 
  7060 35ec C5180000 		.4byte	.LASF517
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7114 3655 80110000 		.4byte	.LASF724
  7115 3659 35       		.byte	0x35
  7116 365a B9       		.byte	0xb9
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 126
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 126
 
 
  7117 365b D52B0000 		.4byte	0x2bd5
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7171 36ca 35       		.byte	0x35
  7172 36cb DB       		.byte	0xdb
  7173 36cc E1140000 		.4byte	0x14e1
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 127
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 127
 
 
  7174 36d0 18       		.byte	0x18
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7228 3740 EE160000 		.4byte	.LASF731
  7229 3744 37       		.byte	0x37
  7230 3745 A8       		.byte	0xa8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 128
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 128
 
 
  7231 3746 2B370000 		.4byte	0x372b
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7285 37b5 2F       		.byte	0x2f
  7286 37b6 01380000 		.4byte	0x3801
  7287 37ba 08       		.uleb128 0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 129
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 129
 
 
  7288 37bb 40110000 		.4byte	.LASF739
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7342 3828 38       		.byte	0x38
  7343 3829 39       		.byte	0x39
  7344 382a 2C000000 		.4byte	0x2c
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 130
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 130
 
 
  7345 382e 00       		.byte	0
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7399 3898 4A       		.byte	0x4a
  7400 3899 D0380000 		.4byte	0x38d0
  7401 389d 08       		.uleb128 0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 131
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 131
 
 
  7402 389e B0100000 		.4byte	.LASF754
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7456 3910 08       		.byte	0x8
  7457 3911 08       		.uleb128 0x8
  7458 3912 9A120000 		.4byte	.LASF753
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 132
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 132
 
 
  7459 3916 38       		.byte	0x38
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7513 397e 5F7200   		.ascii	"_r\000"
  7514 3981 38       		.byte	0x38
  7515 3982 B7       		.byte	0xb7
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 133
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 133
 
 
  7516 3983 2C000000 		.4byte	0x2c
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7570 39ee 333C0000 		.4byte	0x3c33
  7571 39f2 28       		.byte	0x28
  7572 39f3 08       		.uleb128 0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 134
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 134
 
 
  7573 39f4 2B1A0000 		.4byte	.LASF772
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7627 3a60 2D210000 		.4byte	.LASF777
  7628 3a64 38       		.byte	0x38
  7629 3a65 DE       		.byte	0xde
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 135
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 135
 
 
  7630 3a66 AE3A0000 		.4byte	0x3aae
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7684 3adc BA3C0000 		.4byte	0x3cba
  7685 3ae0 04       		.byte	0x4
  7686 3ae1 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 136
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 136
 
 
  7687 3ae2 800A0000 		.4byte	.LASF784
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7741 3b57 7A090000 		.4byte	.LASF793
  7742 3b5b 38       		.byte	0x38
  7743 3b5c 4F02     		.2byte	0x24f
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 137
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 137
 
 
  7744 3b5e 2C000000 		.4byte	0x2c
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7798 3bd6 7F3C0000 		.4byte	0x3c7f
  7799 3bda E002     		.2byte	0x2e0
  7800 3bdc 11       		.uleb128 0x11
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 138
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 138
 
 
  7801 3bdd D4050000 		.4byte	.LASF802
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7855 3c5d 3E000000 		.4byte	0x3e
  7856 3c61 02       		.byte	0x2
  7857 3c62 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 139
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 139
 
 
  7858 3c63 13       		.uleb128 0x13
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7912 3cd9 00       		.byte	0
  7913 3cda 0A       		.uleb128 0xa
  7914 3cdb 93250000 		.4byte	.LASF809
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 140
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 140
 
 
  7915 3cdf 38       		.byte	0x38
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  7969 3d50 BA180000 		.4byte	.LASF816
  7970 3d54 38       		.byte	0x38
  7971 3d55 6002     		.2byte	0x260
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 141
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 141
 
 
  7972 3d57 BF000000 		.4byte	0xbf
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8026 3dcc 87370000 		.4byte	0x3787
  8027 3dd0 AC       		.byte	0xac
  8028 3dd1 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 142
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 142
 
 
  8029 3dd2 DD0A0000 		.4byte	.LASF826
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8083 3e47 5A3E0000 		.4byte	0x3e5a
  8084 3e4b 00       		.byte	0
  8085 3e4c 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 143
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 143
 
 
  8086 3e4d 330D0000 		.4byte	.LASF831
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8140 3ec3 04       		.byte	0x4
  8141 3ec4 B73E0000 		.4byte	0x3eb7
  8142 3ec8 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 144
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 144
 
 
  8143 3ec9 04       		.byte	0x4
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8197 3f3e 00       		.byte	0
  8198 3f3f 15       		.uleb128 0x15
  8199 3f40 0D250000 		.4byte	.LASF842
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 145
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 145
 
 
  8200 3f44 39       		.byte	0x39
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8254 3fb1 6D1E0000 		.4byte	.LASF852
  8255 3fb5 03       		.byte	0x3
  8256 3fb6 22       		.uleb128 0x22
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 146
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 146
 
 
  8257 3fb7 76000000 		.4byte	.LASF853
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8311 4026 3B       		.byte	0x3b
  8312 4027 D7       		.byte	0xd7
  8313 4028 FC000000 		.4byte	0xfc
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 147
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 147
 
 
  8314 402c 10       		.byte	0x10
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8368 4098 50400000 		.4byte	0x4050
  8369 409c 08       		.byte	0x8
  8370 409d 18       		.uleb128 0x18
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 148
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 148
 
 
  8371 409e 637200   		.ascii	"cr\000"
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8425 4112 3C       		.byte	0x3c
  8426 4113 EB       		.byte	0xeb
  8427 4114 2C000000 		.4byte	0x2c
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 149
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 149
 
 
  8428 4118 07       		.uleb128 0x7
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8482 4184 00       		.byte	0
  8483 4185 13       		.uleb128 0x13
  8484 4186 11110000 		.4byte	0x1111
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 150
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 150
 
 
  8485 418a 95410000 		.4byte	0x4195
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8539 41f0 19420000 		.4byte	0x4219
  8540 41f4 08       		.uleb128 0x8
  8541 41f5 80200000 		.4byte	.LASF885
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 151
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 151
 
 
  8542 41f9 3D       		.byte	0x3d
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8596 4262 55420000 		.4byte	0x4255
  8597 4266 16       		.uleb128 0x16
  8598 4267 2D010000 		.4byte	.LASF890
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 152
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 152
 
 
  8599 426b 3E       		.byte	0x3e
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8653 42d6 09       		.byte	0x9
  8654 42d7 DB420000 		.4byte	0x42db
  8655 42db 07       		.uleb128 0x7
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 153
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 153
 
 
  8656 42dc 6E100000 		.4byte	.LASF898
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8710 4346 07       		.uleb128 0x7
  8711 4347 4E170000 		.4byte	.LASF903
  8712 434b 08       		.byte	0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 154
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 154
 
 
  8713 434c 3F       		.byte	0x3f
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8767 43b5 20       		.byte	0x20
  8768 43b6 DB430000 		.4byte	0x43db
  8769 43ba 18       		.uleb128 0x18
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 155
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 155
 
 
  8770 43bb 62756600 		.ascii	"buf\000"
@@ -9298,15 +9298,15 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8824 4420 31       		.uleb128 0x31
  8825 4421 62757300 		.ascii	"bus\000"
  8826 4425 40       		.byte	0x40
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 156
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 156
 
 
- 8827 4426 0D       		.byte	0xd
+ 8827 4426 17       		.byte	0x17
  8828 4427 19420000 		.4byte	0x4219
  8829 442b 16       		.uleb128 0x16
  8830 442c 310E0000 		.4byte	.LASF909
  8831 4430 40       		.byte	0x40
- 8832 4431 0F       		.byte	0xf
+ 8832 4431 19       		.byte	0x19
  8833 4432 71420000 		.4byte	0x4271
  8834 4436 13       		.uleb128 0x13
  8835 4437 850D0000 		.4byte	0xd85
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8881 4490 01       		.uleb128 0x1
  8882 4491 53       		.byte	0x53
  8883 4492 05       		.uleb128 0x5
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 157
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 157
 
 
  8884 4493 03       		.byte	0x3
@@ -9394,7 +9394,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8914 44d2 5A460000 		.4byte	0x465a
  8915 44d6 05       		.uleb128 0x5
  8916 44d7 03       		.byte	0x3
- 8917 44d8 00000000 		.4byte	__FUNCTION__.11848
+ 8917 44d8 00000000 		.4byte	__FUNCTION__.11850
  8918 44dc 3A       		.uleb128 0x3a
  8919 44dd DA0C0000 		.4byte	.LASF911
  8920 44e1 01       		.byte	0x1
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8938 4508 00000000 		.4byte	.Ldebug_ranges0+0
  8939 450c 01       		.byte	0x1
  8940 450d 2E       		.byte	0x2e
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 158
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 158
 
 
  8941 450e 18450000 		.4byte	0x4518
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  8995 459d 01       		.uleb128 0x1
  8996 459e 50       		.byte	0x50
  8997 459f 02       		.uleb128 0x2
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 159
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 159
 
 
  8998 45a0 78       		.byte	0x78
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9052 461d 00       		.sleb128 0
  9053 461e 00       		.byte	0
  9054 461f 34       		.uleb128 0x34
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 160
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 160
 
 
  9055 4620 58000000 		.4byte	.LVL11
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9109 468c 01       		.byte	0x1
  9110 468d 0D       		.byte	0xd
  9111 468e 25000000 		.4byte	0x25
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 161
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 161
 
 
  9112 4692 6E000000 		.4byte	.LLST4
@@ -9621,7 +9621,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9129 46bb 25000000 		.4byte	0x25
  9130 46bf 05       		.uleb128 0x5
  9131 46c0 03       		.byte	0x3
- 9132 46c1 00000000 		.4byte	sum_error.11843
+ 9132 46c1 00000000 		.4byte	sum_error.11845
  9133 46c5 36       		.uleb128 0x36
  9134 46c6 8E000000 		.4byte	.LVL21
  9135 46ca 7F470000 		.4byte	0x477f
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9166 470a A0010000 		.4byte	0x1a0
  9167 470e 03       		.byte	0x3
  9168 470f 4C       		.uleb128 0x4c
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 162
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 162
 
 
  9169 4710 87200000 		.4byte	.LASF921
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9223 4788 50       		.uleb128 0x50
  9224 4789 DB130000 		.4byte	.LASF928
  9225 478d DB130000 		.4byte	.LASF928
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 163
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 163
 
 
  9226 4791 11       		.byte	0x11
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9280 000e 01       		.uleb128 0x1
  9281 000f 10       		.uleb128 0x10
  9282 0010 17       		.uleb128 0x17
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 164
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 164
 
 
  9283 0011 00       		.byte	0
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9337 0047 03       		.uleb128 0x3
  9338 0048 0E       		.uleb128 0xe
  9339 0049 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 165
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 165
 
 
  9340 004a 0B       		.uleb128 0xb
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9394 0080 0B       		.uleb128 0xb
  9395 0081 0F       		.uleb128 0xf
  9396 0082 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 166
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 166
 
 
  9397 0083 0B       		.uleb128 0xb
@@ -9958,7 +9958,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9451 00b9 05       		.uleb128 0x5
  9452 00ba 01       		.uleb128 0x1
  9453 00bb 13       		.uleb128 0x13
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 167
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 167
 
 
  9454 00bc 00       		.byte	0
@@ -10018,7 +10018,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9508 00f2 0E       		.uleb128 0xe
  9509 00f3 3A       		.uleb128 0x3a
  9510 00f4 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 168
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 168
 
 
  9511 00f5 3B       		.uleb128 0x3b
@@ -10078,7 +10078,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9565 012b 00       		.byte	0
  9566 012c 19       		.uleb128 0x19
  9567 012d 13       		.uleb128 0x13
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 169
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 169
 
 
  9568 012e 01       		.byte	0x1
@@ -10138,7 +10138,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9622 0164 0B       		.uleb128 0xb
  9623 0165 3A       		.uleb128 0x3a
  9624 0166 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 170
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 170
 
 
  9625 0167 3B       		.uleb128 0x3b
@@ -10198,7 +10198,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9679 019d 49       		.uleb128 0x49
  9680 019e 13       		.uleb128 0x13
  9681 019f 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 171
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 171
 
 
  9682 01a0 0B       		.uleb128 0xb
@@ -10258,7 +10258,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9736 01d6 0B       		.uleb128 0xb
  9737 01d7 06       		.uleb128 0x6
  9738 01d8 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 172
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 172
 
 
  9739 01d9 0B       		.uleb128 0xb
@@ -10318,7 +10318,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9793 020f 0B       		.uleb128 0xb
  9794 0210 49       		.uleb128 0x49
  9795 0211 13       		.uleb128 0x13
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 173
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 173
 
 
  9796 0212 00       		.byte	0
@@ -10378,7 +10378,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9850 0248 0B       		.uleb128 0xb
  9851 0249 49       		.uleb128 0x49
  9852 024a 13       		.uleb128 0x13
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 174
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 174
 
 
  9853 024b 3A       		.uleb128 0x3a
@@ -10438,7 +10438,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9907 0281 03       		.uleb128 0x3
  9908 0282 0E       		.uleb128 0xe
  9909 0283 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 175
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 175
 
 
  9910 0284 0B       		.uleb128 0xb
@@ -10498,7 +10498,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  9964 02c2 0B       		.uleb128 0xb
  9965 02c3 27       		.uleb128 0x27
  9966 02c4 19       		.uleb128 0x19
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 176
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 176
 
 
  9967 02c5 11       		.uleb128 0x11
@@ -10558,7 +10558,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10021 02fc 34       		.uleb128 0x34
  10022 02fd 00       		.byte	0
  10023 02fe 03       		.uleb128 0x3
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 177
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 177
 
 
  10024 02ff 0E       		.uleb128 0xe
@@ -10618,7 +10618,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10078 0335 52       		.uleb128 0x52
  10079 0336 01       		.uleb128 0x1
  10080 0337 55       		.uleb128 0x55
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 178
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 178
 
 
  10081 0338 17       		.uleb128 0x17
@@ -10678,7 +10678,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10135 0370 0B       		.uleb128 0xb
  10136 0371 00       		.byte	0
  10137 0372 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 179
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 179
 
 
  10138 0373 45       		.uleb128 0x45
@@ -10738,7 +10738,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10192 03aa 17       		.uleb128 0x17
  10193 03ab 00       		.byte	0
  10194 03ac 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 180
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 180
 
 
  10195 03ad 48       		.uleb128 0x48
@@ -10798,7 +10798,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10249 03e3 3A       		.uleb128 0x3a
  10250 03e4 0B       		.uleb128 0xb
  10251 03e5 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 181
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 181
 
 
  10252 03e6 0B       		.uleb128 0xb
@@ -10858,7 +10858,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10306 041c 4F       		.uleb128 0x4f
  10307 041d 05       		.uleb128 0x5
  10308 041e 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 182
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 182
 
 
  10309 041f 03       		.uleb128 0x3
@@ -10918,7 +10918,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10363 0455 05       		.uleb128 0x5
  10364 0456 00       		.byte	0
  10365 0457 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 183
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 183
 
 
  10366 0458 00       		.byte	0
@@ -10978,7 +10978,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10420 0076 0200     		.2byte	0x2
  10421 0078 90       		.byte	0x90
  10422 0079 41       		.uleb128 0x41
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 184
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 184
 
 
  10423 007a 06000000 		.4byte	.LVL14
@@ -11038,7 +11038,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10477              		.section	.debug_aranges,"",%progbits
  10478 0000 2C000000 		.4byte	0x2c
  10479 0004 0200     		.2byte	0x2
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 185
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 185
 
 
  10480 0006 00000000 		.4byte	.Ldebug_info0
@@ -11098,7 +11098,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10534 009c 20000000 		.4byte	.LBE72
  10535 00a0 00000000 		.4byte	0
  10536 00a4 00000000 		.4byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 186
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 186
 
 
  10537 00a8 00000000 		.4byte	.LFB258
@@ -11158,7 +11158,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10565      53544152 
  10565      54494E47 
  10565      00
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 187
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 187
 
 
  10566              	.LASF853:
@@ -11218,7 +11218,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10594              	.LASF408:
  10595 0100 64617461 		.ascii	"datamode\000"
  10595      6D6F6465 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 188
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 188
 
 
  10595      00
@@ -11278,7 +11278,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10626              	.LASF748:
  10627 0187 5F5F746D 		.ascii	"__tm_mon\000"
  10627      5F6D6F6E 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 189
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 189
 
 
  10627      00
@@ -11338,7 +11338,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10661 0203 6E657874 		.ascii	"next\000"
  10661      00
  10662              	.LASF309:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 190
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 190
 
 
  10663 0208 6F737065 		.ascii	"ospeedr\000"
@@ -11398,7 +11398,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10691 0294 534D5052 		.ascii	"SMPR2\000"
  10691      3200
  10692              	.LASF246:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 191
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 191
 
 
  10693 029a 63665F6F 		.ascii	"cf_off_flags\000"
@@ -11458,7 +11458,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10723 0324 4932435F 		.ascii	"I2C_ACTIVE_RX\000"
  10723      41435449 
  10723      56455F52 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 192
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 192
 
 
  10723      5800
@@ -11518,7 +11518,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10750              	.LASF160:
  10751 03c6 4D304152 		.ascii	"M0AR\000"
  10751      00
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 193
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 193
 
 
  10752              	.LASF615:
@@ -11578,7 +11578,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10781      4F4E4553 
  10781      484F5400 
  10782              	.LASF268:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 194
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 194
 
 
  10783 045c 715F746F 		.ascii	"q_top\000"
@@ -11638,7 +11638,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10811 04df 76746C69 		.ascii	"vtlist\000"
  10811      737400
  10812              	.LASF165:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 195
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 195
 
 
  10813 04e6 54524953 		.ascii	"TRISE\000"
@@ -11698,7 +11698,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10838              	.LASF462:
  10839 057b 5354445F 		.ascii	"STD_DUTY_CYCLE\000"
  10839      44555459 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 196
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 196
 
 
  10839      5F435943 
@@ -11758,7 +11758,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10867 0605 52455350 		.ascii	"RESP4\000"
  10867      3400
  10868              	.LASF819:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 197
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 197
 
 
  10869 060b 5F6D6274 		.ascii	"_mbtowc_state\000"
@@ -11818,7 +11818,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10885              	.LASF446:
  10886 077d 47505443 		.ascii	"GPTConfig\000"
  10886      6F6E6669 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 198
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 198
 
 
  10886      6700
@@ -11878,7 +11878,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10916 0809 74687265 		.ascii	"thread\000"
  10916      616400
  10917              	.LASF389:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 199
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 199
 
 
  10918 0810 72656773 		.ascii	"regshift\000"
@@ -11938,7 +11938,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10948 088f 5F4C4F43 		.ascii	"_LOCK_T\000"
  10948      4B5F5400 
  10949              	.LASF675:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 200
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 200
 
 
  10950 0897 72657376 		.ascii	"resvd840\000"
@@ -11998,7 +11998,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  10977              	.LASF576:
  10978 0921 77616974 		.ascii	"wait\000"
  10978      00
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 201
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 201
 
 
  10979              	.LASF162:
@@ -12058,7 +12058,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11006      74617465 
  11006      00
  11007              	.LASF485:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 202
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 202
 
 
  11008 09b6 69327363 		.ascii	"i2scallback_t\000"
@@ -12118,7 +12118,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11033              	.LASF77:
  11034 0a48 76745F70 		.ascii	"vt_prev\000"
  11034      72657600 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 203
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 203
 
 
  11035              	.LASF352:
@@ -12178,7 +12178,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11062      73626366 
  11062      6700
  11063              	.LASF826:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 204
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 204
 
 
  11064 0add 5F6D6273 		.ascii	"_mbsrtowcs_state\000"
@@ -12238,7 +12238,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11094 0b5d 76745F70 		.ascii	"vt_par\000"
  11094      617200
  11095              	.LASF101:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 205
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 205
 
 
  11096 0b64 4A4F4652 		.ascii	"JOFR1\000"
@@ -12298,7 +12298,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11126 0be3 676F616C 		.ascii	"goal\000"
  11126      00
  11127              	.LASF407:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 206
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 206
 
 
  11128 0be8 696E6974 		.ascii	"init\000"
@@ -12358,7 +12358,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11153              	.LASF678:
  11154 0c71 72657376 		.ascii	"resvdD00\000"
  11154      64443030 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 207
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 207
 
 
  11154      00
@@ -12418,7 +12418,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11184 0cfa 474F5447 		.ascii	"GOTGINT\000"
  11184      494E5400 
  11185              	.LASF702:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 208
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 208
 
 
  11186 0d02 6F75745F 		.ascii	"out_cb\000"
@@ -12478,7 +12478,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11214      53544F50 
  11214      00
  11215              	.LASF494:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 209
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 209
 
 
  11216 0d91 50574D5F 		.ascii	"PWM_STOP\000"
@@ -12538,7 +12538,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11247              	.LASF5:
  11248 0e14 73697A65 		.ascii	"size_t\000"
  11248      5F7400
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 210
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 210
 
 
  11249              	.LASF95:
@@ -12598,7 +12598,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11276      5F7400
  11277              	.LASF617:
  11278 0eaf 44494550 		.ascii	"DIEPCTL\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 211
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 211
 
 
  11278      43544C00 
@@ -12658,7 +12658,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11307              	.LASF551:
  11308 0f3e 5350495F 		.ascii	"SPI_ACTIVE\000"
  11308      41435449 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 212
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 212
 
 
  11308      564500
@@ -12718,7 +12718,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11337              	.LASF124:
  11338 0fd6 52463152 		.ascii	"RF1R\000"
  11338      00
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 213
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 213
 
 
  11339              	.LASF338:
@@ -12778,7 +12778,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11364      00
  11365              	.LASF898:
  11366 106e 70617261 		.ascii	"parameter_s\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 214
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 214
 
 
  11366      6D657465 
@@ -12838,7 +12838,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11394      6E456E64 
  11394      706F696E 
  11394      74537461 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 215
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 215
 
 
  11394      746500
@@ -12898,7 +12898,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11424      6D657465 
  11424      725F6E61 
  11424      6D657370 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 216
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 216
 
 
  11424      6163655F 
@@ -12958,7 +12958,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11453              	.LASF508:
  11454 1235 50574D44 		.ascii	"PWMD3\000"
  11454      3300
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 217
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 217
 
 
  11455              	.LASF509:
@@ -13018,7 +13018,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11483              	.LASF329:
  11484 12ca 4144435F 		.ascii	"ADC_ACTIVE\000"
  11484      41435449 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 218
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 218
 
 
  11484      564500
@@ -13078,7 +13078,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11511              	.LASF87:
  11512 135d 6973725F 		.ascii	"isr_cnt\000"
  11512      636E7400 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 219
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 219
 
 
  11513              	.LASF581:
@@ -13138,7 +13138,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11540      7A6500
  11541              	.LASF612:
  11542 13f4 48435453 		.ascii	"HCTSIZ\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 220
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 220
 
 
  11542      495A00
@@ -13198,7 +13198,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11570      747200
  11571              	.LASF405:
  11572 1488 74726967 		.ascii	"trigger\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 221
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 221
 
 
  11572      67657200 
@@ -13258,7 +13258,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11599 153b 54444852 		.ascii	"TDHR\000"
  11599      00
  11600              	.LASF327:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 222
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 222
 
 
  11601 1540 4144435F 		.ascii	"ADC_STOP\000"
@@ -13318,7 +13318,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11627      66665F72 
  11627      65667300 
  11628              	.LASF539:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 223
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 223
 
 
  11629 15d4 53444343 		.ascii	"SDCConfig\000"
@@ -13378,7 +13378,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11655      54797065 
  11655      44656600 
  11656              	.LASF120:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 224
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 224
 
 
  11657 1675 52444852 		.ascii	"RDHR\000"
@@ -13438,7 +13438,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11685      6C756500 
  11686              	.LASF223:
  11687 16fc 63685F73 		.ascii	"ch_semaphore\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 225
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 225
 
 
  11687      656D6170 
@@ -13498,7 +13498,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11710              	.LASF939:
  11711 179b 5F5F6664 		.ascii	"__fdlibm_version\000"
  11711      6C69626D 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 226
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 226
 
 
  11711      5F766572 
@@ -13558,7 +13558,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11739      72697665 
  11739      7200
  11740              	.LASF532:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 227
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 227
 
 
  11741 1833 73646366 		.ascii	"sdcflags_t\000"
@@ -13618,7 +13618,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11773 18b4 77726974 		.ascii	"write\000"
  11773      6500
  11774              	.LASF816:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 228
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 228
 
 
  11775 18ba 5F72616E 		.ascii	"_rand_next\000"
@@ -13678,7 +13678,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11805      626C6500 
  11806              	.LASF191:
  11807 1942 72656761 		.ascii	"regarm_t\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 229
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 229
 
 
  11807      726D5F74 
@@ -13738,7 +13738,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11834              	.LASF395:
  11835 19d2 64616373 		.ascii	"dacsample_t\000"
  11835      616D706C 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 230
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 230
 
 
  11835      655F7400 
@@ -13798,7 +13798,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11863      65756500 
  11864              	.LASF804:
  11865 1a67 5F676C75 		.ascii	"_glue\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 231
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 231
 
 
  11865      6500
@@ -13858,7 +13858,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11891      6572726F 
  11891      7263616C 
  11891      6C626163 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 232
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 232
 
 
  11891      6B5F7400 
@@ -13918,7 +13918,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11917      00
  11918              	.LASF743:
  11919 1baa 5F5F746D 		.ascii	"__tm\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 233
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 233
 
 
  11919      00
@@ -13978,7 +13978,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11946              	.LASF248:
  11947 1c47 63665F6F 		.ascii	"cf_off_preempt\000"
  11947      66665F70 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 234
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 234
 
 
  11947      7265656D 
@@ -14038,7 +14038,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  11975      6E656C73 
  11975      5F6E756D 
  11975      5F7400
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 235
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 235
 
 
  11976              	.LASF73:
@@ -14098,7 +14098,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12003      6C6500
  12004              	.LASF760:
  12005 1d81 5F666E73 		.ascii	"_fns\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 236
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 236
 
 
  12005      00
@@ -14158,7 +14158,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12031      65616479 
  12031      5F6C6973 
  12031      7400
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 237
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 237
 
 
  12032              	.LASF882:
@@ -14218,7 +14218,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12055      53455455 
  12056              	.LASF757:
  12057 1ec0 5F69735F 		.ascii	"_is_cxa\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 238
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 238
 
 
  12057      63786100 
@@ -14278,7 +14278,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12087 1f43 52455345 		.ascii	"RESERVED2\000"
  12087      52564544 
  12087      3200
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 239
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 239
 
 
  12088              	.LASF132:
@@ -14338,7 +14338,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12114              	.LASF146:
  12115 1fdf 44485231 		.ascii	"DHR12RD\000"
  12115      32524400 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 240
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 240
 
 
  12116              	.LASF256:
@@ -14398,7 +14398,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12142              	.LASF885:
  12143 2080 746F7069 		.ascii	"topics\000"
  12143      637300
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 241
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 241
 
 
  12144              	.LASF921:
@@ -14458,7 +14458,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12173      756C6174 
  12173      6F7200
  12174              	.LASF222:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 242
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 242
 
 
  12175 211d 65776D61 		.ascii	"ewmask\000"
@@ -14518,7 +14518,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12202              	.LASF859:
  12203 21aa 64636D69 		.ascii	"dcmi\000"
  12203      00
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 243
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 243
 
 
  12204              	.LASF561:
@@ -14578,7 +14578,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12233      00
  12234              	.LASF81:
  12235 2229 76697274 		.ascii	"virtual_timers_list_t\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 244
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 244
 
 
  12235      75616C5F 
@@ -14638,7 +14638,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12263      6720696E 
  12263      7400
  12264              	.LASF645:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 245
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 245
 
 
  12265 22be 48505458 		.ascii	"HPTXFSIZ\000"
@@ -14698,7 +14698,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12289 2357 5350495F 		.ascii	"SPI_READY\000"
  12289      52454144 
  12289      5900
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 246
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 246
 
 
  12290              	.LASF127:
@@ -14758,7 +14758,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12318              	.LASF447:
  12319 23eb 47505444 		.ascii	"GPTD6\000"
  12319      3600
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 247
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 247
 
 
  12320              	.LASF846:
@@ -14818,7 +14818,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12343      696E646F 
  12344              	.LASF443:
  12345 2493 66726571 		.ascii	"frequency\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 248
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 248
 
 
  12345      75656E63 
@@ -14878,7 +14878,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12371      3300
  12372              	.LASF1:
  12373 252f 756E7369 		.ascii	"unsigned int\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 249
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 249
 
 
  12373      676E6564 
@@ -14938,7 +14938,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12403 25b1 5F726561 		.ascii	"_read\000"
  12403      6400
  12404              	.LASF632:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 250
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 250
 
 
  12405 25b7 47555342 		.ascii	"GUSBCFG\000"
@@ -14998,7 +14998,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12433      74656400 
  12434              	.LASF62:
  12435 264c 63685F74 		.ascii	"ch_threads_list\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 251
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 251
 
 
  12435      68726561 
@@ -15021,28 +15021,28 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 1
  12445      74617465 
  12445      5F7400
  12446              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s 			page 252
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s 			page 252
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 pid_regulator.c
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:18     .text.PidRegulator:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:25     .text.PidRegulator:00000000 PidRegulator
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:201    .text.PidRegulator:00000064 $d
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:209    .text.pid_regulator:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:217    .text.pid_regulator:00000000 pid_regulator
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:314    .text.pid_regulator:00000090 $d
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:326    .text.pdi_regulator_start:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:334    .text.pdi_regulator_start:00000000 pdi_regulator_start
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:381    .text.pdi_regulator_start:0000002c $d
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:388    .bss.sum_error.11843:00000000 $d
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:392    .bss.sum_error.11843:00000000 sum_error.11843
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:395    .bss.waPidRegulator:00000000 $d
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:399    .bss.waPidRegulator:00000000 waPidRegulator
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:402    .rodata.__FUNCTION__.11848:00000000 $d
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:406    .rodata.__FUNCTION__.11848:00000000 __FUNCTION__.11848
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:409    .rodata.__func__.7153:00000000 $d
-C:\Users\Moi\AppData\Local\Temp\ccO6c1XU.s:413    .rodata.__func__.7153:00000000 __func__.7153
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:18     .text.PidRegulator:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:25     .text.PidRegulator:00000000 PidRegulator
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:201    .text.PidRegulator:00000064 $d
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:209    .text.pid_regulator:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:217    .text.pid_regulator:00000000 pid_regulator
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:314    .text.pid_regulator:00000090 $d
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:326    .text.pdi_regulator_start:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:334    .text.pdi_regulator_start:00000000 pdi_regulator_start
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:381    .text.pdi_regulator_start:0000002c $d
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:388    .bss.sum_error.11845:00000000 $d
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:392    .bss.sum_error.11845:00000000 sum_error.11845
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:395    .bss.waPidRegulator:00000000 $d
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:399    .bss.waPidRegulator:00000000 waPidRegulator
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:402    .rodata.__FUNCTION__.11850:00000000 $d
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:406    .rodata.__FUNCTION__.11850:00000000 __FUNCTION__.11850
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:409    .rodata.__func__.7153:00000000 $d
+C:\Users\Moi\AppData\Local\Temp\ccUBKcD5.s:413    .rodata.__func__.7153:00000000 __func__.7153
 
 UNDEFINED SYMBOLS
 _stats_start_measure_crit_thd
