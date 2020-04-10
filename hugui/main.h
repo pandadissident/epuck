@@ -17,12 +17,11 @@ extern "C" {
 #define ON 1
 #define TOGGLE 2
 
-int main(void);
-
-/** Robot wide IPC bus. */
+// Robot wide IPC bus
 extern messagebus_t bus;
-
 extern parameter_namespace_t parameter_root;
+
+int main(void);
 
 #ifdef __cplusplus
 }

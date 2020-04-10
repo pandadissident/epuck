@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
+//#include <math.h>
 #include <ch.h>
 #include <hal.h>
 
@@ -32,24 +32,6 @@ static void serial_start(void)
 	sdStart(&SD3, &ser_cfg); // UART3.
 }
 
-/*
-static void timer11_start(void){
-    //General Purpose Timer configuration
-    //timer 11 is a 16 bit timer so we can measure time
-    //to about 65ms with a 1Mhz counter
-    static const GPTConfig gpt11cfg = {
-        1000000,        // 1MHz timer clock in order to measure uS.
-        NULL,           // Timer callback.
-        0,
-        0
-    };
-
-    gptStart(&GPTD11, &gpt11cfg);
-    //let the timer count to max value
-    gptStartContinuous(&GPTD11, 0xFFFF);
-}
- */
-
 int main(void) {
 
 	/*********************/
@@ -75,8 +57,8 @@ int main(void) {
 	    mpu_init();
 
 	    // Inits the Inter Process Communication bus
-		messagebus_init(&bus, &bus_lock, &bus_condvar);
-		parameter_namespace_declare(&parameter_root, NULL, NULL);
+		//messagebus_init(&bus, &bus_lock, &bus_condvar);
+		//parameter_namespace_declare(&parameter_root, NULL, NULL);
 
 	    // Init the peripherals.
 		//motors_init();
@@ -131,7 +113,7 @@ int main(void) {
     //driveTo(ORIGIN); if not already
 
     // Waiting 5 seconds to place weight onto scale
-    chThdSleepMilliseconds(5000);
+    //chThdSleepMilliseconds(5000);
 
     //eqPosEstimate = estimateTipOverPosition(); //commande en vitesse
     	// -> start thread to check angular velocity
@@ -162,7 +144,7 @@ int main(void) {
         	main();
         }
         set_front_led(TOGGLE);
-        chThdSleepMilliseconds(500);
+        //chThdSleepMilliseconds(500);
     }
 }
 

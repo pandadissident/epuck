@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>project</name>
+	<name>hugui</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -28,7 +28,7 @@
 		<link>
 			<name>src</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/src</locationURI>
+			<location>C:/Users/Moi/Documents/_microinfo/_projet/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>
