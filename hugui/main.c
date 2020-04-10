@@ -7,32 +7,30 @@
 
 #include <main.h>
 
+#include "leds.h"
 #include "selector.h"
 #include "calibration.h"
+#include "sensors/imu.h"
 #include "pid_regulator.h"
 #include "memory_protection.h"
-
-#define MEASUREMENT 0
-#define IMU_CALIBRATION 1
-#define TOF_CALIBRATION 2
 
 messagebus_t bus;
 MUTEX_DECL(bus_lock);
 CONDVAR_DECL(bus_condvar);
 
-/*
+parameter_namespace_t parameter_root;
+
 static void serial_start(void)
 {
-    static SerialConfig ser_cfg = {
-        115200,
-        0,
-        0,
-        0,
-    };
+	static SerialConfig ser_cfg = {
+	    115200,
+	    0,
+	    0,
+	    0,
+	};
 
-    sdStart(&SD3, &ser_cfg); // UART3. Connected to the second com port of the programmer
+	sdStart(&SD3, &ser_cfg); // UART3.
 }
-*/
 
 /*
 static void timer11_start(void){
@@ -76,28 +74,32 @@ int main(void) {
 	    chSysInit();
 	    mpu_init();
 
+	    // Inits the Inter Process Communication bus
+		messagebus_init(&bus, &bus_lock, &bus_condvar);
+		parameter_namespace_declare(&parameter_root, NULL, NULL);
+
+	    // Init the peripherals.
+		//motors_init();
+		//proximity_start();
+		//battery_level_start();
+		imu_start();
+		serial_start();
+
 		//start timers
 			//timer11_start();
 			//timer12_start();
-		//start the serial communication
-			//serial_start();
-		//start communications protocols
-			//usb_start();
-			//i2c_start();
-		//start the sensors
-			//imu_start(); //gyro central
-			//tof sensor
-			//ir sensors
-		//initialise the motors
-			//motors_init();
-
-		//initialise the Inter Process Communication bus.
-			//messagebus_init(&bus, &bus_lock, &bus_condvar);
 
 	    sysInitialised = TRUE;
 
 	}
 
+	/*****************/
+	/** Clear LEDS **/
+	/*****************/
+
+	clear_leds();
+	set_body_led(OFF);
+	set_front_led(OFF);
 
 	/*****************/
 	/** Calibration **/
@@ -154,11 +156,12 @@ int main(void) {
 	while (1) {
 
 		// wait for new measurement task
-		// newTask = aboveCritAngle() + get_selector();
+		newTask = get_selector(); // + aboveCritAngle();
         if (newTask) {
-        	//kill led thread
         	main();
+        	newTask = false;
         }
+        set_front_led(TOGGLE);
         chThdSleepMilliseconds(500);
     }
 }
