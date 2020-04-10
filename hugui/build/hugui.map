@@ -182,6 +182,43 @@ Discarded input sections
                 0x00000000        0x8 build/obj/main.o
  .data.bus_lock
                 0x00000000       0x14 build/obj/main.o
+ .text          0x00000000        0x0 build/obj/calibration.o
+ .data          0x00000000        0x0 build/obj/calibration.o
+ .bss           0x00000000        0x0 build/obj/calibration.o
+ .debug_line    0x00000000        0x0 build/obj/calibration.o
+ .debug_str     0x00000000      0x16d build/obj/calibration.o
+ .comment       0x00000000       0x7f build/obj/calibration.o
+ .ARM.attributes
+                0x00000000       0x39 build/obj/calibration.o
+ .text          0x00000000        0x0 build/obj/pid_regulator.o
+ .data          0x00000000        0x0 build/obj/pid_regulator.o
+ .bss           0x00000000        0x0 build/obj/pid_regulator.o
+ .text.PidRegulator
+                0x00000000       0x74 build/obj/pid_regulator.o
+ .text.pid_regulator
+                0x00000000       0xb0 build/obj/pid_regulator.o
+ .text.pdi_regulator_start
+                0x00000000       0x38 build/obj/pid_regulator.o
+ .bss.sum_error.11843
+                0x00000000        0x4 build/obj/pid_regulator.o
+ .bss.waPidRegulator
+                0x00000000      0x278 build/obj/pid_regulator.o
+ .rodata.__FUNCTION__.11848
+                0x00000000        0xd build/obj/pid_regulator.o
+ .rodata.__func__.7153
+                0x00000000        0xc build/obj/pid_regulator.o
+ .debug_info    0x00000000     0x47e2 build/obj/pid_regulator.o
+ .debug_abbrev  0x00000000      0x459 build/obj/pid_regulator.o
+ .debug_loc     0x00000000       0xf0 build/obj/pid_regulator.o
+ .debug_aranges
+                0x00000000       0x30 build/obj/pid_regulator.o
+ .debug_ranges  0x00000000       0xc8 build/obj/pid_regulator.o
+ .debug_line    0x00000000      0x8b1 build/obj/pid_regulator.o
+ .debug_str     0x00000000     0x2680 build/obj/pid_regulator.o
+ .comment       0x00000000       0x7f build/obj/pid_regulator.o
+ .debug_frame   0x00000000       0x7c build/obj/pid_regulator.o
+ .ARM.attributes
+                0x00000000       0x39 build/obj/pid_regulator.o
  .text          0x00000000        0x0 build/obj/spi3_slave_lld.o
  .data          0x00000000        0x0 build/obj/spi3_slave_lld.o
  .bss           0x00000000        0x0 build/obj/spi3_slave_lld.o
@@ -6538,6 +6575,8 @@ Linker script and memory map
 LOAD build/obj/crt0_v7m.o
 LOAD build/obj/chcoreasm_v7m.o
 LOAD build/obj/main.o
+LOAD build/obj/calibration.o
+LOAD build/obj/pid_regulator.o
 LOAD build/obj/spi3_slave_lld.o
 LOAD build/obj/dcmi_lld.o
 LOAD build/obj/dcmi.o
@@ -8171,7 +8210,7 @@ destructors     0x080001c0        0x0
                 0x200011c8                PROVIDE (_bss_start, .)
  *(.bss)
  *(.bss.*)
- .bss.sysInitialised.12755
+ .bss.sysInitialised.12757
                 0x200011c8        0x1 build/obj/main.o
  *fill*         0x200011c9        0x3 
  .bss.DCMID     0x200011cc       0x14 build/obj/dcmi_lld.o
@@ -10134,6 +10173,7 @@ __stack_chk_fail                                  build/obj/main.o
                                                   build/obj/dcmi.o
                                                   build/obj/dcmi_lld.o
                                                   build/obj/spi3_slave_lld.o
+                                                  build/obj/pid_regulator.o
 __stack_chk_guard                                 build/obj/main.o
                                                   build/obj/unicode.o
                                                   build/obj/ff.o
@@ -10282,6 +10322,7 @@ __stack_chk_guard                                 build/obj/main.o
                                                   build/obj/dcmi.o
                                                   build/obj/dcmi_lld.o
                                                   build/obj/spi3_slave_lld.o
+                                                  build/obj/pid_regulator.o
 __subdf3                                          c:/users/moi/documents/_microinfo/epuck-eclipse/tools/gcc-arm-none-eabi-7-2017-q4-major-win32/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_arm_addsubdf3.o)
 __submore                                         c:/users/moi/documents/_microinfo/epuck-eclipse/tools/gcc-arm-none-eabi-7-2017-q4-major-win32/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg.a(lib_a-ungetc.o)
                                                   c:/users/moi/documents/_microinfo/epuck-eclipse/tools/gcc-arm-none-eabi-7-2017-q4-major-win32/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg.a(lib_a-svfiscanf.o)
@@ -10391,6 +10432,7 @@ _dbg_check_lock                                   build/obj/chdebug.o
                                                   build/obj/play_melody.o
                                                   build/obj/spi3_slave.o
                                                   build/obj/dcmi.o
+                                                  build/obj/pid_regulator.o
                                                   build/obj/chcoreasm_v7m.o
 _dbg_check_lock_from_isr                          build/obj/chdebug.o
                                                   build/obj/testsys.o
@@ -10467,6 +10509,7 @@ _dbg_check_unlock                                 build/obj/chdebug.o
                                                   build/obj/play_melody.o
                                                   build/obj/spi3_slave.o
                                                   build/obj/dcmi.o
+                                                  build/obj/pid_regulator.o
                                                   build/obj/chcoreasm_v7m.o
 _dbg_check_unlock_from_isr                        build/obj/chdebug.o
                                                   build/obj/testsys.o
@@ -10714,6 +10757,7 @@ _stats_start_measure_crit_thd                     build/obj/chstats.o
                                                   build/obj/play_melody.o
                                                   build/obj/spi3_slave.o
                                                   build/obj/dcmi.o
+                                                  build/obj/pid_regulator.o
                                                   build/obj/chcoreasm_v7m.o
 _stats_stop_measure_crit_isr                      build/obj/chstats.o
                                                   build/obj/testsys.o
@@ -10788,6 +10832,7 @@ _stats_stop_measure_crit_thd                      build/obj/chstats.o
                                                   build/obj/play_melody.o
                                                   build/obj/spi3_slave.o
                                                   build/obj/dcmi.o
+                                                  build/obj/pid_regulator.o
                                                   build/obj/chcoreasm_v7m.o
 _stm32_dma_streams                                build/obj/stm32_dma.o
                                                   build/obj/spi_lld.o
@@ -11032,6 +11077,7 @@ ch                                                build/obj/chschd.o
                                                   build/obj/spi3_slave.o
                                                   build/obj/dcmi.o
                                                   build/obj/dcmi_lld.o
+                                                  build/obj/pid_regulator.o
 chCondBroadcast                                   build/obj/chcond.o
                                                   build/obj/testmtx.o
                                                   build/obj/play_sound_file.o
@@ -11457,6 +11503,7 @@ chSysHalt                                         build/obj/chsys.o
                                                   build/obj/dcmi.o
                                                   build/obj/dcmi_lld.o
                                                   build/obj/spi3_slave_lld.o
+                                                  build/obj/pid_regulator.o
                                                   build/obj/main.o
 chSysInit                                         build/obj/chsys.o
                                                   build/obj/main.o
@@ -11515,6 +11562,7 @@ chThdCreateStatic                                 build/obj/chthreads.o
                                                   build/obj/cmd.o
                                                   build/obj/play_melody.o
                                                   build/obj/mp45dt02_processing.o
+                                                  build/obj/pid_regulator.o
 chThdDequeueAllI                                  build/obj/chthreads.o
                                                   build/obj/usb_lld.o
                                                   build/obj/can_lld.o
@@ -11585,6 +11633,7 @@ chThdSleepUntil                                   build/obj/chthreads.o
 chThdSleepUntilWindowed                           build/obj/chthreads.o
                                                   build/obj/imu.o
                                                   build/obj/ir_remote.o
+                                                  build/obj/pid_regulator.o
 chThdStart                                        build/obj/chthreads.o
                                                   build/obj/testthd.o
 chThdSuspendS                                     build/obj/chthreads.o
@@ -12494,6 +12543,7 @@ left_motor_set_speed                              build/obj/motors.o
                                                   build/obj/ir_remote.o
                                                   build/obj/e_motors.o
                                                   build/obj/cmd.o
+                                                  build/obj/pid_regulator.o
 localeconv                                        c:/users/moi/documents/_microinfo/epuck-eclipse/tools/gcc-arm-none-eabi-7-2017-q4-major-win32/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libg.a(lib_a-localeconv.o)
 main                                              build/obj/main.o
                                                   build/obj/crt0_v7m.o
@@ -12753,7 +12803,9 @@ patternsys                                        build/obj/testsys.o
                                                   build/obj/test.o
 patternthd                                        build/obj/testthd.o
                                                   build/obj/test.o
+pdi_regulator_start                               build/obj/pid_regulator.o
 perform_ref_signal_measurement                    build/obj/vl53l0x_api_calibration.o
+pid_regulator                                     build/obj/pid_regulator.o
 ping_cb                                           build/obj/communication.o
 playMelody                                        build/obj/play_melody.o
                                                   build/obj/Asercom2.o
@@ -12864,6 +12916,7 @@ right_motor_set_speed                             build/obj/motors.o
                                                   build/obj/ir_remote.o
                                                   build/obj/e_motors.o
                                                   build/obj/cmd.o
+                                                  build/obj/pid_regulator.o
 run_asercom                                       build/obj/Asercom.o
 run_asercom2                                      build/obj/Asercom2.o
 scan_files                                        build/obj/fat.o

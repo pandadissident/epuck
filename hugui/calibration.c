@@ -1,21 +1,5 @@
 #include "calibration.h"
 
-// LED avant qui clignotte
-static THD_WORKING_AREA(waThdFrontLed, 128);
-static THD_FUNCTION(ThdFrontLed, arg) {
-
-    chRegSetThreadName(__FUNCTION__);
-    (void)arg;
-
-    systime_t time;
-
-    while(1){
-        time = chVTGetSystemTime();
-        palTogglePad(GPIOD, GPIOD_LED_FRONT);
-        chThdSleepUntilWindowed(time, time + MS2ST(100));
-    }
-}
-
 /*
 
 //Effet barre de chargement
