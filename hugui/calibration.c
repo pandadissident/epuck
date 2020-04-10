@@ -1,10 +1,13 @@
+#include "main.h"
+#include <math.h>
+
 #include "calibration.h"
 
 #include "sensors/imu.h"
 #include "leds.h"
 #include "selector.h"
-#include "main.h"
-#include <math.h>
+
+extern messagebus_t bus;
 
 // makes led blink
 static THD_WORKING_AREA(blinkLed_wa, 128);
@@ -64,7 +67,10 @@ void calibrate_imu(void) {
 	// kill blink led
 	chThdTerminate(blinkLed_p);
 
-	// led animation
+	// calibration with led animation
+	set_led(LED5, ON);
+	calibrate_acc(); //pk ça éteint la led ?
+	calibrate_gyro();
 	set_led(LED5, ON);
 	chThdSleepMilliseconds(500);
 	//set_rgb_led(LED6, 10, 0, 0);
@@ -78,10 +84,6 @@ void calibrate_imu(void) {
 	//chThdSleepMilliseconds(750);
 	set_led(LED1, ON);
 	chThdSleepMilliseconds(500);
-
-	// calibration
-	calibrate_acc();
-	calibrate_gyro();
 	clear_leds();
 
 	// blink body led until selector is switched
@@ -90,5 +92,6 @@ void calibrate_imu(void) {
 		chThdSleepMilliseconds(500);
 	}
 
+	set_body_led(OFF);
 	main();
 }

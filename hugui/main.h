@@ -16,6 +16,7 @@ extern "C" {
 #define OFF 0
 #define ON 1
 #define TOGGLE 2
+#define ALL 4
 
 // Robot wide IPC bus
 extern messagebus_t bus;

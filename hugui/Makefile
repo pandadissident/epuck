@@ -17,7 +17,7 @@ CSRC += ./main.c \
 INCDIR += 
 
 # Compiling option for debbuging purposes. Comment this line to compile with optimisation
-# USE_OPT = -ggdb -fomit-frame-pointer -falign-functions=16 -fstack-protector-all -L .
+USE_OPT = -ggdb -fomit-frame-pointer -falign-functions=16 -fstack-protector-all -L .
 
 #Jump to the main Makefile
 include $(GLOBAL_PATH)/Makefile

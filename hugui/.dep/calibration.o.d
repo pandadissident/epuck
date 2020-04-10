@@ -1,7 +1,5 @@
-build/obj/calibration.o: calibration.c calibration.h \
- ..//src/sensors/imu.h ..//ChibiOS//os/hal/include/hal.h \
- ..//ChibiOS//os/hal/osal/rt/osal.h \
- c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h \
+build/obj/calibration.o: calibration.c main.h \
+ ..//src/camera/dcmi_camera.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdint.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdint.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_default_types.h \
@@ -9,6 +7,8 @@ build/obj/calibration.o: calibration.c calibration.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_newlib_version.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_intsup.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_stdint.h \
+ ..//ChibiOS//os/hal/include/hal.h ..//ChibiOS//os/hal/osal/rt/osal.h \
+ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdbool.h \
  ..//ChibiOS//os/rt/include/ch.h \
  ..//ChibiOS//os/rt/ports/ARMCMx/compilers/GCC/chtypes.h ..//src/chconf.h \
@@ -85,9 +85,7 @@ build/obj/calibration.o: calibration.c calibration.h \
  ..//ChibiOS//os/hal/ports/STM32/LLD/TIMv1/st_lld.h ..//src/mcuconf.h \
  ..//ChibiOS_ext/os/hal/ports/STM32/STM32F4xx/stm32_registry.h \
  ..//ChibiOS//os/hal/include/mmc_spi.h \
- ..//ChibiOS//os/hal/include/serial_usb.h ..//src/sensors/mpu9250.h \
- ..//src/sensors/mpu9250_registers.h ..//src/leds.h ..//src/selector.h \
- main.h ..//src/camera/dcmi_camera.h \
+ ..//ChibiOS//os/hal/include/serial_usb.h \
  ..//ChibiOS_ext/os/hal/include/dcmi.h \
  ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h \
  ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h \
@@ -120,17 +118,13 @@ build/obj/calibration.o: calibration.c calibration.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\reent.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h \
- c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\math.h
+ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\math.h \
+ calibration.h ..//src/sensors/imu.h ..//src/sensors/mpu9250.h \
+ ..//src/sensors/mpu9250_registers.h ..//src/leds.h ..//src/selector.h
 
-calibration.h:
+main.h:
 
-..//src/sensors/imu.h:
-
-..//ChibiOS//os/hal/include/hal.h:
-
-..//ChibiOS//os/hal/osal/rt/osal.h:
-
-c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h:
+..//src/camera/dcmi_camera.h:
 
 c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdint.h:
 
@@ -145,6 +139,12 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_intsup.h:
 
 c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_stdint.h:
+
+..//ChibiOS//os/hal/include/hal.h:
+
+..//ChibiOS//os/hal/osal/rt/osal.h:
+
+c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h:
 
 c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdbool.h:
 
@@ -328,18 +328,6 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 
 ..//ChibiOS//os/hal/include/serial_usb.h:
 
-..//src/sensors/mpu9250.h:
-
-..//src/sensors/mpu9250_registers.h:
-
-..//src/leds.h:
-
-..//src/selector.h:
-
-main.h:
-
-..//src/camera/dcmi_camera.h:
-
 ..//ChibiOS_ext/os/hal/include/dcmi.h:
 
 ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h:
@@ -407,3 +395,15 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h:
 
 c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\math.h:
+
+calibration.h:
+
+..//src/sensors/imu.h:
+
+..//src/sensors/mpu9250.h:
+
+..//src/sensors/mpu9250_registers.h:
+
+..//src/leds.h:
+
+..//src/selector.h:

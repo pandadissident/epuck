@@ -1,18 +1,14 @@
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
-//#include <math.h>
 #include <ch.h>
 #include <hal.h>
+#include <memory_protection.h>
 
 #include <main.h>
 
 #include "leds.h"
 #include "selector.h"
-#include "calibration.h"
 #include "sensors/imu.h"
+#include "calibration.h"
 #include "pid_regulator.h"
-#include "memory_protection.h"
 
 messagebus_t bus;
 MUTEX_DECL(bus_lock);
@@ -32,81 +28,48 @@ static void serial_start(void)
 	sdStart(&SD3, &ser_cfg); // UART3.
 }
 
-int main(void) {
+// idle behavior
+/*
+static THD_WORKING_AREA(idle_wa, 128);
+static THD_FUNCTION(idle, arg) {
 
-	/*********************/
-	/** local variables **/
-	/*********************/
+    chRegSetThreadName(__FUNCTION__);
+    (void)arg;
 
-	static bool newTask = FALSE;
-	static bool sysInitialised = FALSE;
-	//static uint8_t eqPosEstimate = 0;
-	//static uint8_t eqPos = 0;
-	//static uint8_t mass = 0;
-
-
-	/**********************/
-	/** Startup sequence **/
-	/**********************/
-
-	if(!sysInitialised){
-
-	    //system init
-		halInit();
-	    chSysInit();
-	    mpu_init();
-
-	    // Inits the Inter Process Communication bus
-		//messagebus_init(&bus, &bus_lock, &bus_condvar);
-		//parameter_namespace_declare(&parameter_root, NULL, NULL);
-
-	    // Init the peripherals.
-		//motors_init();
-		//proximity_start();
-		//battery_level_start();
-		imu_start();
-		serial_start();
-
-		//start timers
-			//timer11_start();
-			//timer12_start();
-
-	    sysInitialised = TRUE;
-
-	}
-
-	/*****************/
-	/** Clear LEDS **/
-	/*****************/
-
-	clear_leds();
-	set_body_led(OFF);
-	set_front_led(OFF);
-
-	/*****************/
-	/** Calibration **/
-	/*****************/
-
-    switch (get_selector()) {
-
-    	case IMU_CALIBRATION :
-    		calibrate_imu();
-    		break;
-
-    	case TOF_CALIBRATION :
-    		//calibrate_tof();
-    		break;
-
-    	case MEASUREMENT :
-    	default:
-    		break;
-
+    while(!chThdShouldTerminateX()){
+    	set_led(LED5, TOGGLE);
+    	chThdSleepMilliseconds(500);
     }
 
+    chThdExit((msg_t)"");
+}
+*/
 
-	/*******************/
-	/** Main Sequence **/
-	/*******************/
+// wait for new task
+/*
+static THD_WORKING_AREA(waitForTask_wa, 128);
+static THD_FUNCTION(waitForTask, arg) {
+
+    chRegSetThreadName(__FUNCTION__);
+    (void)arg;
+
+    static bool newTask = FALSE;
+
+    while(!chThdShouldTerminateX()){
+    	newTask = get_selector(); // + aboveCritAngle();
+        if (newTask) {
+        	newTask = FALSE;
+        	chThdTerminate(waitForTask_p)
+        }
+    }
+
+    chThdExit((msg_t)"");
+    main();
+}
+*/
+
+
+void measure_mass(void) {
 
     //launch ir thread for lateral positioning
 
@@ -130,6 +93,92 @@ int main(void) {
 
     //sendMass(mass);
 
+	return;
+
+}
+
+int main(void) {
+
+	/*********************/
+	/** local variables **/
+	/*********************/
+
+	static bool newTask = FALSE;
+	static bool sysInitialised = FALSE;
+	//static uint8_t eqPosEstimate = 0;
+	//static uint8_t eqPos = 0;
+	//static uint8_t mass = 0;
+
+
+	/**********************/
+	/** Startup sequence **/
+	/**********************/
+
+	if (!sysInitialised) {
+
+	    //system init
+		halInit();
+	    chSysInit();
+	    mpu_init();
+
+	    // Inits the Inter Process Communication bus
+		messagebus_init(&bus, &bus_lock, &bus_condvar);
+		parameter_namespace_declare(&parameter_root, NULL, NULL);
+
+	    // Init the peripherals.
+		//motors_init();
+		//proximity_start();
+		//battery_level_start();
+		serial_start();
+		imu_start();
+
+
+		//start timers
+			//timer11_start();
+			//timer12_start();
+
+	    sysInitialised = TRUE;
+
+	} else {
+
+		// kill threads
+
+		//chThdTerminate(waitForTask_p);
+		//chThdTerminate(idle_p);
+
+	}
+
+
+	/********************/
+	/** State selector **/
+	/********************/
+
+    switch (get_selector()) {
+
+    	case IMU_CALIBRATION :
+    		calibrate_imu();
+    		break;
+
+    	case TOF_CALIBRATION :
+    		//calibrate_tof();
+    		break;
+
+    	case MEASUREMENT :
+    		//measure_mass();
+    		break;
+
+    	default:
+    		// nothing
+    		break;
+
+    }
+
+	/*************/
+	/** Threads **/
+	/*************/
+
+    //thread_t *waitForTask_p = chThdCreateStatic(waitForTask_wa, sizeof(waitForTask_wa), NORMALPRIO, waitForTask, NULL);
+    //thread_t *idle_p = chThdCreateStatic(idle_wa, sizeof(idle_wa), NORMALPRIO, idle, NULL);
 
 	/********************/
 	/** Infinite loop. **/
@@ -140,11 +189,12 @@ int main(void) {
 		// wait for new measurement task
 		newTask = get_selector(); // + aboveCritAngle();
         if (newTask) {
+        	set_front_led(OFF);
         	newTask = false;
         	main();
         }
         set_front_led(TOGGLE);
-        //chThdSleepMilliseconds(500);
+        chThdSleepMilliseconds(500);
     }
 }
 
