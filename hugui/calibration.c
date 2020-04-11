@@ -28,7 +28,7 @@ static THD_FUNCTION(blinkLed, arg) {
 // @brief calibrates imu
 void calibrate_imu(void) {
 
-	uint8_t i = 0;
+	uint16_t i = 0;
 	int16_t altSum[SAMPLES][NB_AXIS] = {0}; //acceleration circular buffer of last 3 sec
 	float tot = 0; //takes wide range of values
 	bool unstable = TRUE;
@@ -38,7 +38,6 @@ void calibrate_imu(void) {
 	// blink led
 	thread_t *blinkLed_p = chThdCreateStatic(blinkLed_wa, sizeof(blinkLed_wa), NORMALPRIO, blinkLed, NULL);
 
-
 	// wait for EPuck to be stable
 	while (unstable) {
 
@@ -46,23 +45,30 @@ void calibrate_imu(void) {
 		time = chVTGetSystemTime();
 
 		if (i % 2) {
-
 			tot = 0;
-
-			// alternate sum of all acceleration values
 			for (uint8_t j = 0 ; j < SAMPLES ; j += 2) {
 				tot += fabs(altSum[j][X_AXIS] - altSum[j+1][X_AXIS]) + fabs(altSum[j][Y_AXIS] - altSum[j+1][Y_AXIS]) + fabs(altSum[j][Z_AXIS] - altSum[j+1][Z_AXIS]);
 			}
-
-			if ((i > 2*SAMPLES) && (tot < (float)THRESHOLD)) {
+			if ((i > 3*SAMPLES) && (tot < (float)THRESHOLD)) {
 				unstable = FALSE;
 			}
 		}
 
 		i++;
 
+		// prevent overflow and reset
+
+		if (i >= MAX_ITERATIONS) {
+			i = 0;
+			for (uint8_t j = 0 ; j < SAMPLES ; j++) {
+				for (uint8_t k = 0 ; k < NB_AXIS ; k++) {
+					altSum[j][k] = 0;
+				}
+			}
+		}
+
 		//reduced the sample rate
-		chThdSleepUntilWindowed(time, time + MS2ST(125));
+		chThdSleepUntilWindowed(time, time + MS2ST(150));
 
 	}
 
@@ -90,13 +96,10 @@ void calibrate_imu(void) {
 	chThdSleepMilliseconds(500);
 	clear_leds();
 
-	static int16_t a, b, c = 0;
-
-	a = get_acc_offset(X_AXIS);
-	b = get_acc_offset(Y_AXIS);
-	c = get_acc_offset(Z_AXIS);
-
 	readyAnimation();
+
+	//get_acceleration(X_AXIS);
+	//get_gyro_rate(X_AXIS);
 
 	while (get_selector() == 1) {
 		chThdSleepMilliseconds(500);
