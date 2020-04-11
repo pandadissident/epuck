@@ -29,6 +29,22 @@ extern parameter_namespace_t parameter_root;
  */
 int main(void);
 
+/*! @brief
+ *
+ *  @param
+ *  @param values
+ *  @warning
+ */
+void startingAnimation(void);
+
+/*! @brief
+ *
+ *  @param
+ *  @param values
+ *  @warning
+ */
+void readyAnimation(void);
+
 #ifdef __cplusplus
 }
 #endif

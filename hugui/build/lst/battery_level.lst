@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
   55              	.LBE6:
   56              		.loc 1 451 0
   57 0014 00BF     		nop
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 2
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 2
 
 
   58 0016 054B     		ldr	r3, .L3
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  112              	.LBE8:
  113              		.loc 1 465 0
  114 0014 00BF     		nop
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 3
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 3
 
 
  115 0016 054B     		ldr	r3, .L7
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  169              		@ sp needed
  170 0020 5DF804FB 		ldr	pc, [sp], #4
  171              	.L12:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 4
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 4
 
 
  172              		.align	2
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  226              		.syntax unified
  227              		.thumb
  228              		.thumb_func
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 5
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 5
 
 
  229              		.fpu fpv4-sp-d16
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  283              		.loc 3 406 0
  284              		.cfi_startproc
  285              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 6
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 6
 
 
  286              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  340 0002 85B0     		sub	sp, sp, #20
  341              		.cfi_def_cfa_offset 24
  342 0004 0190     		str	r0, [sp, #4]
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 7
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 7
 
 
  343              		.loc 4 132 0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  397 000a 0393     		str	r3, [sp, #12]
  398              		.loc 5 143 0
  399 000c 019B     		ldr	r3, [sp, #4]
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 8
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 8
 
 
  400 000e 1846     		mov	r0, r3
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  454              		.loc 5 271 0
  455 0018 019B     		ldr	r3, [sp, #4]
  456 001a 1846     		mov	r0, r3
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 9
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 9
 
 
  457 001c FFF7FEFF 		bl	chSemSignalI
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  505              		.section	.rodata.group,"a",%progbits
  506              		.align	2
  507              		.type	group, %object
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 10
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 10
 
 
  508              		.size	group, 40
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  562 0020 029A     		ldr	r2, [sp, #8]
  563 0022 1344     		add	r3, r3, r2
  564 0024 1B88     		ldrh	r3, [r3]
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 11
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 11
 
 
  565 0026 1A46     		mov	r2, r3
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  619 0084 00000000 		.word	adc_value
  620 0088 00000000 		.word	adc_samples
  621 008c 00000000 		.word	group
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 12
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 12
 
 
  622 0090 00000000 		.word	ADCD1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  671 0024 0B93     		str	r3, [sp, #44]
  672              		.loc 6 81 0
  673 0026 05AB     		add	r3, sp, #20
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 13
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 13
 
 
  674 0028 0593     		str	r3, [sp, #20]
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  728 0092 27EE877A 		vmul.f32	s14, s15, s14
  729 0096 294B     		ldr	r3, .L51+36
  730 0098 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 14
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 14
 
 
  731 009a 07EE903A 		vmov	s15, r3	@ int
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  785 0128 00000000 		.word	bus
  786 012c 00000000 		.word	ADCD1
  787 0130 00000000 		.word	adc_samples
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 15
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 15
 
 
  788 0134 00000000 		.word	group
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  842 002c 9A42     		cmp	r2, r3
  843 002e 01D0     		beq	.L54
  844 0030 FFF7FEFF 		bl	__stack_chk_fail
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 16
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 16
 
 
  845              	.L54:
@@ -912,7 +912,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  853 003c 00000000 		.word	__stack_chk_guard
  854 0040 00000000 		.word	ADCD1
  855 0044 00000000 		.word	battery_thd
- 856 0048 00000000 		.word	battery_thd_wa.11936
+ 856 0048 00000000 		.word	battery_thd_wa.11940
  857              		.cfi_endproc
  858              	.LFE261:
  859              		.size	battery_level_start, .-battery_level_start
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  899 0020 5DF804FB 		ldr	pc, [sp], #4
  900              	.L61:
  901              		.align	2
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 17
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 17
 
 
  902              	.L60:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  956              		.size	get_battery_voltage, .-get_battery_voltage
  957              		.section	.text.get_battery_percentage,"ax",%progbits
  958              		.align	1
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 18
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 18
 
 
  959              		.p2align 4,,15
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1013              		.fpu fpv4-sp-d16
  1014              		.type	battery_check, %function
  1015              	battery_check:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 19
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 19
 
 
  1016              	.LFB265:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1070 004e 9A42     		cmp	r2, r3
  1071 0050 01D0     		beq	.L77
  1072 0052 FFF7FEFF 		bl	__stack_chk_fail
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 20
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 20
 
 
  1073              	.L77:
@@ -1154,11 +1154,11 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1083              		.cfi_endproc
  1084              	.LFE265:
  1085              		.size	battery_check, .-battery_check
- 1086              		.section	.bss.battery_thd_wa.11936,"aw",%nobits
+ 1086              		.section	.bss.battery_thd_wa.11940,"aw",%nobits
  1087              		.align	3
- 1088              		.type	battery_thd_wa.11936, %object
- 1089              		.size	battery_thd_wa.11936, 632
- 1090              	battery_thd_wa.11936:
+ 1088              		.type	battery_thd_wa.11940, %object
+ 1089              		.size	battery_thd_wa.11940, 632
+ 1090              	battery_thd_wa.11940:
  1091 0000 00000000 		.space	632
  1091      00000000 
  1091      00000000 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1123              		.file 36 "..//ChibiOS//os/hal/include/gpt.h"
  1124              		.file 37 "..//ChibiOS//os/hal/ports/STM32/LLD/TIMv1/gpt_lld.h"
  1125              		.file 38 "..//ChibiOS//os/hal/ports/STM32/LLD/TIMv1/stm32_tim.h"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 21
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 21
 
 
  1126              		.file 39 "..//ChibiOS//os/hal/include/i2c.h"
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1180 0040 05       		.byte	0x5
  1181 0041 55210000 		.4byte	.LASF1
  1182 0045 04       		.uleb128 0x4
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 22
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 22
 
 
  1183 0046 08       		.byte	0x8
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1237 00b2 08       		.byte	0x8
  1238 00b3 69       		.byte	0x69
  1239 00b4 B8000000 		.4byte	0xb8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 23
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 23
 
 
  1240 00b8 04       		.uleb128 0x4
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1294 0130 0A       		.byte	0xa
  1295 0131 48       		.byte	0x48
  1296 0132 BF000000 		.4byte	0xbf
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 24
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 24
 
 
  1297 0136 03       		.uleb128 0x3
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1351 01ae 0B       		.byte	0xb
  1352 01af 3F       		.byte	0x3f
  1353 01b0 B4010000 		.4byte	0x1b4
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 25
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 25
 
 
  1354 01b4 07       		.uleb128 0x7
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1408 0220 08       		.uleb128 0x8
  1409 0221 6B240000 		.4byte	.LASF45
  1410 0225 0C       		.byte	0xc
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 26
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 26
 
 
  1411 0226 DD       		.byte	0xdd
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1465 0296 4601     		.2byte	0x146
  1466 0298 6D010000 		.4byte	0x16d
  1467 029c 3C       		.byte	0x3c
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 27
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 27
 
 
  1468 029d 0A       		.uleb128 0xa
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1522 030d 50       		.byte	0x50
  1523 030e 12030000 		.4byte	0x312
  1524 0312 07       		.uleb128 0x7
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 28
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 28
 
 
  1525 0313 53020000 		.4byte	.LASF63
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1579 0384 9D0C0000 		.4byte	.LASF70
  1580 0388 0C       		.byte	0xc
  1581 0389 9801     		.2byte	0x198
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 29
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 29
 
 
  1582 038b DD020000 		.4byte	0x2dd
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1636 03fc 6D1F0000 		.4byte	.LASF78
  1637 0400 0C       		.byte	0xc
  1638 0401 6F01     		.2byte	0x16f
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 30
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 30
 
 
  1639 0403 9E030000 		.4byte	0x39e
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1693 0476 A201     		.2byte	0x1a2
  1694 0478 B1040000 		.4byte	0x4b1
  1695 047c 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 31
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 31
 
 
  1696 047d D1110000 		.4byte	.LASF85
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1750 04f2 00160000 		.4byte	.LASF93
  1751 04f6 0C       		.byte	0xc
  1752 04f7 D201     		.2byte	0x1d2
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 32
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 32
 
 
  1753 04f9 A9010000 		.4byte	0x1a9
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1807 056e 00010000 		.4byte	0x100
  1808 0572 00       		.byte	0
  1809 0573 18       		.uleb128 0x18
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 33
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 33
 
 
  1810 0574 43523100 		.ascii	"CR1\000"
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1864 05e0 4C545200 		.ascii	"LTR\000"
  1865 05e4 0F       		.byte	0xf
  1866 05e5 D0       		.byte	0xd0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 34
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 34
 
 
  1867 05e6 00010000 		.4byte	0x100
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1921 0651 00010000 		.4byte	0x100
  1922 0655 4C       		.byte	0x4c
  1923 0656 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 35
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 35
 
 
  1924 0657 03       		.uleb128 0x3
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  1978 06c0 F8       		.byte	0xf8
  1979 06c1 00010000 		.4byte	0x100
  1980 06c5 04       		.byte	0x4
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 36
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 36
 
 
  1981 06c6 08       		.uleb128 0x8
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2035 0736 0F       		.byte	0xf
  2036 0737 0E01     		.2byte	0x10e
  2037 0739 00010000 		.4byte	0x100
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 37
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 37
 
 
  2038 073d 04       		.byte	0x4
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2092 07b3 B001     		.2byte	0x1b0
  2093 07b5 11       		.uleb128 0x11
  2094 07b6 D91D0000 		.4byte	.LASF127
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 38
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 38
 
 
  2095 07ba 0F       		.byte	0xf
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2149 0838 0F       		.byte	0xf
  2150 0839 2101     		.2byte	0x121
  2151 083b 39050000 		.4byte	0x539
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 39
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 39
 
 
  2152 083f 2002     		.2byte	0x220
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2206 08b6 435200   		.ascii	"CR\000"
  2207 08b9 0F       		.byte	0xf
  2208 08ba 3801     		.2byte	0x138
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 40
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 40
 
 
  2209 08bc 00010000 		.4byte	0x100
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2263 0931 00010000 		.4byte	0x100
  2264 0935 24       		.byte	0x24
  2265 0936 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 41
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 41
 
 
  2266 0937 13220000 		.4byte	.LASF147
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2320 09aa 0F       		.byte	0xf
  2321 09ab 7001     		.2byte	0x170
  2322 09ad 00010000 		.4byte	0x100
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 42
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 42
 
 
  2323 09b1 0C       		.byte	0xc
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2377 0a26 0A       		.uleb128 0xa
  2378 0a27 9C240000 		.4byte	.LASF155
  2379 0a2b 0F       		.byte	0xf
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 43
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 43
 
 
  2380 0a2c 4302     		.2byte	0x243
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2434 0a9d BF02     		.2byte	0x2bf
  2435 0a9f A80B0000 		.4byte	0xba8
  2436 0aa3 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 44
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 44
 
 
  2437 0aa4 FB140000 		.4byte	.LASF160
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2491 0b19 E8110000 		.4byte	.LASF167
  2492 0b1d 0F       		.byte	0xf
  2493 0b1e CA02     		.2byte	0x2ca
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 45
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 45
 
 
  2494 0b20 00010000 		.4byte	0x100
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2548 0b95 A80B0000 		.4byte	0xba8
  2549 0b99 4C       		.byte	0x4c
  2550 0b9a 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 46
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 46
 
 
  2551 0b9b E1080000 		.4byte	.LASF173
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2605 0c0d D70A0000 		.4byte	.LASF176
  2606 0c11 0F       		.byte	0xf
  2607 0c12 E202     		.2byte	0x2e2
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 47
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 47
 
 
  2608 0c14 00010000 		.4byte	0x100
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2662 0c87 0C       		.byte	0xc
  2663 0c88 09       		.uleb128 0x9
  2664 0c89 43523200 		.ascii	"CR2\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 48
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 48
 
 
  2665 0c8d 0F       		.byte	0xf
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2719 0d00 07       		.uleb128 0x7
  2720 0d01 09000000 		.4byte	.LASF186
  2721 0d05 64       		.byte	0x64
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 49
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 49
 
 
  2722 0d06 01       		.byte	0x1
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2776 0d72 FE       		.byte	0xfe
  2777 0d73 D10C0000 		.4byte	0xcd1
  2778 0d77 20       		.byte	0x20
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 50
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 50
 
 
  2779 0d78 18       		.uleb128 0x18
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2833 0dea 09       		.uleb128 0x9
  2834 0deb 723600   		.ascii	"r6\000"
  2835 0dee 01       		.byte	0x1
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 51
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 51
 
 
  2836 0def 0901     		.2byte	0x109
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2890 0e5b 08       		.uleb128 0x8
  2891 0e5c CB170000 		.4byte	.LASF188
  2892 0e60 11       		.byte	0x11
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 52
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 52
 
 
  2893 0e61 59       		.byte	0x59
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  2947 0ece 00       		.byte	0
  2948 0ecf 03       		.uleb128 0x3
  2949 0ed0 15000000 		.4byte	.LASF195
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 53
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 53
 
 
  2950 0ed4 11       		.byte	0x11
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3004 0f3b 10       		.byte	0x10
  3005 0f3c 00       		.byte	0
  3006 0f3d 03       		.uleb128 0x3
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 54
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 54
 
 
  3007 0f3e 98210000 		.4byte	.LASF202
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3061 0fac 1E       		.uleb128 0x1e
  3062 0fad F01A0000 		.4byte	.LASF210
  3063 0fb1 0C       		.byte	0xc
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 55
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 55
 
 
  3064 0fb2 0F01     		.2byte	0x10f
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3118 1026 08       		.uleb128 0x8
  3119 1027 19160000 		.4byte	.LASF219
  3120 102b 15       		.byte	0x15
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 56
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 56
 
 
  3121 102c 3A       		.byte	0x3a
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3175 109b 17       		.uleb128 0x17
  3176 109c 16       		.byte	0x16
  3177 109d 04       		.byte	0x4
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 57
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 57
 
 
  3178 109e 34       		.byte	0x34
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3232 110a BF000000 		.4byte	0xbf
  3233 110e 0C       		.byte	0xc
  3234 110f 08       		.uleb128 0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 58
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 58
 
 
  3235 1110 320B0000 		.4byte	.LASF233
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3289 117c 13       		.uleb128 0x13
  3290 117d 68100000 		.4byte	0x1068
  3291 1181 8C110000 		.4byte	0x118c
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 59
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 59
 
 
  3292 1185 14       		.uleb128 0x14
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3346 11f4 16       		.byte	0x16
  3347 11f5 3C       		.byte	0x3c
  3348 11f6 07030000 		.4byte	0x307
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 60
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 60
 
 
  3349 11fa 00       		.byte	0
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3403 1266 04       		.byte	0x4
  3404 1267 17       		.byte	0x17
  3405 1268 4A       		.byte	0x4a
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 61
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 61
 
 
  3406 1269 7A120000 		.4byte	0x127a
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3460 12d8 08       		.uleb128 0x8
  3461 12d9 BB160000 		.4byte	.LASF268
  3462 12dd 18       		.byte	0x18
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 62
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 62
 
 
  3463 12de 54       		.byte	0x54
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3517 1353 00       		.byte	0
  3518 1354 0B       		.uleb128 0xb
  3519 1355 04       		.byte	0x4
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 63
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 63
 
 
  3520 1356 CA000000 		.4byte	0xca
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3574 13ce 08       		.uleb128 0x8
  3575 13cf 2C040000 		.4byte	.LASF276
  3576 13d3 19       		.byte	0x19
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 64
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 64
 
 
  3577 13d4 DD       		.byte	0xdd
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3631 144a 04       		.byte	0x4
  3632 144b 30140000 		.4byte	0x1430
  3633 144f 20       		.uleb128 0x20
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 65
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 65
 
 
  3634 1450 62010000 		.4byte	0x162
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3688 14cb 7F0A0000 		.4byte	.LASF283
  3689 14cf 02       		.byte	0x2
  3690 14d0 22       		.uleb128 0x22
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 66
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 66
 
 
  3691 14d1 8C1A0000 		.4byte	.LASF284
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3745 153d 02       		.byte	0x2
  3746 153e 03010000 		.4byte	.LASF294
  3747 1542 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 67
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 67
 
 
  3748 1543 04       		.byte	0x4
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3802 15c1 04       		.byte	0x4
  3803 15c2 1B       		.byte	0x1b
  3804 15c3 B3       		.byte	0xb3
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 68
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 68
 
 
  3805 15c4 E1150000 		.4byte	0x15e1
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3859 162c 08       		.byte	0x8
  3860 162d 08       		.uleb128 0x8
  3861 162e EE1C0000 		.4byte	.LASF299
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 69
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 69
 
 
  3862 1632 1B       		.byte	0x1b
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3916 169b 1B       		.byte	0x1b
  3917 169c C1       		.byte	0xc1
  3918 169d F6160000 		.4byte	0x16f6
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 70
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 70
 
 
  3919 16a1 08       		.uleb128 0x8
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  3973 170a 7D0F0000 		.4byte	.LASF312
  3974 170e 1B       		.byte	0x1b
  3975 170f DC       		.byte	0xdc
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 71
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 71
 
 
  3976 1710 F6160000 		.4byte	0x16f6
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4030 177c FE       		.byte	0xfe
  4031 177d 01170000 		.4byte	0x1701
  4032 1781 05       		.uleb128 0x5
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 72
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 72
 
 
  4033 1782 76170000 		.4byte	0x1776
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4087 17f5 DA000000 		.4byte	0xda
  4088 17f9 24       		.uleb128 0x24
  4089 17fa 07       		.byte	0x7
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 73
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 73
 
 
  4090 17fb 01       		.byte	0x1
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4144 1872 1D       		.byte	0x1d
  4145 1873 B301     		.2byte	0x1b3
  4146 1875 E9190000 		.4byte	0x19e9
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 74
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 74
 
 
  4147 1879 10       		.byte	0x10
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4201 18eb E1170000 		.4byte	0x17e1
  4202 18ef 1A       		.uleb128 0x1a
  4203 18f0 57140000 		.4byte	.LASF347
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 75
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 75
 
 
  4204 18f4 1D       		.byte	0x1d
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4258 1968 0A       		.uleb128 0xa
  4259 1969 9D150000 		.4byte	.LASF352
  4260 196d 1D       		.byte	0x1d
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 76
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 76
 
 
  4261 196e 7C01     		.2byte	0x17c
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4315 19e3 0B       		.uleb128 0xb
  4316 19e4 04       		.byte	0x4
  4317 19e5 DE190000 		.4byte	0x19de
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 77
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 77
 
 
  4318 19e9 0B       		.uleb128 0xb
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4372 1a5b 661A0000 		.4byte	0x1a66
  4373 1a5f 14       		.uleb128 0x14
  4374 1a60 37000000 		.4byte	0x37
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 78
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 78
 
 
  4375 1a64 07       		.byte	0x7
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4429 1ad1 07030000 		.4byte	0x307
  4430 1ad5 10       		.byte	0x10
  4431 1ad6 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 79
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 79
 
 
  4432 1ad7 07180000 		.4byte	.LASF372
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4486 1b4b 01       		.byte	0x1
  4487 1b4c 5E000000 		.4byte	0x5e
  4488 1b50 20       		.byte	0x20
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 80
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 80
 
 
  4489 1b51 46       		.byte	0x46
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4543 1bc0 0C       		.byte	0xc
  4544 1bc1 09       		.uleb128 0x9
  4545 1bc2 646D6100 		.ascii	"dma\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 81
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 81
 
 
  4546 1bc6 21       		.byte	0x21
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4600 1c3b E71C0000 		.4byte	0x1ce7
  4601 1c3f 08       		.byte	0x8
  4602 1c40 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 82
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 82
 
 
  4603 1c41 80170000 		.4byte	.LASF340
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4657 1cb4 2A01     		.2byte	0x12a
  4658 1cb6 931C0000 		.4byte	0x1c93
  4659 1cba 1A       		.uleb128 0x1a
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 83
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 83
 
 
  4660 1cbb F6060000 		.4byte	.LASF397
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4714 1d30 1A       		.uleb128 0x1a
  4715 1d31 E4090000 		.4byte	.LASF402
  4716 1d35 21       		.byte	0x21
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 84
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 84
 
 
  4717 1d36 4D01     		.2byte	0x14d
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4771 1da9 301D0000 		.4byte	0x1d30
  4772 1dad 02       		.byte	0x2
  4773 1dae 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 85
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 85
 
 
  4774 1daf 1A       		.uleb128 0x1a
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4828 1e20 08       		.uleb128 0x8
  4829 1e21 75140000 		.4byte	.LASF337
  4830 1e25 23       		.byte	0x23
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 86
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 86
 
 
  4831 1e26 75       		.byte	0x75
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4885 1e91 60       		.byte	0x60
  4886 1e92 6B1E0000 		.4byte	0x1e6b
  4887 1e96 17       		.uleb128 0x17
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 87
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 87
 
 
  4888 1e97 B8       		.byte	0xb8
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4942 1f06 04       		.byte	0x4
  4943 1f07 00       		.byte	0
  4944 1f08 03       		.uleb128 0x3
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 88
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 88
 
 
  4945 1f09 BE110000 		.4byte	.LASF426
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  4999 1f7d 04       		.byte	0x4
  5000 1f7e 131F0000 		.4byte	0x1f13
  5001 1f82 19       		.uleb128 0x19
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 89
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 89
 
 
  5002 1f83 60       		.byte	0x60
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5056 1ff7 26       		.byte	0x26
  5057 1ff8 A701     		.2byte	0x1a7
  5058 1ffa 00010000 		.4byte	0x100
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 90
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 90
 
 
  5059 1ffe 20       		.byte	0x20
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5113 2072 50       		.byte	0x50
  5114 2073 0A       		.uleb128 0xa
  5115 2074 5D230000 		.4byte	.LASF437
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 91
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 91
 
 
  5116 2078 26       		.byte	0x26
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5170 20ea 9201     		.2byte	0x192
  5171 20ec A6200000 		.4byte	0x20a6
  5172 20f0 05       		.uleb128 0x5
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 92
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 92
 
 
  5173 20f1 E4200000 		.4byte	0x20e4
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5227 2163 EB030000 		.4byte	.LASF455
  5228 2167 28       		.byte	0x28
  5229 2168 6F01     		.2byte	0x16f
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 93
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 93
 
 
  5230 216a F5000000 		.4byte	0xf5
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5284 21d9 8F210000 		.4byte	0x218f
  5285 21dd 00       		.byte	0
  5286 21de 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 94
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 94
 
 
  5287 21df A8030000 		.4byte	.LASF465
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5341 2257 0A       		.uleb128 0xa
  5342 2258 88060000 		.4byte	.LASF342
  5343 225c 28       		.byte	0x28
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 95
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 95
 
 
  5344 225d B201     		.2byte	0x1b2
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5398 22ce 5E000000 		.4byte	0x5e
  5399 22d2 29       		.byte	0x29
  5400 22d3 39       		.byte	0x39
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 96
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 96
 
 
  5401 22d4 F7220000 		.4byte	0x22f7
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5455 2347 2C01     		.2byte	0x12c
  5456 2349 DA000000 		.4byte	0xda
  5457 234d 0C       		.byte	0xc
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 97
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 97
 
 
  5458 234e 0A       		.uleb128 0xa
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5512 23be 03240000 		.4byte	0x2403
  5513 23c2 00       		.byte	0
  5514 23c3 08       		.uleb128 0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 98
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 98
 
 
  5515 23c4 5A010000 		.4byte	.LASF485
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5569 2435 01       		.byte	0x1
  5570 2436 5E000000 		.4byte	0x5e
  5571 243a 2B       		.byte	0x2b
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 99
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 99
 
 
  5572 243b 4A       		.byte	0x4a
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5626 24af 2C       		.byte	0x2c
  5627 24b0 8D01     		.2byte	0x18d
  5628 24b2 00250000 		.4byte	0x2500
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 100
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 100
 
 
  5629 24b6 10       		.byte	0x10
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5683 2529 48250000 		.4byte	0x2548
  5684 252d 0A       		.uleb128 0xa
  5685 252e 05080000 		.4byte	.LASF416
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 101
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 101
 
 
  5686 2532 2C       		.byte	0x2c
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5740 25a4 7301     		.2byte	0x173
  5741 25a6 F5000000 		.4byte	0xf5
  5742 25aa 30       		.byte	0x30
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 102
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 102
 
 
  5743 25ab 00       		.byte	0
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5797 2622 00       		.byte	0
  5798 2623 03       		.uleb128 0x3
  5799 2624 0D170000 		.4byte	.LASF512
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 103
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 103
 
 
  5800 2628 2D       		.byte	0x2d
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5854 2692 28270000 		.4byte	0x2728
  5855 2696 64       		.byte	0x64
  5856 2697 08       		.uleb128 0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 104
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 104
 
 
  5857 2698 9D180000 		.4byte	.LASF517
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5911 2705 43210000 		.4byte	.LASF523
  5912 2709 2D       		.byte	0x2d
  5913 270a 6E       		.byte	0x6e
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 105
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 105
 
 
  5914 270b 87140000 		.4byte	0x1487
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  5968 277a C4       		.byte	0xc4
  5969 277b F5000000 		.4byte	0xf5
  5970 277f 03       		.uleb128 0x3
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 106
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 106
 
 
  5971 2780 44200000 		.4byte	.LASF531
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6025 27ef 30       		.byte	0x30
  6026 27f0 0301     		.2byte	0x103
  6027 27f2 74270000 		.4byte	0x2774
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 107
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 107
 
 
  6028 27f6 34       		.byte	0x34
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6082 2861 39280000 		.4byte	0x2839
  6083 2865 05       		.uleb128 0x5
  6084 2866 5A280000 		.4byte	0x285a
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 108
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 108
 
 
  6085 286a 07       		.uleb128 0x7
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6139 28d6 00       		.byte	0
  6140 28d7 05       		.uleb128 0x5
  6141 28d8 6A280000 		.4byte	0x286a
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 109
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 109
 
 
  6142 28dc 0B       		.uleb128 0xb
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6196 294b 75140000 		.4byte	.LASF337
  6197 294f 32       		.byte	0x32
  6198 2950 BE01     		.2byte	0x1be
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 110
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 110
 
 
  6199 2952 26290000 		.4byte	0x2926
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6253 29c6 9E01     		.2byte	0x19e
  6254 29c8 CC290000 		.4byte	0x29cc
  6255 29cc 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 111
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 111
 
 
  6256 29cd 04       		.byte	0x4
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6310 2a40 31290000 		.4byte	0x2931
  6311 2a44 03       		.uleb128 0x3
  6312 2a45 56100000 		.4byte	.LASF558
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 112
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 112
 
 
  6313 2a49 33       		.byte	0x33
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6367 2abe 9D01     		.2byte	0x19d
  6368 2ac0 F82B0000 		.4byte	0x2bf8
  6369 2ac4 34       		.byte	0x34
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 113
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 113
 
 
  6370 2ac5 0A       		.uleb128 0xa
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6424 2b3a 0A       		.uleb128 0xa
  6425 2b3b B51E0000 		.4byte	.LASF572
  6426 2b3f 34       		.byte	0x34
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 114
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 114
 
 
  6427 2b40 C901     		.2byte	0x1c9
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6481 2bb1 04       		.byte	0x4
  6482 2bb2 00       		.byte	0
  6483 2bb3 1A       		.uleb128 0x1a
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 115
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 115
 
 
  6484 2bb4 AE240000 		.4byte	.LASF582
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6538 2c24 22       		.uleb128 0x22
  6539 2c25 CF120000 		.4byte	.LASF594
  6540 2c29 03       		.byte	0x3
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 116
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 116
 
 
  6541 2c2a 22       		.uleb128 0x22
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6595 2c9c 9F040000 		.4byte	.LASF602
  6596 2ca0 33       		.byte	0x33
  6597 2ca1 4B01     		.2byte	0x14b
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 117
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 117
 
 
  6598 2ca3 A72C0000 		.4byte	0x2ca7
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6652 2d21 BF000000 		.4byte	0xbf
  6653 2d25 0E       		.uleb128 0xe
  6654 2d26 BF000000 		.4byte	0xbf
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 118
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 118
 
 
  6655 2d2a 0E       		.uleb128 0xe
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6709 2d93 E3030000 		.4byte	.LASF613
  6710 2d97 35       		.byte	0x35
  6711 2d98 40       		.byte	0x40
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 119
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 119
 
 
  6712 2d99 00010000 		.4byte	0x100
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6766 2e05 18       		.byte	0x18
  6767 2e06 08       		.uleb128 0x8
  6768 2e07 421F0000 		.4byte	.LASF621
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 120
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 120
 
 
  6769 2e0b 35       		.byte	0x35
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6823 2e74 62       		.byte	0x62
  6824 2e75 00010000 		.4byte	0x100
  6825 2e79 18       		.byte	0x18
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 121
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 121
 
 
  6826 2e7a 08       		.uleb128 0x8
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6880 2ee6 CA180000 		.4byte	.LASF633
  6881 2eea 35       		.byte	0x35
  6882 2eeb 70       		.byte	0x70
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 122
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 122
 
 
  6883 2eec 00010000 		.4byte	0x100
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6937 2f58 00010000 		.4byte	0x100
  6938 2f5c 3C       		.byte	0x3c
  6939 2f5d 08       		.uleb128 0x8
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 123
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 123
 
 
  6940 2f5e 3C0F0000 		.4byte	.LASF642
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  6994 2fd2 F6030000 		.4byte	.LASF651
  6995 2fd6 35       		.byte	0x35
  6996 2fd7 8B       		.byte	0x8b
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 124
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 124
 
 
  6997 2fd8 00010000 		.4byte	0x100
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7051 304c 00010000 		.4byte	0x100
  7052 3050 0808     		.2byte	0x808
  7053 3052 27       		.uleb128 0x27
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 125
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 125
 
 
  7054 3053 80040000 		.4byte	.LASF660
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7108 30c8 4D060000 		.4byte	.LASF669
  7109 30cc 35       		.byte	0x35
  7110 30cd A7       		.byte	0xa7
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 126
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 126
 
 
  7111 30ce 00010000 		.4byte	0x100
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7165 3141 E3310000 		.4byte	0x31e3
  7166 3145 000D     		.2byte	0xd00
  7167 3147 27       		.uleb128 0x27
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 127
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 127
 
 
  7168 3148 32220000 		.4byte	.LASF677
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7222 31c3 13       		.uleb128 0x13
  7223 31c4 9F2D0000 		.4byte	0x2d9f
  7224 31c8 D3310000 		.4byte	0x31d3
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 128
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 128
 
 
  7225 31cc 14       		.uleb128 0x14
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7279 3248 00       		.byte	0
  7280 3249 06       		.uleb128 0x6
  7281 324a 32320000 		.4byte	0x3232
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 129
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 129
 
 
  7282 324e 03       		.uleb128 0x3
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7336 32b4 F0080000 		.4byte	.LASF370
  7337 32b8 34       		.byte	0x34
  7338 32b9 E7       		.byte	0xe7
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 130
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 130
 
 
  7339 32ba C0320000 		.4byte	0x32c0
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7393 3323 ED       		.byte	0xed
  7394 3324 2C000000 		.4byte	0x2c
  7395 3328 10       		.byte	0x10
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 131
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 131
 
 
  7396 3329 00       		.byte	0
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7450 3393 08       		.uleb128 0x8
  7451 3394 8A050000 		.4byte	.LASF693
  7452 3398 34       		.byte	0x34
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 132
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 132
 
 
  7453 3399 F7       		.byte	0xf7
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7507 3409 9B2C0000 		.4byte	0x2c9b
  7508 340d 08       		.byte	0x8
  7509 340e 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 133
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 133
 
 
  7510 340f 4F0B0000 		.4byte	.LASF700
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7564 3483 76340000 		.4byte	0x3476
  7565 3487 19       		.uleb128 0x19
  7566 3488 10       		.byte	0x10
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 134
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 134
 
 
  7567 3489 34       		.byte	0x34
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7621 3501 00       		.byte	0
  7622 3502 0B       		.uleb128 0xb
  7623 3503 04       		.byte	0x4
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 135
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 135
 
 
  7624 3504 4E320000 		.4byte	0x324e
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7678 357b A9       		.byte	0xa9
  7679 357c 81350000 		.4byte	0x3581
  7680 3580 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 136
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 136
 
 
  7681 3581 13       		.uleb128 0x13
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7735 35ef 38       		.byte	0x38
  7736 35f0 32       		.byte	0x32
  7737 35f1 25000000 		.4byte	0x25
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 137
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 137
 
 
  7738 35f5 04       		.byte	0x4
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7792 3660 08       		.uleb128 0x8
  7793 3661 C90D0000 		.4byte	.LASF733
  7794 3665 38       		.byte	0x38
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 138
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 138
 
 
  7795 3666 3B       		.byte	0x3b
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7849 36d3 38       		.byte	0x38
  7850 36d4 4C       		.byte	0x4c
  7851 36d5 F5360000 		.4byte	0x36f5
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 139
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 139
 
 
  7852 36d9 80       		.byte	0x80
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7906 3745 05370000 		.4byte	0x3705
  7907 3749 13       		.uleb128 0x13
  7908 374a 59370000 		.4byte	0x3759
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 140
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 140
 
 
  7909 374e 59370000 		.4byte	0x3759
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  7963 37b7 08       		.byte	0x8
  7964 37b8 08       		.uleb128 0x8
  7965 37b9 0D020000 		.4byte	.LASF752
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 141
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 141
 
 
  7966 37bd 38       		.byte	0x38
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8020 3829 38       		.byte	0x38
  8021 382a CE       		.byte	0xce
  8022 382b 60370000 		.4byte	0x3760
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 142
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 142
 
 
  8023 382f 30       		.byte	0x30
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8077 389b 58       		.byte	0x58
  8078 389c 08       		.uleb128 0x8
  8079 389d AD110000 		.4byte	.LASF766
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 143
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 143
 
 
  8080 38a1 38       		.byte	0x38
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8134 3918 38       		.byte	0x38
  8135 3919 4002     		.2byte	0x240
  8136 391b E53A0000 		.4byte	0x3ae5
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 144
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 144
 
 
  8137 391f 0C       		.byte	0xc
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8191 3994 48       		.byte	0x48
  8192 3995 0A       		.uleb128 0xa
  8193 3996 DC130000 		.4byte	.LASF782
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 145
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 145
 
 
  8194 399a 38       		.byte	0x38
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8248 3a11 04       		.byte	0x4
  8249 3a12 68100000 		.4byte	0x1068
  8250 3a16 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 146
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 146
 
 
  8251 3a17 04       		.byte	0x4
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8305 3a98 37000000 		.4byte	0x37
  8306 3a9c 00       		.byte	0
  8307 3a9d 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 147
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 147
 
 
  8308 3a9e 1A       		.uleb128 0x1a
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8362 3b12 0A       		.uleb128 0xa
  8363 3b13 D2140000 		.4byte	.LASF797
  8364 3b17 38       		.byte	0x38
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 148
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 148
 
 
  8365 3b18 4201     		.2byte	0x142
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8419 3b8c 38       		.byte	0x38
  8420 3b8d 6102     		.2byte	0x261
  8421 3b8f EB3A0000 		.4byte	0x3aeb
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 149
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 149
 
 
  8422 3b93 58       		.byte	0x58
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8476 3c08 B4       		.byte	0xb4
  8477 3c09 0A       		.uleb128 0xa
  8478 3c0a 4B110000 		.4byte	.LASF814
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 150
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 150
 
 
  8479 3c0e 38       		.byte	0x38
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8533 3c83 78       		.byte	0x78
  8534 3c84 00       		.byte	0
  8535 3c85 13       		.uleb128 0x13
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 151
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 151
 
 
  8536 3c86 85370000 		.4byte	0x3785
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8590 3cfe 0E       		.uleb128 0xe
  8591 3cff 25000000 		.4byte	0x25
  8592 3d03 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 152
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 152
 
 
  8593 3d04 0B       		.uleb128 0xb
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8647 3d72 1E       		.byte	0x1e
  8648 3d73 383D0000 		.4byte	0x3d38
  8649 3d77 21       		.uleb128 0x21
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 153
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 153
 
 
  8650 3d78 07       		.byte	0x7
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8704 3de7 25000000 		.4byte	0x25
  8705 3deb 07       		.uleb128 0x7
  8706 3dec C91E0000 		.4byte	.LASF840
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 154
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 154
 
 
  8707 3df0 5C       		.byte	0x5c
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8761 3e59 68100000 		.4byte	0x1068
  8762 3e5d 683E0000 		.4byte	0x3e68
  8763 3e61 14       		.uleb128 0x14
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 155
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 155
 
 
  8764 3e62 37000000 		.4byte	0x37
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8818 3ec8 1F1F0000 		.4byte	.LASF853
  8819 3ecc 3C       		.byte	0x3c
  8820 3ecd 1A       		.byte	0x1a
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 156
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 156
 
 
  8821 3ece A43E0000 		.4byte	0x3ea4
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8875 3f3a 36010000 		.4byte	.LASF858
  8876 3f3e 3D       		.byte	0x3d
  8877 3f3f 63       		.byte	0x63
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 157
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 157
 
 
  8878 3f40 103A0000 		.4byte	0x3a10
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8932 3fae 07       		.uleb128 0x7
  8933 3faf A10E0000 		.4byte	.LASF866
  8934 3fb3 18       		.byte	0x18
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 158
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 158
 
 
  8935 3fb4 3E       		.byte	0x3e
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  8989 401e 08       		.byte	0x8
  8990 401f 3E       		.byte	0x3e
  8991 4020 14       		.byte	0x14
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 159
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 159
 
 
  8992 4021 4A400000 		.4byte	0x404a
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9046 408d 18       		.uleb128 0x18
  9047 408e 62756600 		.ascii	"buf\000"
  9048 4092 3E       		.byte	0x3e
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 160
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 160
 
 
  9049 4093 21       		.byte	0x21
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9103 40f8 3F       		.byte	0x3f
  9104 40f9 0C       		.byte	0xc
  9105 40fa EC3E0000 		.4byte	0x3eec
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 161
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 161
 
 
  9106 40fe 16       		.uleb128 0x16
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9160 4173 06       		.byte	0x6
  9161 4174 8B       		.byte	0x8b
  9162 4175 00000000 		.4byte	.LFB265
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 162
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 162
 
 
  9163 4179 64000000 		.4byte	.LFE265-.LFB265
@@ -9707,7 +9707,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9206 41da E5410000 		.4byte	0x41e5
  9207 41de 05       		.uleb128 0x5
  9208 41df 03       		.byte	0x3
- 9209 41e0 00000000 		.4byte	battery_thd_wa.11936
+ 9209 41e0 00000000 		.4byte	battery_thd_wa.11940
  9210 41e4 00       		.byte	0
  9211 41e5 13       		.uleb128 0x13
  9212 41e6 DC0C0000 		.4byte	0xcdc
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9217 41f4 00       		.byte	0
  9218 41f5 34       		.uleb128 0x34
  9219 41f6 88070000 		.4byte	.LASF890
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 163
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 163
 
 
  9220 41fa 06       		.byte	0x6
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9274 4265 01       		.uleb128 0x1
  9275 4266 9C       		.byte	0x9c
  9276 4267 AA420000 		.4byte	0x42aa
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 164
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 164
 
 
  9277 426b 36       		.uleb128 0x36
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9331 42cf 00       		.byte	0
  9332 42d0 0B       		.uleb128 0xb
  9333 42d1 04       		.byte	0x4
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 165
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 165
 
 
  9334 42d2 C7110000 		.4byte	0x11c7
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9388 4346 3C       		.uleb128 0x3c
  9389 4347 93000000 		.4byte	.LASF897
  9390 434b 01       		.byte	0x1
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 166
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 166
 
 
  9391 434c E401     		.2byte	0x1e4
@@ -9958,7 +9958,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9445 43c7 70       		.sleb128 -16
  9446 43c8 00       		.byte	0
  9447 43c9 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 167
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 167
 
 
  9448 43ca 3F       		.uleb128 0x3f
@@ -10018,7 +10018,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9502 0028 13       		.uleb128 0x13
  9503 0029 00       		.byte	0
  9504 002a 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 168
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 168
 
 
  9505 002b 04       		.uleb128 0x4
@@ -10078,7 +10078,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9559 0061 00       		.byte	0
  9560 0062 09       		.uleb128 0x9
  9561 0063 0D       		.uleb128 0xd
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 169
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 169
 
 
  9562 0064 00       		.byte	0
@@ -10138,7 +10138,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9616 009a 01       		.byte	0x1
  9617 009b 27       		.uleb128 0x27
  9618 009c 19       		.uleb128 0x19
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 170
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 170
 
 
  9619 009d 01       		.uleb128 0x1
@@ -10198,7 +10198,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9673 00d3 0B       		.uleb128 0xb
  9674 00d4 3B       		.uleb128 0x3b
  9675 00d5 05       		.uleb128 0x5
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 171
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 171
 
 
  9676 00d6 49       		.uleb128 0x49
@@ -10258,7 +10258,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9730 010c 3C       		.uleb128 0x3c
  9731 010d 19       		.uleb128 0x19
  9732 010e 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 172
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 172
 
 
  9733 010f 00       		.byte	0
@@ -10318,7 +10318,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9787 0145 00       		.byte	0
  9788 0146 1B       		.uleb128 0x1b
  9789 0147 13       		.uleb128 0x13
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 173
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 173
 
 
  9790 0148 01       		.byte	0x1
@@ -10378,7 +10378,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9844 017e 08       		.uleb128 0x8
  9845 017f 3A       		.uleb128 0x3a
  9846 0180 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 174
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 174
 
 
  9847 0181 3B       		.uleb128 0x3b
@@ -10438,7 +10438,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9901 01b7 3B       		.uleb128 0x3b
  9902 01b8 0B       		.uleb128 0xb
  9903 01b9 49       		.uleb128 0x49
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 175
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 175
 
 
  9904 01ba 13       		.uleb128 0x13
@@ -10498,7 +10498,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  9958 01f0 0D       		.uleb128 0xd
  9959 01f1 00       		.byte	0
  9960 01f2 03       		.uleb128 0x3
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 176
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 176
 
 
  9961 01f3 08       		.uleb128 0x8
@@ -10558,7 +10558,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10015 0229 00       		.byte	0
  10016 022a 2D       		.uleb128 0x2d
  10017 022b 13       		.uleb128 0x13
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 177
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 177
 
 
  10018 022c 01       		.byte	0x1
@@ -10618,7 +10618,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10072 0262 00       		.byte	0
  10073 0263 3F       		.uleb128 0x3f
  10074 0264 19       		.uleb128 0x19
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 178
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 178
 
 
  10075 0265 03       		.uleb128 0x3
@@ -10678,7 +10678,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10129 029d 27       		.uleb128 0x27
  10130 029e 19       		.uleb128 0x19
  10131 029f 11       		.uleb128 0x11
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 179
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 179
 
 
  10132 02a0 01       		.uleb128 0x1
@@ -10738,7 +10738,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10186 02d8 3A       		.uleb128 0x3a
  10187 02d9 0B       		.uleb128 0xb
  10188 02da 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 180
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 180
 
 
  10189 02db 0B       		.uleb128 0xb
@@ -10798,7 +10798,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10243 0312 3A       		.uleb128 0x3a
  10244 0313 05       		.uleb128 0x5
  10245 0314 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 181
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 181
 
 
  10246 0315 03       		.uleb128 0x3
@@ -10858,7 +10858,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10300 034c 9642     		.uleb128 0x2116
  10301 034e 19       		.uleb128 0x19
  10302 034f 00       		.byte	0
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 182
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 182
 
 
  10303 0350 00       		.byte	0
@@ -10918,7 +10918,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10357              		.section	.debug_aranges,"",%progbits
  10358 0000 94000000 		.4byte	0x94
  10359 0004 0200     		.2byte	0x2
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 183
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 183
 
 
  10360 0006 00000000 		.4byte	.Ldebug_info0
@@ -10978,7 +10978,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10414 0034 34000000 		.4byte	.LFE176
  10415 0038 00000000 		.4byte	.LFB183
  10416 003c 30000000 		.4byte	.LFE183
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 184
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 184
 
 
  10417 0040 00000000 		.4byte	.LFB189
@@ -11038,7 +11038,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10451      746F7763 
  10451      5F737461 
  10451      746500
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 185
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 185
 
 
  10452              	.LASF365:
@@ -11098,7 +11098,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10477      6D5F7400 
  10478              	.LASF5:
  10479 00f2 5F5F7569 		.ascii	"__uint8_t\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 186
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 186
 
 
  10479      6E74385F 
@@ -11158,7 +11158,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10509      6D6500
  10510              	.LASF148:
  10511 017c 444F5231 		.ascii	"DOR1\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 187
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 187
 
 
  10511      00
@@ -11218,7 +11218,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10544              	.LASF474:
  10545 01f5 646D6174 		.ascii	"dmatx\000"
  10545      7800
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 188
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 188
 
 
  10546              	.LASF711:
@@ -11278,7 +11278,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10575      6572795F 
  10575      70657263 
  10575      656E7461 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 189
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 189
 
 
  10576              	.LASF608:
@@ -11338,7 +11338,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10607      4D4F4445 
  10607      5F314249 
  10607      5400
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 190
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 190
 
 
  10608              	.LASF606:
@@ -11398,7 +11398,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10635 03b4 73797374 		.ascii	"systime_t\000"
  10635      696D655F 
  10635      7400
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 191
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 191
 
 
  10636              	.LASF408:
@@ -11458,7 +11458,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10666              	.LASF754:
  10667 0445 5F6C6266 		.ascii	"_lbfsize\000"
  10667      73697A65 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 192
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 192
 
 
  10667      00
@@ -11518,7 +11518,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10696              	.LASF50:
  10697 04cf 705F7761 		.ascii	"p_waiting\000"
  10697      6974696E 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 193
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 193
 
 
  10697      6700
@@ -11578,7 +11578,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10722              	.LASF234:
  10723 056e 63665F6F 		.ascii	"cf_off_older\000"
  10723      66665F6F 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 194
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 194
 
 
  10723      6C646572 
@@ -11638,7 +11638,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10751      72696162 
  10751      6C6500
  10752              	.LASF604:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 195
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 195
 
 
  10753 0600 75736272 		.ascii	"usbreqhandler_t\000"
@@ -11698,7 +11698,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10781 0688 74687265 		.ascii	"thread\000"
  10781      616400
  10782              	.LASF387:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 196
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 196
 
 
  10783 068f 72656773 		.ascii	"regshift\000"
@@ -11758,7 +11758,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10813      64383430 
  10813      00
  10814              	.LASF175:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 197
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 197
 
 
  10815 0715 43524350 		.ascii	"CRCPR\000"
@@ -11818,7 +11818,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10842              	.LASF574:
  10843 07a2 77616974 		.ascii	"wait\000"
  10843      00
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 198
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 198
 
 
  10844              	.LASF154:
@@ -11878,7 +11878,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10871      74617465 
  10871      00
  10872              	.LASF483:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 199
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 199
 
 
  10873 0837 69327363 		.ascii	"i2scallback_t\000"
@@ -11938,7 +11938,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10899      705F6362 
  10899      00
  10900              	.LASF6:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 200
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 200
 
 
  10901 08cb 756E7369 		.ascii	"unsigned char\000"
@@ -11998,7 +11998,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10928              	.LASF367:
  10929 0956 43414E5F 		.ascii	"CAN_SLEEP\000"
  10929      534C4545 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 201
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 201
 
 
  10929      5000
@@ -12058,7 +12058,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10962              	.LASF757:
  10963 09d6 5F777269 		.ascii	"_write\000"
  10963      746500
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 202
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 202
 
 
  10964              	.LASF177:
@@ -12118,7 +12118,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  10991      6700
  10992              	.LASF689:
  10993 0a62 7478636E 		.ascii	"txcnt\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 203
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 203
 
 
  10993      7400
@@ -12178,7 +12178,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11019      75746578 
  11019      00
  11020              	.LASF373:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 204
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 204
 
 
  11021 0af5 7478656D 		.ascii	"txempty_event\000"
@@ -12238,7 +12238,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11049      696E00
  11050              	.LASF818:
  11051 0b80 5F6E6D61 		.ascii	"_nmalloc\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 205
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 205
 
 
  11051      6C6C6F63 
@@ -12298,7 +12298,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11081 0c05 74787065 		.ascii	"txpending\000"
  11081      6E64696E 
  11081      6700
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 206
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 206
 
 
  11082              	.LASF428:
@@ -12358,7 +12358,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11113 0c95 72657376 		.ascii	"resvd18\000"
  11113      64313800 
  11114              	.LASF70:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 207
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 207
 
 
  11115 0c9d 725F6F6C 		.ascii	"r_older\000"
@@ -12418,7 +12418,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11144              	.LASF261:
  11145 0d2a 696F5F71 		.ascii	"io_queue_t\000"
  11145      75657565 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 208
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 208
 
 
  11145      5F7400
@@ -12478,7 +12478,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11174              	.LASF668:
  11175 0dbe 44564255 		.ascii	"DVBUSPULSE\000"
  11175      5350554C 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 209
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 209
 
 
  11175      534500
@@ -12538,7 +12538,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11203 0e53 53445F52 		.ascii	"SD_READY\000"
  11203      45414459 
  11203      00
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 210
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 210
 
 
  11204              	.LASF605:
@@ -12598,7 +12598,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11229      736700
  11230              	.LASF741:
  11231 0ef1 5F666E61 		.ascii	"_fnargs\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 211
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 211
 
 
  11231      72677300 
@@ -12658,7 +12658,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11258              	.LASF726:
  11259 0f8f 5F6E6578 		.ascii	"_next\000"
  11259      7400
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 212
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 212
 
 
  11260              	.LASF498:
@@ -12718,7 +12718,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11285      61636B5F 
  11285      7400
  11286              	.LASF265:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 213
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 213
 
 
  11287 1039 715F6275 		.ascii	"q_buffer\000"
@@ -12778,7 +12778,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11318              	.LASF731:
  11319 10bc 5F5F746D 		.ascii	"__tm_sec\000"
  11319      5F736563 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 214
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 214
 
 
  11319      00
@@ -12838,7 +12838,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11346              	.LASF814:
  11347 114b 5F776372 		.ascii	"_wcrtomb_state\000"
  11347      746F6D62 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 215
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 215
 
 
  11347      5F737461 
@@ -12898,7 +12898,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11375      4C455445 
  11375      00
  11376              	.LASF167:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 216
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 216
 
 
  11377 11e8 4454494D 		.ascii	"DTIMER\000"
@@ -12958,7 +12958,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11403      696D6573 
  11403      697A6500 
  11404              	.LASF575:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 217
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 217
 
 
  11405 1283 77615F70 		.ascii	"wa_pump\000"
@@ -13018,7 +13018,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11433 1311 6F705F6D 		.ascii	"op_mode\000"
  11433      6F646500 
  11434              	.LASF3:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 218
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 218
 
 
  11435 1319 7369676E 		.ascii	"signed char\000"
@@ -13078,7 +13078,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11462 13c0 55534244 		.ascii	"USBDescriptor\000"
  11462      65736372 
  11462      6970746F 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 219
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 219
 
 
  11462      7200
@@ -13138,7 +13138,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11487              	.LASF382:
  11488 146a 4441435F 		.ascii	"DAC_ACTIVE\000"
  11488      41435449 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 220
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 220
 
 
  11488      564500
@@ -13198,7 +13198,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11518      6D00
  11519              	.LASF160:
  11520 14fb 504F5745 		.ascii	"POWER\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 221
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 221
 
 
  11520      5200
@@ -13258,7 +13258,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11546 158c 5F706172 		.ascii	"_param_val_str_s\000"
  11546      616D5F76 
  11546      616C5F73 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 222
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 222
 
 
  11546      74725F73 
@@ -13318,7 +13318,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11576 1619 6D5F7175 		.ascii	"m_queue\000"
  11576      65756500 
  11577              	.LASF389:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 223
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 223
 
 
  11578 1621 646D6169 		.ascii	"dmairqprio\000"
@@ -13378,7 +13378,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11606      3100
  11607              	.LASF522:
  11608 16b0 67657474 		.ascii	"gett\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 224
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 224
 
 
  11608      00
@@ -13438,7 +13438,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11640 1733 424C4B5F 		.ascii	"BLK_WRITING\000"
  11640      57524954 
  11640      494E4700 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 225
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 225
 
 
  11641              	.LASF118:
@@ -13498,7 +13498,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11668      5F7400
  11669              	.LASF188:
  11670 17cb 73655F74 		.ascii	"se_tp\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 226
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 226
 
 
  11670      7000
@@ -13558,7 +13558,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11699              	.LASF855:
  11700 185d 6D657373 		.ascii	"messagebus_watchgroup_s\000"
  11700      61676562 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 227
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 227
 
 
  11700      75735F77 
@@ -13618,7 +13618,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11729              	.LASF829:
  11730 18f2 4C454431 		.ascii	"LED1\000"
  11730      00
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 228
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 228
 
 
  11731              	.LASF830:
@@ -13678,7 +13678,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11758 1981 6D657373 		.ascii	"messagebus_watchgroup_t\000"
  11758      61676562 
  11758      75735F77 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 229
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 229
 
 
  11758      61746368 
@@ -13738,7 +13738,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11785              	.LASF623:
  11786 1a27 444F4550 		.ascii	"DOEPCTL\000"
  11786      43544C00 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 230
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 230
 
 
  11787              	.LASF609:
@@ -13798,7 +13798,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11813              	.LASF120:
  11814 1acc 43414E5F 		.ascii	"CAN_FIFOMailBox_TypeDef\000"
  11814      4649464F 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 231
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 231
 
 
  11814      4D61696C 
@@ -13858,7 +13858,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11841              	.LASF653:
  11842 1b6d 72657376 		.ascii	"resvd41C\000"
  11842      64343143 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 232
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 232
 
 
  11842      00
@@ -13918,7 +13918,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11862              	.LASF65:
  11863 1cda 63685F72 		.ascii	"ch_ready_list\000"
  11863      65616479 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 233
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 233
 
 
  11863      5F6C6973 
@@ -13978,7 +13978,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11889      00
  11890              	.LASF686:
  11891 1d7b 71756575 		.ascii	"queue\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 234
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 234
 
 
  11891      6500
@@ -14038,7 +14038,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11920              	.LASF135:
  11921 1e01 52455345 		.ascii	"RESERVED5\000"
  11921      52564544 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 235
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 235
 
 
  11921      3500
@@ -14098,7 +14098,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11949 1e9a 766F6C74 		.ascii	"voltage\000"
  11949      61676500 
  11950              	.LASF439:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 236
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 236
 
 
  11951 1ea2 73746D33 		.ascii	"stm32_tim_t\000"
@@ -14158,7 +14158,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  11977      69676E67 
  11977      616D00
  11978              	.LASF621:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 237
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 237
 
 
  11979 1f42 72657376 		.ascii	"resvd1C\000"
@@ -14218,7 +14218,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  12008              	.LASF130:
  12009 1fce 46533152 		.ascii	"FS1R\000"
  12009      00
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 238
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 238
 
 
  12010              	.LASF26:
@@ -14278,7 +14278,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  12037 2060 53657269 		.ascii	"SerialDriver\000"
  12037      616C4472 
  12037      69766572 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 239
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 239
 
 
  12037      00
@@ -14338,7 +14338,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  12065      7200
  12066              	.LASF887:
  12067 20ee 62617474 		.ascii	"battery_topic_lock\000"
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 240
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 240
 
 
  12067      6572795F 
@@ -14398,7 +14398,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  12095 2180 63685379 		.ascii	"chSysLockFromISR\000"
  12095      734C6F63 
  12095      6B46726F 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 241
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 241
 
 
  12095      6D495352 
@@ -14458,7 +14458,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  12121 221a 4443544C 		.ascii	"DCTL\000"
  12121      00
  12122              	.LASF538:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 242
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 242
 
 
  12123 221f 53444344 		.ascii	"SDCDriverVMT\000"
@@ -14518,7 +14518,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  12150              	.LASF872:
  12151 22ad 6275665F 		.ascii	"buf_len\000"
  12151      6C656E00 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 243
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 243
 
 
  12152              	.LASF58:
@@ -14578,7 +14578,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  12177      68726561 
  12177      6473697A 
  12177      6500
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 244
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 244
 
 
  12178              	.LASF158:
@@ -14638,7 +14638,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  12210              	.LASF8:
  12211 23c4 73686F72 		.ascii	"short int\000"
  12211      7420696E 
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 245
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 245
 
 
  12211      7400
@@ -14698,7 +14698,7 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  12239 245b 50464461 		.ascii	"PFData\000"
  12239      746100
  12240              	.LASF410:
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 246
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 246
 
 
  12241 2462 4558545F 		.ascii	"EXT_STOP\000"
@@ -14736,75 +14736,75 @@ ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 1
  12259      74617465 
  12259      5F7400
  12260              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 247
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 247
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 battery_level.c
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:18     .text.port_lock:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:25     .text.port_lock:00000000 port_lock
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:72     .text.port_lock:0000002c $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:77     .text.port_unlock:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:84     .text.port_unlock:00000000 port_unlock
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:129    .text.port_unlock:0000002c $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:134    .text.port_lock_from_isr:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:141    .text.port_lock_from_isr:00000000 port_lock_from_isr
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:174    .text.port_lock_from_isr:00000024 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:179    .text.port_unlock_from_isr:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:186    .text.port_unlock_from_isr:00000000 port_unlock_from_isr
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:219    .text.port_unlock_from_isr:00000024 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:224    .text.chSysLockFromISR:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:231    .text.chSysLockFromISR:00000000 chSysLockFromISR
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:269    .text.chSysLockFromISR:0000002c $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:274    .text.chSysUnlockFromISR:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:281    .text.chSysUnlockFromISR:00000000 chSysUnlockFromISR
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:318    .text.chSysUnlockFromISR:0000002c $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:323    .text.chRegSetThreadName:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:330    .text.chRegSetThreadName:00000000 chRegSetThreadName
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:368    .text.chRegSetThreadName:0000002c $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:374    .text.chBSemWait:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:381    .text.chBSemWait:00000000 chBSemWait
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:419    .text.chBSemWait:0000002c $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:424    .text.chBSemSignalI:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:431    .text.chBSemSignalI:00000000 chBSemSignalI
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:475    .text.chBSemSignalI:00000038 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:480    .bss.adc_value:00000000 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:483    .bss.adc_value:00000000 adc_value
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:486    .bss.adc_samples:00000000 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:489    .bss.adc_samples:00000000 adc_samples
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:492    .data.measurement_ready:00000000 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:495    .data.measurement_ready:00000000 measurement_ready
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:500    .bss.battery_value:00000000 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:503    .bss.battery_value:00000000 battery_value
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:506    .rodata.group:00000000 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:509    .rodata.group:00000000 group
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:530    .text.adc_cb:00000000 adc_cb
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:523    .text.adc_cb:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:618    .text.adc_cb:00000080 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:628    .rodata:00000000 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:635    .text.battery_thd:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:642    .text.battery_thd:00000000 battery_thd
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:781    .text.battery_thd:00000118 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:802    .text.battery_level_start:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:810    .text.battery_level_start:00000000 battery_level_start
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:853    .text.battery_level_start:0000003c $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:1090   .bss.battery_thd_wa.11936:00000000 battery_thd_wa.11936
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:861    .text.get_battery_raw:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:869    .text.get_battery_raw:00000000 get_battery_raw
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:903    .text.get_battery_raw:00000024 $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:909    .text.get_battery_voltage:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:917    .text.get_battery_voltage:00000000 get_battery_voltage
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:952    .text.get_battery_voltage:0000002c $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:958    .text.get_battery_percentage:00000000 $t
-ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s 			page 248
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:18     .text.port_lock:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:25     .text.port_lock:00000000 port_lock
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:72     .text.port_lock:0000002c $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:77     .text.port_unlock:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:84     .text.port_unlock:00000000 port_unlock
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:129    .text.port_unlock:0000002c $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:134    .text.port_lock_from_isr:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:141    .text.port_lock_from_isr:00000000 port_lock_from_isr
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:174    .text.port_lock_from_isr:00000024 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:179    .text.port_unlock_from_isr:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:186    .text.port_unlock_from_isr:00000000 port_unlock_from_isr
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:219    .text.port_unlock_from_isr:00000024 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:224    .text.chSysLockFromISR:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:231    .text.chSysLockFromISR:00000000 chSysLockFromISR
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:269    .text.chSysLockFromISR:0000002c $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:274    .text.chSysUnlockFromISR:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:281    .text.chSysUnlockFromISR:00000000 chSysUnlockFromISR
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:318    .text.chSysUnlockFromISR:0000002c $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:323    .text.chRegSetThreadName:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:330    .text.chRegSetThreadName:00000000 chRegSetThreadName
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:368    .text.chRegSetThreadName:0000002c $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:374    .text.chBSemWait:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:381    .text.chBSemWait:00000000 chBSemWait
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:419    .text.chBSemWait:0000002c $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:424    .text.chBSemSignalI:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:431    .text.chBSemSignalI:00000000 chBSemSignalI
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:475    .text.chBSemSignalI:00000038 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:480    .bss.adc_value:00000000 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:483    .bss.adc_value:00000000 adc_value
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:486    .bss.adc_samples:00000000 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:489    .bss.adc_samples:00000000 adc_samples
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:492    .data.measurement_ready:00000000 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:495    .data.measurement_ready:00000000 measurement_ready
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:500    .bss.battery_value:00000000 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:503    .bss.battery_value:00000000 battery_value
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:506    .rodata.group:00000000 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:509    .rodata.group:00000000 group
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:530    .text.adc_cb:00000000 adc_cb
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:523    .text.adc_cb:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:618    .text.adc_cb:00000080 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:628    .rodata:00000000 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:635    .text.battery_thd:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:642    .text.battery_thd:00000000 battery_thd
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:781    .text.battery_thd:00000118 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:802    .text.battery_level_start:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:810    .text.battery_level_start:00000000 battery_level_start
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:853    .text.battery_level_start:0000003c $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:1090   .bss.battery_thd_wa.11940:00000000 battery_thd_wa.11940
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:861    .text.get_battery_raw:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:869    .text.get_battery_raw:00000000 get_battery_raw
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:903    .text.get_battery_raw:00000024 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:909    .text.get_battery_voltage:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:917    .text.get_battery_voltage:00000000 get_battery_voltage
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:952    .text.get_battery_voltage:0000002c $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:958    .text.get_battery_percentage:00000000 $t
+ARM GAS  C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s 			page 248
 
 
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:966    .text.get_battery_percentage:00000000 get_battery_percentage
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:1001   .text.get_battery_percentage:0000002c $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:1007   .text.battery_check:00000000 $t
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:1015   .text.battery_check:00000000 battery_check
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:1081   .text.battery_check:0000005c $d
-C:\Users\Moi\AppData\Local\Temp\ccQ2Fnrt.s:1087   .bss.battery_thd_wa.11936:00000000 $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:966    .text.get_battery_percentage:00000000 get_battery_percentage
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:1001   .text.get_battery_percentage:0000002c $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:1007   .text.battery_check:00000000 $t
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:1015   .text.battery_check:00000000 battery_check
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:1081   .text.battery_check:0000005c $d
+C:\Users\Moi\AppData\Local\Temp\ccDtEuep.s:1087   .bss.battery_thd_wa.11940:00000000 $d
 
 UNDEFINED SYMBOLS
 __stack_chk_fail

@@ -21,7 +21,7 @@ static THD_FUNCTION(blinkLed, arg) {
     	chThdSleepMilliseconds(500);
     }
 
-    chThdExit((msg_t)"");
+    set_led(LED5, ON);
 }
 
 // @brief calibrates imu
@@ -65,37 +65,37 @@ void calibrate_imu(void) {
 
 	}
 
-	// kill blink led
+	// kill blink led and sets it on
 	chThdTerminate(blinkLed_p);
 
 	// calibration with led animation
-	set_led(LED5, ON);
 	calibrate_acc(); //pk ça éteint la led ?
 	calibrate_gyro();
-	set_led(LED5, ON);
-	chThdSleepMilliseconds(500);
+	chThdSleepMilliseconds(300);
 
 	// why not work ? waii ?
-	set_rgb_led(LED6, 10, 0, 0);
-	set_rgb_led(LED4, 10, 0, 0);
-	chThdSleepMilliseconds(750);
+	//set_rgb_led(LED6, 10, 0, 0);
+	//set_rgb_led(LED4, 10, 0, 0);
+	//chThdSleepMilliseconds(750);
 
 	set_led(LED7, ON);
 	set_led(LED3, ON);
 	chThdSleepMilliseconds(500);
+
 	//set_rgb_led(LED8, 10, 0, 0);
 	//set_rgb_led(LED2, 10, 0, 0);
 	//chThdSleepMilliseconds(750);
+
 	set_led(LED1, ON);
 	chThdSleepMilliseconds(500);
 	clear_leds();
 
-	// blink body led until selector is switched
+	readyAnimation();
+
 	while (get_selector() == 1) {
-		set_body_led(TOGGLE);
 		chThdSleepMilliseconds(500);
 	}
 
-	set_body_led(OFF);
+	// go back to main
 	main();
 }

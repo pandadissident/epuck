@@ -31,31 +31,32 @@ static void serial_start(void)
 }
 
 // @brief
-// idle behavior : waiting for new task
-/*
-static THD_WORKING_AREA(idle_wa, 128);
-static THD_FUNCTION(idle, arg) {
+void startingAnimation(void) {
 
-    chRegSetThreadName(__FUNCTION__);
-    (void)arg;
+	chThdSleepMilliseconds(100);
 
-    while(!chThdShouldTerminateX()){
-		newTask = get_selector(); // + aboveCritAngle();
-        if (newTask) {
-        	newTask = FALSE;
-        	chThdTerminate(waitForTask_p)
-        }
-    	set_led(LED5, TOGGLE);
-    	chThdSleepMilliseconds(500);
-    }
-
-
-    chThdExit((msg_t)"");
-    main();
 }
-*/
 
+// @brief
+void readyAnimation(void) {
 
+	set_body_led(ON);
+	chThdSleepMilliseconds(100);
+	set_body_led(OFF);
+	chThdSleepMilliseconds(50);
+	set_body_led(ON);
+	chThdSleepMilliseconds(100);
+	set_body_led(OFF);
+	chThdSleepMilliseconds(50);
+	set_body_led(ON);
+	chThdSleepMilliseconds(100);
+	set_body_led(OFF);
+	chThdSleepMilliseconds(50);
+	set_body_led(ON);
+
+}
+
+// @brief
 int main(void) {
 
 	/*********************/
@@ -91,20 +92,15 @@ int main(void) {
 		serial_start();
 		imu_start();
 
-
-		//start timers
-			//timer11_start();
-			//timer12_start();
-
 	    sysInitialised = TRUE;
 
+	    startingAnimation();
+
 	} else {
-
-		// kill threads
-		//chThdTerminate(idle_p);
-
+		clear_leds();
+		set_body_led(OFF);
+		set_front_led(OFF);
 	}
-
 
 	/********************/
 	/** State selector **/
@@ -132,11 +128,13 @@ int main(void) {
 
     }
 
+
 	/*************/
 	/** Threads **/
 	/*************/
 
-    //thread_t *idle_p = chThdCreateStatic(idle_wa, sizeof(idle_wa), NORMALPRIO, idle, NULL);
+    //thread_t *name_p = chThdCreateStatic(name_wa, sizeof(name_wa), NORMALPRIO, name, NULL);
+    //chThdTerminate(name_p);
 
 	/********************/
 	/** Infinite loop. **/
@@ -144,7 +142,7 @@ int main(void) {
 
 	while (1) {
 
-		// wait for new measurement task
+		// idle behavior : waiting for new task
 		newTask = get_selector(); // + aboveCritAngle();
         if (newTask) {
         	set_front_led(OFF);
