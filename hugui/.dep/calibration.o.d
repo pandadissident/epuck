@@ -113,8 +113,9 @@ build/obj/calibration.o: calibration.c ..//ChibiOS//os/rt/include/ch.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h \
- calibration.h ..//src/sensors/imu.h ..//src/sensors/mpu9250.h \
- ..//src/sensors/mpu9250_registers.h ..//src/leds.h ..//src/selector.h
+ calibration.h ..//src/sensors/mpu9250.h \
+ ..//src/sensors/mpu9250_registers.h ..//src/sensors/imu.h ..//src/leds.h \
+ ..//src/selector.h
 
 ..//ChibiOS//os/rt/include/ch.h:
 
@@ -380,11 +381,11 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 
 calibration.h:
 
-..//src/sensors/imu.h:
-
 ..//src/sensors/mpu9250.h:
 
 ..//src/sensors/mpu9250_registers.h:
+
+..//src/sensors/imu.h:
 
 ..//src/leds.h:
 

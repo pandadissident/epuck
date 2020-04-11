@@ -8,6 +8,10 @@ extern "C" {
 #include <hal.h>
 #include "sensors/mpu9250.h"
 
+#define XAXIS 0
+#define YAXIS 1
+#define ZAXIS 2
+
 /** Message containing one measurement from the IMU. */
 typedef struct {
     float acceleration[3]; // m/s^2

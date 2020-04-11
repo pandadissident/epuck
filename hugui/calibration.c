@@ -5,6 +5,7 @@
 
 #include "calibration.h"
 
+#include "sensors/mpu9250.h"
 #include "sensors/imu.h"
 #include "leds.h"
 #include "selector.h"
@@ -28,8 +29,8 @@ static THD_FUNCTION(blinkLed, arg) {
 void calibrate_imu(void) {
 
 	uint8_t i = 0;
-	int16_t altSum[6][3] = {0}; //acceleration circular buffer of last 3 sec
-	int16_t tot = 0;
+	int16_t altSum[SAMPLES][NB_AXIS] = {0}; //acceleration circular buffer of last 3 sec
+	float tot = 0; //takes wide range of values
 	bool unstable = TRUE;
 
 	systime_t time;
@@ -41,7 +42,7 @@ void calibrate_imu(void) {
 	// wait for EPuck to be stable
 	while (unstable) {
 
-		get_acc_all(altSum[i % 6]);
+		get_acc_all(altSum[i % SAMPLES]);
 		time = chVTGetSystemTime();
 
 		if (i % 2) {
@@ -49,11 +50,11 @@ void calibrate_imu(void) {
 			tot = 0;
 
 			// alternate sum of all acceleration values
-			for (uint8_t j = 0 ; j < 6 ; j += 2) {
-				tot += altSum[j][0] - altSum[j+1][0] + altSum[j][1] - altSum[j+1][1] + altSum[j][2] - altSum[j+1][2];
+			for (uint8_t j = 0 ; j < SAMPLES ; j += 2) {
+				tot += fabs(altSum[j][X_AXIS] - altSum[j+1][X_AXIS]) + fabs(altSum[j][Y_AXIS] - altSum[j+1][Y_AXIS]) + fabs(altSum[j][Z_AXIS] - altSum[j+1][Z_AXIS]);
 			}
 
-			if ((fabs(tot) < THRESHOLD) && (i > 12)) {
+			if ((i > 2*SAMPLES) && (tot < (float)THRESHOLD)) {
 				unstable = FALSE;
 			}
 		}
@@ -61,7 +62,7 @@ void calibrate_imu(void) {
 		i++;
 
 		//reduced the sample rate
-		chThdSleepUntilWindowed(time, time + MS2ST(250));
+		chThdSleepUntilWindowed(time, time + MS2ST(125));
 
 	}
 
@@ -69,9 +70,8 @@ void calibrate_imu(void) {
 	chThdTerminate(blinkLed_p);
 
 	// calibration with led animation
-	calibrate_acc(); //pk ça éteint la led ?
+	calibrate_acc();
 	calibrate_gyro();
-	chThdSleepMilliseconds(300);
 
 	// why not work ? waii ?
 	//set_rgb_led(LED6, 10, 0, 0);
@@ -89,6 +89,29 @@ void calibrate_imu(void) {
 	set_led(LED1, ON);
 	chThdSleepMilliseconds(500);
 	clear_leds();
+
+	static int16_t a, b, c = 0;
+
+	a = get_acc_offset(X_AXIS);
+	b = get_acc_offset(Y_AXIS);
+	c = get_acc_offset(Z_AXIS);
+
+	readyAnimation();
+
+	while (get_selector() == 1) {
+		chThdSleepMilliseconds(500);
+	}
+
+	// go back to main
+	main();
+}
+
+// @brief calibrates imu
+void calibrate_tof(void) {
+
+	chThdSleepMilliseconds(1000);
+
+	/* HUGO */
 
 	readyAnimation();
 

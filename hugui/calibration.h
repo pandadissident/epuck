@@ -4,6 +4,13 @@
 #include "msgbus/messagebus.h"
 #include "parameter/parameter.h"
 
+#define SAMPLES 8
+#define THRESHOLD SAMPLES*100
+#define RED 100, 0, 0
+#define GREEN 0, 100, 0
+#define BLUE 0, 0, 100
+
+
 // Robot wide IPC bus
 extern messagebus_t bus;
 extern parameter_namespace_t parameter_root;
@@ -16,7 +23,12 @@ extern parameter_namespace_t parameter_root;
  */
 void calibrate_imu(void);
 
-#define THRESHOLD 100
-#define RED 100, 0, 0
+/*! @brief
+ *
+ *  @param
+ *  @param values
+ *  @warning
+ */
+void calibrate_tof(void);
 
 #endif

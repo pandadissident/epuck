@@ -5,8 +5,8 @@
 #include <main.h>
 
 #include "leds.h"
-#include "selector.h"
 #include "sensors/imu.h"
+#include "selector.h"
 #include "calibration.h"
 #include "pid_regulator.h"
 #include "mass_computation.h"

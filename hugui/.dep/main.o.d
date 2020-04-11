@@ -112,9 +112,9 @@ build/obj/main.o: main.c ..//ChibiOS//os/rt/include/ch.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\reent.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h \
- ..//src/leds.h ..//src/selector.h ..//src/sensors/imu.h \
- ..//src/sensors/mpu9250.h ..//src/sensors/mpu9250_registers.h \
- calibration.h pid_regulator.h mass_computation.h
+ ..//src/leds.h ..//src/sensors/imu.h ..//src/sensors/mpu9250.h \
+ ..//src/sensors/mpu9250_registers.h ..//src/selector.h calibration.h \
+ pid_regulator.h mass_computation.h
 
 ..//ChibiOS//os/rt/include/ch.h:
 
@@ -380,13 +380,13 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 
 ..//src/leds.h:
 
-..//src/selector.h:
-
 ..//src/sensors/imu.h:
 
 ..//src/sensors/mpu9250.h:
 
 ..//src/sensors/mpu9250_registers.h:
+
+..//src/selector.h:
 
 calibration.h:
 
