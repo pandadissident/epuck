@@ -84,11 +84,7 @@ build/obj/imu.o: ..//src/sensors/imu.c ..//ChibiOS//os/rt/include/ch.h \
  ..//ChibiOS_ext/os/hal/ports/STM32/STM32F4xx/stm32_registry.h \
  ..//ChibiOS//os/hal/include/mmc_spi.h \
  ..//ChibiOS//os/hal/include/serial_usb.h main.h \
- ..//src/camera/dcmi_camera.h ..//ChibiOS_ext/os/hal/include/dcmi.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h \
- ..//src/camera/po8030.h ..//src/msgbus/messagebus.h \
+ ..//src/msgbus/messagebus.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h \
@@ -324,18 +320,6 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 ..//ChibiOS//os/hal/include/serial_usb.h:
 
 main.h:
-
-..//src/camera/dcmi_camera.h:
-
-..//ChibiOS_ext/os/hal/include/dcmi.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h:
-
-..//src/camera/po8030.h:
 
 ..//src/msgbus/messagebus.h:
 

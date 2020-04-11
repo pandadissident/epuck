@@ -1,13 +1,14 @@
-#include "ch.h"
-#include "hal.h"
+#include <ch.h>
+#include <hal.h>
 #include <math.h>
-#include <usbcfg.h>
-#include <chprintf.h>
-
-
 #include <main.h>
-#include <motors.h>
-#include <pid_regulator.h>
+
+#include "pid_regulator.h"
+
+#include "motors.h"
+//#include <usbcfg.h>
+
+
 
 //simple PID regulator implementation
 int16_t pid_regulator(float distance, float goal){

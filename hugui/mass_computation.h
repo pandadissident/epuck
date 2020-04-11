@@ -1,5 +1,5 @@
-#ifndef CALIBRATION_H
-#define CALIBRATION_H
+#ifndef MASS_COMPUTATION_H_
+#define MASS_COMPUTATION_H_
 
 #include "msgbus/messagebus.h"
 #include "parameter/parameter.h"
@@ -14,9 +14,7 @@ extern parameter_namespace_t parameter_root;
  *  @param values
  *  @warning
  */
-void calibrate_imu(void);
+void measure_mass(void);
 
-#define THRESHOLD 100
-#define RED 100, 0, 0
 
-#endif
+#endif /* MASS_COMPUTATION_H_ */

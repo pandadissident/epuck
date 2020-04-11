@@ -1,5 +1,7 @@
-#include "main.h"
+#include <ch.h>
+#include <hal.h>
 #include <math.h>
+#include <main.h>
 
 #include "calibration.h"
 
@@ -7,9 +9,7 @@
 #include "leds.h"
 #include "selector.h"
 
-extern messagebus_t bus;
-
-// makes led blink
+// @brief makes led blink
 static THD_WORKING_AREA(blinkLed_wa, 128);
 static THD_FUNCTION(blinkLed, arg) {
 
@@ -24,6 +24,7 @@ static THD_FUNCTION(blinkLed, arg) {
     chThdExit((msg_t)"");
 }
 
+// @brief calibrates imu
 void calibrate_imu(void) {
 
 	uint8_t i = 0;
@@ -73,9 +74,12 @@ void calibrate_imu(void) {
 	calibrate_gyro();
 	set_led(LED5, ON);
 	chThdSleepMilliseconds(500);
-	//set_rgb_led(LED6, 10, 0, 0);
-	//set_rgb_led(LED4, 10, 0, 0);
-	//chThdSleepMilliseconds(750);
+
+	// why not work ? waii ?
+	set_rgb_led(LED6, 10, 0, 0);
+	set_rgb_led(LED4, 10, 0, 0);
+	chThdSleepMilliseconds(750);
+
 	set_led(LED7, ON);
 	set_led(LED3, ON);
 	chThdSleepMilliseconds(500);

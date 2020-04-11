@@ -133,13 +133,7 @@ build/obj/communication.o: ..//src/communication.c \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdarg.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\stdio.h \
  ..//src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_i2c_platform.h \
- main.h ..//src/camera/dcmi_camera.h \
- ..//ChibiOS_ext/os/hal/include/dcmi.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h \
- ..//src/camera/po8030.h ..//src/msgbus/messagebus.h \
- ..//src/parameter/parameter.h
+ main.h ..//src/msgbus/messagebus.h ..//src/parameter/parameter.h
 
 ..//ChibiOS//os/hal/include/hal.h:
 
@@ -450,18 +444,6 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 ..//src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_i2c_platform.h:
 
 main.h:
-
-..//src/camera/dcmi_camera.h:
-
-..//ChibiOS_ext/os/hal/include/dcmi.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h:
-
-..//src/camera/po8030.h:
 
 ..//src/msgbus/messagebus.h:
 

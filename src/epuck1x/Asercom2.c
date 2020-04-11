@@ -32,6 +32,7 @@
 #include <motor_led/advance_one_timer/e_agenda.h>
 #include <camera/fast_2_timer/e_po8030d.h>
 #include <camera/fast_2_timer/e_poxxxx.h>
+#include <camera/dcmi_camera.h>
 #include <codec/e_sound.h>
 #include <utility/utility.h>
 #include <acc_gyro/e_lsm330.h>

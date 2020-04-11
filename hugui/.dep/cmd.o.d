@@ -128,8 +128,7 @@ build/obj/cmd.o: ..//src/cmd.c \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h \
- ..//src/leds.h main.h ..//src/camera/dcmi_camera.h \
- ..//src/msgbus/messagebus.h \
+ ..//src/leds.h main.h ..//src/msgbus/messagebus.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h \
  ..//src/parameter/parameter.h ..//src/motors.h ..//src/fat.h \
@@ -442,8 +441,6 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 ..//src/leds.h:
 
 main.h:
-
-..//src/camera/dcmi_camera.h:
 
 ..//src/msgbus/messagebus.h:
 

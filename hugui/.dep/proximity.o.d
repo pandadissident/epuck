@@ -113,12 +113,7 @@ build/obj/proximity.o: ..//src/sensors/proximity.c \
  ..//ChibiOS_ext/os/hal/ports/STM32/STM32F4xx/stm32_registry.h \
  ..//ChibiOS//os/hal/include/mmc_spi.h \
  ..//ChibiOS//os/hal/include/serial_usb.h ..//src/sensors/proximity.h \
- main.h ..//src/camera/dcmi_camera.h \
- ..//ChibiOS_ext/os/hal/include/dcmi.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h \
- ..//src/camera/po8030.h ..//src/msgbus/messagebus.h \
+ main.h ..//src/msgbus/messagebus.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h \
  ..//src/parameter/parameter.h \
@@ -387,18 +382,6 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 ..//src/sensors/proximity.h:
 
 main.h:
-
-..//src/camera/dcmi_camera.h:
-
-..//ChibiOS_ext/os/hal/include/dcmi.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h:
-
-..//src/camera/po8030.h:
 
 ..//src/msgbus/messagebus.h:
 

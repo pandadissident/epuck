@@ -84,12 +84,7 @@ build/obj/main.o: main.c ..//ChibiOS//os/rt/include/ch.h \
  ..//ChibiOS_ext/os/hal/ports/STM32/STM32F4xx/stm32_registry.h \
  ..//ChibiOS//os/hal/include/mmc_spi.h \
  ..//ChibiOS//os/hal/include/serial_usb.h ..//src/memory_protection.h \
- main.h ..//src/camera/dcmi_camera.h \
- ..//ChibiOS_ext/os/hal/include/dcmi.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h \
- ..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h \
- ..//src/camera/po8030.h ..//src/msgbus/messagebus.h \
+ main.h ..//src/msgbus/messagebus.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h \
@@ -119,7 +114,7 @@ build/obj/main.o: main.c ..//ChibiOS//os/rt/include/ch.h \
  c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h \
  ..//src/leds.h ..//src/selector.h ..//src/sensors/imu.h \
  ..//src/sensors/mpu9250.h ..//src/sensors/mpu9250_registers.h \
- calibration.h pid_regulator.h
+ calibration.h pid_regulator.h mass_computation.h
 
 ..//ChibiOS//os/rt/include/ch.h:
 
@@ -327,18 +322,6 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 
 main.h:
 
-..//src/camera/dcmi_camera.h:
-
-..//ChibiOS_ext/os/hal/include/dcmi.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h:
-
-..//ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h:
-
-..//src/camera/po8030.h:
-
 ..//src/msgbus/messagebus.h:
 
 c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h:
@@ -408,3 +391,5 @@ c:\users\moi\documents\_microinfo\epuck-eclipse\tools\gcc-arm-none-eabi-7-2017-q
 calibration.h:
 
 pid_regulator.h:
+
+mass_computation.h:

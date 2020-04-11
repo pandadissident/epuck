@@ -5,9 +5,12 @@
 extern "C" {
 #endif
 
-#include "camera/dcmi_camera.h"
 #include "msgbus/messagebus.h"
 #include "parameter/parameter.h"
+
+// Robot wide IPC bus
+extern messagebus_t bus;
+extern parameter_namespace_t parameter_root;
 
 #define MEASUREMENT 0
 #define IMU_CALIBRATION 1
@@ -18,10 +21,12 @@ extern "C" {
 #define TOGGLE 2
 #define ALL 4
 
-// Robot wide IPC bus
-extern messagebus_t bus;
-extern parameter_namespace_t parameter_root;
-
+/*! @brief
+ *
+ *  @param
+ *  @param values
+ *  @warning
+ */
 int main(void);
 
 #ifdef __cplusplus

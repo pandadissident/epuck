@@ -1,6 +1,13 @@
 #ifndef PID_REGULATOR_H
 #define PID_REGULATOR_H
 
+#include "msgbus/messagebus.h"
+#include "parameter/parameter.h"
+
+// Robot wide IPC bus
+extern messagebus_t bus;
+extern parameter_namespace_t parameter_root;
+
 //constants for the differents parts of the project
 #define IMAGE_BUFFER_SIZE		640
 #define WIDTH_SLOPE				5
@@ -15,7 +22,12 @@
 #define KI 						3.5f	//must not be zero
 #define MAX_SUM_ERROR 			(MOTOR_SPEED_LIMIT/KI)
 
-//start the PID regulator thread
+/*! @brief
+ *
+ *  @param
+ *  @param values
+ *  @warning
+ */
 void pid_regulator_start(void);
 
 #endif /* PID_REGULATOR_H */
