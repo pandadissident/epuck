@@ -6,6 +6,7 @@
 
 #include "leds.h"
 #include "sensors/imu.h"
+#include "sensors/VL53L0X/VL53L0X.h"
 #include "selector.h"
 #include "calibration.h"
 #include "pid_regulator.h"
@@ -65,6 +66,7 @@ int main(void) {
 
 	static bool newTask = FALSE;
 	static bool sysInitialised = FALSE;
+	static int8_t fsm_state = 0;
 	//static uint8_t eqPosEstimate = 0;
 	//static uint8_t eqPos = 0;
 	//static uint8_t mass = 0;
@@ -90,6 +92,7 @@ int main(void) {
 		//proximity_start();
 		//battery_level_start();
 		serial_start();
+		//VL53L0X_init(VL53L0X_Dev_t* device); //!!!!!!!!!!! HUGO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		imu_start();
 
 	    sysInitialised = TRUE;
@@ -113,16 +116,15 @@ int main(void) {
     		break;
 
     	case TOF_CALIBRATION :
-    		//calibrate_tof();
-    		chThdSleepMilliseconds(500);
+    		calibrate_tof(); //!!!!!!!!!!! HUGO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     		break;
 
     	case MEASUREMENT :
-    		//measure_mass();
-    		chThdSleepMilliseconds(500);
+    		measure_mass();
     		break;
 
     	default:
+    		fsm_state = get_selector();
     		chThdSleepMilliseconds(500);
     		break;
 
@@ -143,7 +145,7 @@ int main(void) {
 	while (1) {
 
 		// idle behavior : waiting for new task
-		newTask = get_selector(); // + aboveCritAngle();
+		newTask = !(fsm_state == get_selector()); // + aboveCritAngle();
         if (newTask) {
         	set_front_led(OFF);
         	newTask = false;

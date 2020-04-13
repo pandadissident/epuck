@@ -5,8 +5,48 @@
 
 #include "mass_computation.h"
 
+#include "calibration.h"
+#include "selector.h"
+#include "sensors\VL53L0X\VL53L0X.h"
+#include "leds.h"
+
+int estimateTipOverPosition(void) {
+
+	int8_t eqPosEstimate = 0;
+
+	//blabla
+
+	return eqPosEstimate;
+}
+
+int preciseTipOverPosition(int eqPosEstimate) {
+
+	int8_t eqPos = 0;
+
+	//blabla
+
+	return eqPos;
+}
+
+int computeMass(int eqPos) {
+
+	int8_t mass = 0;
+
+	//blabla
+
+	return mass;
+}
 
 void measure_mass(void) {
+
+	int8_t originPos = 0;
+
+	// visualiser le mode
+	set_led(LED5, ON);
+	set_led(LED1, ON);
+	chThdSleepMilliseconds(1000);
+
+	originPos = get_originPos();
 
     //launch ir thread for lateral positioning
 
@@ -28,9 +68,14 @@ void measure_mass(void) {
 
     //mass = computeMass(eqPos);
 
-    //sendMass(mass);
+    //sendMass(mass); //par bluetooth
 
-	return;
+	readyAnimation();
 
+	while (get_selector() == 0) {
+		chThdSleepMilliseconds(500);
+	}
+
+	// go back to main
+	main();
 }
-

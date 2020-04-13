@@ -12,6 +12,7 @@ GLOBAL_PATH = ../
 CSRC += ./main.c \
 		./calibration.c \
 		./pid_regulator.c \
+		./mass_computation.c \
 
 #Header folders to include
 INCDIR += 

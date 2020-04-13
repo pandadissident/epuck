@@ -10,6 +10,8 @@
 #include "leds.h"
 #include "selector.h"
 
+static int16_t originPos = 0;
+
 // @brief makes led blink
 static THD_WORKING_AREA(blinkLed_wa, 128);
 static THD_FUNCTION(blinkLed, arg) {
@@ -112,16 +114,29 @@ void calibrate_imu(void) {
 // @brief calibrates imu
 void calibrate_tof(void) {
 
+	// visualiser le mode
+	set_led(LED7, ON);
+	set_led(LED3, ON);
 	chThdSleepMilliseconds(1000);
 
-	/* HUGO */
+	/**********/
+	/** HUGO **/
+	/**********/
+
+	// set local variable originPos
+	//originPos = ??
 
 	readyAnimation();
 
-	while (get_selector() == 1) {
+	while (get_selector() == 2) {
 		chThdSleepMilliseconds(500);
 	}
 
 	// go back to main
 	main();
+}
+
+// @brief calibrates imu
+int get_originPos(void) {
+	return originPos;
 }

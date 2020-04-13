@@ -32,4 +32,12 @@ void calibrate_imu(void);
  */
 void calibrate_tof(void);
 
+/*! @brief
+ *
+ *  @param
+ *  @param values
+ *  @warning
+ */
+int get_originPos(void);
+
 #endif
