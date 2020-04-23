@@ -79,16 +79,11 @@ void calibrate_imu_prox(void) {
 	// kill blink led and sets it on
 	chThdTerminate(blinkLed_p);
 
-	// calibration with led animation
-	chThdSleepMilliseconds(400);
+	// calibrate gyro acc and ir with led animation
+	calibrate_acc();
 
 	set_rgb_led(LED6, 10, 0, 0);
 	set_rgb_led(LED4, 10, 0, 0);
-
-	calibrate_acc();
-
-	set_led(LED7, ON);
-	set_led(LED3, ON);
 
 	calibrate_gyro();
 
@@ -100,11 +95,8 @@ void calibrate_imu_prox(void) {
 	set_led(LED1, ON);
 
 	chThdSleepMilliseconds(400);
-
 	clear_leds();
-
 	readyAnimation();
-
 
 	//get_acceleration(X_AXIS);
 	//get_gyro_rate(X_AXIS);

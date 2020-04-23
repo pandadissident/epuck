@@ -94,7 +94,7 @@ int main(void) {
 
 		//battery_level_start();
 		//VL53L0X_start();
-		//spi_comm_start();
+		spi_comm_start();
 		serial_start();
 		proximity_start();
 		imu_start();
