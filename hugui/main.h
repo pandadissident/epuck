@@ -13,9 +13,11 @@ extern messagebus_t bus;
 extern parameter_namespace_t parameter_root;
 
 #define MEASUREMENT 0
-#define IMU_CALIBRATION 1
-#define TOF_CALIBRATION 2
+#define CALIB_PHASE_1 1
+#define CALIB_PHASE_2 2
+#define MOTOR_TEST 3
 
+#define STOP 0
 #define OFF 0
 #define ON 1
 #define TOGGLE 2

@@ -7,6 +7,7 @@
 
 #include "sensors/mpu9250.h"
 #include "sensors/imu.h"
+#include "sensors/proximity.h"
 #include "leds.h"
 #include "selector.h"
 
@@ -27,8 +28,9 @@ static THD_FUNCTION(blinkLed, arg) {
     set_led(LED5, ON);
 }
 
-// @brief calibrates imu
-void calibrate_imu(void) {
+
+// @brief calibrates imu and ir sensros aka proximity sensors
+void calibrate_imu_prox(void) {
 
 	uint16_t i = 0;
 	int16_t altSum[SAMPLES][NB_AXIS] = {0}; //acceleration circular buffer of last 3 sec
@@ -78,22 +80,22 @@ void calibrate_imu(void) {
 	chThdTerminate(blinkLed_p);
 
 	// calibration with led animation
-	calibrate_acc();
+	chThdSleepMilliseconds(400);
 
 	set_rgb_led(LED6, 10, 0, 0);
 	set_rgb_led(LED4, 10, 0, 0);
 
-	calibrate_gyro();
+	calibrate_acc();
 
 	set_led(LED7, ON);
 	set_led(LED3, ON);
 
-	chThdSleepMilliseconds(400);
+	calibrate_gyro();
 
 	set_rgb_led(LED8, 10, 0, 0);
 	set_rgb_led(LED2, 10, 0, 0);
 
-	chThdSleepMilliseconds(400);
+	calibrate_ir();
 
 	set_led(LED1, ON);
 
@@ -103,10 +105,11 @@ void calibrate_imu(void) {
 
 	readyAnimation();
 
+
 	//get_acceleration(X_AXIS);
 	//get_gyro_rate(X_AXIS);
 
-	while (get_selector() == 1) {
+	while (get_selector() == CALIB_PHASE_1) {
 		chThdSleepMilliseconds(500);
 	}
 
@@ -131,7 +134,7 @@ void calibrate_tof(void) {
 
 	readyAnimation();
 
-	while (get_selector() == 2) {
+	while (get_selector() == CALIB_PHASE_2) {
 		chThdSleepMilliseconds(500);
 	}
 

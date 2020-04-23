@@ -22,7 +22,7 @@ extern parameter_namespace_t parameter_root;
  *  @param values
  *  @warning
  */
-void calibrate_imu(void);
+void calibrate_imu_prox(void);
 
 /*! @brief
  *

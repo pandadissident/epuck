@@ -5,8 +5,11 @@
 #include <main.h>
 
 #include "leds.h"
+#include "spi_comm.h"
+#include "motors.h"
 #include "sensors/imu.h"
 #include "sensors/VL53L0X/VL53L0X.h"
+#include "sensors/proximity.h"
 #include "selector.h"
 #include "calibration.h"
 #include "pid_regulator.h"
@@ -88,13 +91,14 @@ int main(void) {
 		parameter_namespace_declare(&parameter_root, NULL, NULL);
 
 	    // Init the peripherals.
-		//motors_init();
-		//proximity_start();
+
 		//battery_level_start();
+		//VL53L0X_start();
+		//spi_comm_start();
 		serial_start();
-		//VL53L0X_init(VL53L0X_Dev_t* device); //!!!!!!!!!!! HUGO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		spi_comm_start();
+		proximity_start();
 		imu_start();
+		motors_init();
 
 	    sysInitialised = TRUE;
 
@@ -104,19 +108,21 @@ int main(void) {
 		clear_leds();
 		set_body_led(OFF);
 		set_front_led(OFF);
+		right_motor_set_speed(STOP);
+		left_motor_set_speed(STOP);
 	}
 
 	/********************/
 	/** State selector **/
 	/********************/
 
-    switch (get_selector()) {
+    switch (fsm_state = get_selector()) {
 
-    	case IMU_CALIBRATION :
-    		calibrate_imu();
+    	case CALIB_PHASE_1 :
+    		calibrate_imu_prox();
     		break;
 
-    	case TOF_CALIBRATION :
+    	case CALIB_PHASE_2 :
     		calibrate_tof(); //!!!!!!!!!!! HUGO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     		break;
 
@@ -124,8 +130,11 @@ int main(void) {
     		measure_mass();
     		break;
 
+    	case MOTOR_TEST :
+			straight_line();
+			break;
+
     	default:
-    		fsm_state = get_selector();
     		chThdSleepMilliseconds(500);
     		break;
 

@@ -6,9 +6,16 @@
 #include "pid_regulator.h"
 
 #include "motors.h"
-//#include <usbcfg.h>
 
+//
+void straight_line(void) {
 
+	float speed = 10;
+
+	right_motor_set_speed(speed);
+	left_motor_set_speed(speed);
+
+}
 
 //simple PID regulator implementation
 int16_t pid_regulator(float distance, float goal){
@@ -66,7 +73,7 @@ static THD_FUNCTION(PidRegulator, arg) {
         	speed_correction = 0;
         }
 
-        //applies the speed from the PI regulator and the correction for the rotation
+        //applies the speed from the PID regulator and the correction for the rotation
 		right_motor_set_speed(speed - ROTATION_COEFF * speed_correction);
 		left_motor_set_speed(speed + ROTATION_COEFF * speed_correction);
 

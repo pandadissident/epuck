@@ -28,6 +28,14 @@ extern parameter_namespace_t parameter_root;
  *  @param values
  *  @warning
  */
+void straight_line(void);
+
+/*! @brief
+ *
+ *  @param
+ *  @param values
+ *  @warning
+ */
 void pid_regulator_start(void);
 
 #endif /* PID_REGULATOR_H */
