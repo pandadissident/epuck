@@ -93,6 +93,7 @@ int main(void) {
 		//battery_level_start();
 		serial_start();
 		//VL53L0X_init(VL53L0X_Dev_t* device); //!!!!!!!!!!! HUGO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		spi_comm_start();
 		imu_start();
 
 	    sysInitialised = TRUE;

@@ -79,23 +79,26 @@ void calibrate_imu(void) {
 
 	// calibration with led animation
 	calibrate_acc();
-	calibrate_gyro();
 
-	// why not work ? waii ?
-	//set_rgb_led(LED6, 10, 0, 0);
-	//set_rgb_led(LED4, 10, 0, 0);
-	//chThdSleepMilliseconds(750);
+	set_rgb_led(LED6, 10, 0, 0);
+	set_rgb_led(LED4, 10, 0, 0);
+
+	calibrate_gyro();
 
 	set_led(LED7, ON);
 	set_led(LED3, ON);
-	chThdSleepMilliseconds(500);
 
-	//set_rgb_led(LED8, 10, 0, 0);
-	//set_rgb_led(LED2, 10, 0, 0);
-	//chThdSleepMilliseconds(750);
+	chThdSleepMilliseconds(400);
+
+	set_rgb_led(LED8, 10, 0, 0);
+	set_rgb_led(LED2, 10, 0, 0);
+
+	chThdSleepMilliseconds(400);
 
 	set_led(LED1, ON);
-	chThdSleepMilliseconds(500);
+
+	chThdSleepMilliseconds(400);
+
 	clear_leds();
 
 	readyAnimation();
