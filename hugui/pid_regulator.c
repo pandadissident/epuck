@@ -11,6 +11,7 @@
 #include "sensors\proximity.h"
 
 static bool initialized = FALSE;
+static bool equilibre = FALSE;
 //*void straight_line(void) {
 
 //	float speed = 10;
@@ -63,8 +64,11 @@ int16_t pid_regulator_angle(float angle){
 		//this avoids to always move as we cannot exactly be where we want and
 		//the camera is a bit noisy
 		if(fabs(error_angle) < ERROR_THRESHOLD_ANGLE){
+			equilibre = TRUE;
 			return 0;
 		}
+
+		equilibre = FALSE;
 
 		sum_error_angle += error_angle;
 
@@ -146,4 +150,7 @@ static THD_FUNCTION(PidRegulator, arg) {
 
 void pid_regulator_start(void){
 	chThdCreateStatic(waPidRegulator, sizeof(waPidRegulator), NORMALPRIO, PidRegulator, NULL);
+}
+bool get_eq(void){
+	return equilibre;
 }

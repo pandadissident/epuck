@@ -40,5 +40,6 @@ extern parameter_namespace_t parameter_root;
  *  @warning
  */
 void pid_regulator_start(void);
+bool get_eq(void);
 
 #endif /* PID_REGULATOR_H */
