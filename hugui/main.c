@@ -4,22 +4,64 @@
 
 #include <main.h>
 
+#include "button.h"
+#include "calibration.h"
 #include "leds.h"
-#include "spi_comm.h"
+#include "mass_computation.h"
 #include "motors.h"
+#include "pid_regulator.h"
+#include "selector.h"
 #include "sensors/imu.h"
 #include "sensors/VL53L0X/VL53L0X.h"
 #include "sensors/proximity.h"
-#include "selector.h"
-#include "calibration.h"
-#include "pid_regulator.h"
-#include "mass_computation.h"
+#include "spi_comm.h"
+
 
 messagebus_t bus;
 MUTEX_DECL(bus_lock);
 CONDVAR_DECL(bus_condvar);
 
-parameter_namespace_t parameter_root;
+
+// @brief
+static THD_WORKING_AREA(fsm_wa, 2048);
+static THD_FUNCTION(fsm, arg) {
+
+    (void) arg;
+    chRegSetThreadName(__FUNCTION__);
+
+    while (1) {
+    	if (button_is_pressed()) {
+       	    clear_leds();
+			set_body_led(OFF);
+			set_front_led(OFF);
+    	    switch (get_selector()) {
+    	    	case CALIB_PHASE_1 :
+    	    		calibrate_imu_prox();
+    	    		break;
+    	    	case CALIB_PHASE_2 :
+    	    		calibrate_tof();
+    	    		break;
+    	    	case MEASUREMENT :
+    	    		measure_mass();
+    	    		break;
+    	    	case MOTOR_TEST :
+    				straight_line();
+    				break;
+    	    	default:
+    	    		chThdSleepMilliseconds(500);
+    	    		break;
+    	    }
+    	    clear_leds();
+			set_body_led(OFF);
+			set_front_led(OFF);
+			right_motor_set_speed(STOP);
+			left_motor_set_speed(STOP);
+    	}
+    	set_front_led(TOGGLE);
+    	chThdSleepMilliseconds(250);
+    }
+}
+
 
 // @brief
 static void serial_start(void)
@@ -34,12 +76,14 @@ static void serial_start(void)
 	sdStart(&SD3, &ser_cfg); // UART3.
 }
 
+
 // @brief
 void startingAnimation(void) {
 
-	chThdSleepMilliseconds(100);
+	readyAnimation();
 
 }
+
 
 // @brief
 void readyAnimation(void) {
@@ -58,116 +102,63 @@ void readyAnimation(void) {
 	chThdSleepMilliseconds(50);
 	set_body_led(ON);
 
+	chThdSleepMilliseconds(500);
+
 }
 
 // @brief
 int main(void) {
 
-	/*********************/
-	/** local variables **/
-	/*********************/
+	//system init
+	halInit();
+	chSysInit();
+	mpu_init();
 
-	static bool newTask = FALSE;
-	static bool sysInitialised = FALSE;
-	static int8_t fsm_state = 0;
-	//static uint8_t eqPosEstimate = 0;
-	//static uint8_t eqPos = 0;
-	//static uint8_t mass = 0;
+	// Inits the Inter Process Communication bus
+	messagebus_init(&bus, &bus_lock, &bus_condvar);
 
+	// Init leds
+	clear_leds();
+	set_body_led(OFF);
+	set_front_led(OFF);
+	chThdSleepMilliseconds(100);
 
-	/**********************/
-	/** Startup sequence **/
-	/**********************/
+	// Init the peripherals
+//	usb_start();
+//	dcmi_start();
+//	po8030_start();
+	motors_init();
+	proximity_start();
+//	battery_level_start();
+//	dac_start();
+//	exti_start();
+	imu_start();
+//	ir_remote_start();
+	spi_comm_start();
+	//VL53L0X_start();
+	serial_start();
 
-	if (!sysInitialised) {
+	startingAnimation();
 
-	    //system init
-		halInit();
-	    chSysInit();
-	    mpu_init();
+	// Launch main thread
+    chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
 
-	    // Inits the Inter Process Communication bus
-		messagebus_init(&bus, &bus_lock, &bus_condvar);
-		parameter_namespace_declare(&parameter_root, NULL, NULL);
+    set_body_led(OFF);
 
-	    // Init the peripherals.
+    static float dummy_a, dummy_g, dummy_i, dummy_t = 0;
 
-		//battery_level_start();
-		//VL53L0X_start();
-		spi_comm_start();
-		serial_start();
-		proximity_start();
-		imu_start();
-		motors_init();
-
-	    sysInitialised = TRUE;
-
-	    startingAnimation();
-
-	} else {
-		clear_leds();
-		set_body_led(OFF);
-		set_front_led(OFF);
-		right_motor_set_speed(STOP);
-		left_motor_set_speed(STOP);
-	}
-
-	/********************/
-	/** State selector **/
-	/********************/
-
-    switch (fsm_state = get_selector()) {
-
-    	case CALIB_PHASE_1 :
-    		calibrate_imu_prox();
-    		break;
-
-    	case CALIB_PHASE_2 :
-    		calibrate_tof(); //!!!!!!!!!!! HUGO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    		break;
-
-    	case MEASUREMENT :
-    		measure_mass();
-    		break;
-
-    	case MOTOR_TEST :
-			straight_line();
-			break;
-
-    	default:
-    		chThdSleepMilliseconds(500);
-    		break;
-
-    }
-
-
-	/*************/
-	/** Threads **/
-	/*************/
-
-    //thread_t *name_p = chThdCreateStatic(name_wa, sizeof(name_wa), NORMALPRIO, name, NULL);
-    //chThdTerminate(name_p);
-
-	/********************/
-	/** Infinite loop. **/
-	/********************/
-
+    //infinite loop
 	while (1) {
-
-		// idle behavior : waiting for new task
-		newTask = !(fsm_state == get_selector()); // + aboveCritAngle();
-        if (newTask) {
-        	set_front_led(OFF);
-        	newTask = false;
-        	main();
-        }
-        set_front_led(TOGGLE);
-        chThdSleepMilliseconds(500);
+        chThdSleepMilliseconds(1000);
+        dummy_a = get_acceleration(X_AXIS);
+		dummy_g = get_gyro_rate(X_AXIS);
+		dummy_i = get_prox(7);
+		//dummy_t = VL53L0X_get_dist_mm();
     }
 }
 
 
-#define STACK_CHK_GUARD 0xe2dee396  //check if correct and remove magic number
+#define STACK_CHK_GUARD 0xe2dee396
 uintptr_t __stack_chk_guard = STACK_CHK_GUARD;
 
 // @brief memory protection

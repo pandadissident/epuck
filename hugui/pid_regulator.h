@@ -25,13 +25,14 @@ extern parameter_namespace_t parameter_root;
 #define KI_ANGLE				3.5f	//must not be zero
 #define MAX_SUM_ERROR_ALIGN		(MOTOR_SPEED_LIMIT/KI_ALIGN)
 #define MAX_SUM_ERROR_ANGLE		(MOTOR_SPEED_LIMIT/KI_ANGLE)
+
 /*! @brief
  *
  *  @param
  *  @param values
  *  @warning
  */
-//void straight_line(void);
+void straight_line(void);
 
 /*! @brief
  *
@@ -40,6 +41,13 @@ extern parameter_namespace_t parameter_root;
  *  @warning
  */
 void pid_regulator_start(void);
+
+/*! @brief
+ *
+ *  @param
+ *  @param values
+ *  @warning
+ */
 bool get_eq(void);
 
 #endif /* PID_REGULATOR_H */

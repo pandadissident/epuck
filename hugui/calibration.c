@@ -98,15 +98,7 @@ void calibrate_imu_prox(void) {
 	clear_leds();
 	readyAnimation();
 
-	//get_acceleration(X_AXIS);
-	//get_gyro_rate(X_AXIS);
-
-	while (get_selector() == CALIB_PHASE_1) {
-		chThdSleepMilliseconds(500);
-	}
-
-	// go back to main
-	main();
+	return;
 }
 
 // @brief calibrates imu
@@ -126,12 +118,7 @@ void calibrate_tof(void) {
 
 	readyAnimation();
 
-	while (get_selector() == CALIB_PHASE_2) {
-		chThdSleepMilliseconds(500);
-	}
-
-	// go back to main
-	main();
+	return;
 }
 
 // @brief calibrates imu

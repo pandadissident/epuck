@@ -5,21 +5,21 @@
 #include <math.h>
 #include <main.h>
 
-
 #include "motors.h"
 #include "sensors\imu.h"
 #include "sensors\proximity.h"
 
 static bool initialized = FALSE;
 static bool equilibre = FALSE;
-//*void straight_line(void) {
 
-//	float speed = 10;
+void straight_line(void) {
 
-//	right_motor_set_speed(speed);
-//	left_motor_set_speed(speed);
+	float speed = 10;
 
-//}
+	right_motor_set_speed(speed);
+	left_motor_set_speed(speed);
+
+}
 
 //simple PID regulator implementation
 int16_t pid_regulator_align(int dist_lat_r, int dist_lat_l){
@@ -102,27 +102,28 @@ static THD_FUNCTION(PidRegulator, arg) {
 
     while(1){
         time = chVTGetSystemTime();
-        int acc_values[3] = {0,0,0};
+        int acc_values[NB_AXIS] = {0,0,0};
         float gyro_pitch = 0;
         float acc_angle = 0;
         float gyro_angle = 0;
+
         // calcul de l'angle initial
         if(!initialized){
-        	acc_values[XAXIS] = get_acceleration(XAXIS);
-        	acc_values[YAXIS] = get_acceleration(YAXIS);
-        	acc_values[ZAXIS] = get_acceleration(ZAXIS);
-        	angle_init = asin((float)acc_values[ZAXIS]/sqrt(pow(acc_values[XAXIS],2) + pow(acc_values[YAXIS],2) + pow(acc_values[ZAXIS],2)));
+        	acc_values[X_AXIS] = get_acceleration(X_AXIS);
+        	acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
+        	acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
+        	angle_init = asin((float)acc_values[Z_AXIS]/sqrt(pow(acc_values[X_AXIS],2) + pow(acc_values[Y_AXIS],2) + pow(acc_values[Z_AXIS],2)));
         	gyro_angle = angle_init;
         	initialized = TRUE;
         }
         
         //mesure de l'angle
-        acc_values[XAXIS] = get_acceleration(XAXIS);
-        acc_values[YAXIS] = get_acceleration(YAXIS);
-        acc_values[ZAXIS] = get_acceleration(ZAXIS);
-        gyro_pitch = get_gyro_rate(XAXIS);
+        acc_values[X_AXIS] = get_acceleration(X_AXIS);
+        acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
+        acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
+        gyro_pitch = get_gyro_rate(X_AXIS);
 
-        acc_angle = asin((float)acc_values[ZAXIS]/sqrt(pow(acc_values[XAXIS],2) + pow(acc_values[YAXIS],2) + pow(acc_values[ZAXIS],2)));
+        acc_angle = asin((float)acc_values[Z_AXIS]/sqrt(pow(acc_values[X_AXIS],2) + pow(acc_values[Y_AXIS],2) + pow(acc_values[Z_AXIS],2)));
 
         gyro_angle -= gyro_pitch*dt;
 

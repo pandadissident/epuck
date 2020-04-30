@@ -62,10 +62,5 @@ void measure_mass(void) {
 
 	readyAnimation();
 
-	while (get_selector() == 0) {
-		chThdSleepMilliseconds(500);
-	}
-
-	// go back to main
-	main();
+	return;
 }

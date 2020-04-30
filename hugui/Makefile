@@ -6,7 +6,7 @@
 PROJECT = hugui
 
 #Define path to the e-puck2_main-processor folder
-GLOBAL_PATH = ../
+GLOBAL_PATH = C:\Users\Moi\Documents\_microinfo\_TPs_microinfo\lib\e-puck2_main-processor
 
 #Source files to include
 CSRC += ./main.c \
