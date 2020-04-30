@@ -26,9 +26,19 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>ChibiOS</name>
+			<type>2</type>
+			<location>C:/Epuck/epuck/ChibiOS</location>
+		</link>
+		<link>
+			<name>ChibiOS_ext</name>
+			<type>2</type>
+			<location>C:/Epuck/epuck/ChibiOS_ext</location>
+		</link>
+		<link>
 			<name>src</name>
 			<type>2</type>
-			<location>C:/Users/Moi/Documents/_microinfo/_projet/src</location>
+			<location>C:/Epuck/epuck/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

@@ -10,23 +10,6 @@
 #include "sensors\VL53L0X\VL53L0X.h"
 #include "leds.h"
 
-int estimateTipOverPosition(void) {
-
-	int8_t eqPosEstimate = 0;
-
-	//blabla
-
-	return eqPosEstimate;
-}
-
-int preciseTipOverPosition(int eqPosEstimate) {
-
-	int8_t eqPos = 0;
-
-	//blabla
-
-	return eqPos;
-}
 
 int computeMass(int eqPos) {
 
@@ -39,7 +22,8 @@ int computeMass(int eqPos) {
 
 void measure_mass(void) {
 
-	int8_t originPos = 0;
+	int8_t originPos, eqPos = 0;
+	bool equilibre = FALSE;
 
 	// visualiser le mode
 	set_led(LED5, ON);
@@ -47,6 +31,12 @@ void measure_mass(void) {
 	chThdSleepMilliseconds(1000);
 
 	originPos = get_originPos();
+
+	pid_regulator_start();
+
+	if(equilibre){
+		//check add tof
+	}
 
     //launch ir thread for lateral positioning
 
