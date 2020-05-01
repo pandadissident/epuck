@@ -4,6 +4,9 @@
 #include "msgbus/messagebus.h"
 #include "parameter/parameter.h"
 
+#define Me	500 			//masse epuck en g
+#define L	500				// longueur du bras de mesure en mm
+
 // Robot wide IPC bus
 extern messagebus_t bus;
 extern parameter_namespace_t parameter_root;

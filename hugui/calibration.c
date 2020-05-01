@@ -11,7 +11,7 @@
 #include "leds.h"
 #include "selector.h"
 
-static int16_t originPos = 0;
+static float originPos = 0;
 
 // @brief makes led blink
 static THD_WORKING_AREA(blinkLed_wa, 128);
@@ -109,12 +109,7 @@ void calibrate_tof(void) {
 	set_led(LED3, ON);
 	chThdSleepMilliseconds(1000);
 
-	/**********/
-	/** HUGO **/
-	/**********/
-
-	// set local variable originPos
-	//originPos = ??
+	originPos = VL53L0X_get_dist_mm();
 
 	readyAnimation();
 
@@ -122,6 +117,6 @@ void calibrate_tof(void) {
 }
 
 // @brief calibrates imu
-int get_originPos(void) {
+float get_originPos(void) {
 	return originPos;
 }

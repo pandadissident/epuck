@@ -4,6 +4,7 @@
 
 #include <main.h>
 
+#include "serial.h"
 #include "button.h"
 #include "calibration.h"
 #include "leds.h"

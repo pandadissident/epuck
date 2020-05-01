@@ -38,6 +38,6 @@ void calibrate_tof(void);
  *  @param values
  *  @warning
  */
-int get_originPos(void);
+float get_originPos(void);
 
 #endif
