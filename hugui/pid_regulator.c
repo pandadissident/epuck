@@ -123,7 +123,7 @@ static THD_FUNCTION(PidRegulator, arg) {
         acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
         gyro_pitch = get_gyro_rate(X_AXIS);
 
-        acc_angle = asin((float)acc_values[Z_AXIS]/sqrt(pow(acc_values[X_AXIS],2) + pow(acc_values[Y_AXIS],2) + pow(acc_values[Z_AXIS],2)));
+        acc_angle = asin((float)acc_values[Z_AXIS]/sqrt(pow(acc_values[X_AXIS],2) + pow(acc_values[Y_AXIS],2) + pow(acc_values[Z_AXIS],2)))*180/3.14;
 
         gyro_angle -= gyro_pitch*dt;
 
