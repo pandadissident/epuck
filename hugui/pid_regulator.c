@@ -1,9 +1,9 @@
-#include "pid_regulator.h"
-
 #include <ch.h>
 #include <hal.h>
 #include <math.h>
 #include <main.h>
+
+#include "pid_regulator.h"
 
 #include "motors.h"
 #include "sensors\imu.h"
@@ -12,16 +12,21 @@
 static bool initialized = FALSE;
 static bool equilibre = FALSE;
 
+static thread_t *pidRegulator_p;
+
 void straight_line(void) {
 
 	float speed = 10;
 
+	// pk il éteint la led ici
 	right_motor_set_speed(speed);
 	left_motor_set_speed(speed);
 
+	return;
+
 }
 
-//simple PID regulator implementation
+// @brief simple PID regulator implementation
 int16_t pid_regulator_align(int dist_lat_r, int dist_lat_l){
 
 	float error_align = 0;
@@ -51,6 +56,8 @@ int16_t pid_regulator_align(int dist_lat_r, int dist_lat_l){
 
     return (int16_t)speed;
 }
+
+// @brief
 int16_t pid_regulator_angle(float angle){
 
 		float error_angle = 0;
@@ -84,11 +91,14 @@ int16_t pid_regulator_angle(float angle){
 	    return (int16_t)speed;
 	}
 
-static THD_WORKING_AREA(waPidRegulator, 256);
-static THD_FUNCTION(PidRegulator, arg) {
+// @brief
+static THD_WORKING_AREA(pidRegulator_wa, 256);
+static THD_FUNCTION(pidRegulator, arg) {
 
     chRegSetThreadName(__FUNCTION__);
     (void)arg;
+
+    pidRegulator_p = chThdGetSelfX();
 
     systime_t time;
 
@@ -97,8 +107,6 @@ static THD_FUNCTION(PidRegulator, arg) {
     float angle_init = 0;
     float angle_mes = 0;
     float dt = 0.01;//time window between two measurement
-
-
 
     while(1){
         time = chVTGetSystemTime();
@@ -150,8 +158,13 @@ static THD_FUNCTION(PidRegulator, arg) {
 }
 
 void pid_regulator_start(void){
-	chThdCreateStatic(waPidRegulator, sizeof(waPidRegulator), NORMALPRIO, PidRegulator, NULL);
+	chThdCreateStatic(pidRegulator_wa, sizeof(pidRegulator_wa), NORMALPRIO, pidRegulator, NULL);
 }
+
+void pid_regulator_stop(void){
+	chThdTerminate(pidRegulator_p);
+}
+
 bool get_eq(void){
 	return equilibre;
 }

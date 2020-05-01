@@ -15,8 +15,8 @@ extern parameter_namespace_t parameter_root;
 
 #define ERROR_THRESHOLD_ALIGN	0.25f//[mW/m²] because of the noise of the ir receiver
 #define ERROR_THRESHOLD_ANGLE	0.01f//[°] because of the noise of the imu
-#define KP_ALIGN				800.0f
-#define KP_ANGLE				800.0f
+#define KP_ALIGN				10.0f
+#define KP_ANGLE				10.0f
 #define KI_ALIGN				3.5f
 #define KI_ANGLE				3.5f	//must not be zero
 #define MAX_SUM_ERROR_ALIGN		(MOTOR_SPEED_LIMIT/KI_ALIGN)
@@ -37,6 +37,14 @@ void straight_line(void);
  *  @warning
  */
 void pid_regulator_start(void);
+
+/*! @brief
+ *
+ *  @param
+ *  @param values
+ *  @warning
+ */
+void pid_regulator_stop(void);
 
 /*! @brief
  *

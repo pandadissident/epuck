@@ -22,7 +22,7 @@ extern parameter_namespace_t parameter_root;
  *  @param values
  *  @warning
  */
-void calibrate_imu_prox(void);
+void calibrate_imuNprox(void);
 
 /*! @brief
  *
@@ -30,7 +30,7 @@ void calibrate_imu_prox(void);
  *  @param values
  *  @warning
  */
-void calibrate_tof(void);
+void tune_tof(void);
 
 /*! @brief
  *
@@ -39,5 +39,13 @@ void calibrate_tof(void);
  *  @warning
  */
 float get_originPos(void);
+
+/*! @brief
+ *
+ *  @param
+ *  @param values
+ *  @warning
+ */
+void wait_for_stability(void);
 
 #endif
