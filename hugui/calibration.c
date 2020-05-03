@@ -6,6 +6,7 @@
 #include "calibration.h"
 
 #include "leds.h"
+#include "pid_regulator.h"
 #include "selector.h"
 #include "sensors/mpu9250.h"
 #include "sensors/imu.h"
@@ -30,7 +31,7 @@ static THD_FUNCTION(waitingLed, arg) {
     	chThdSleepMilliseconds(500);
     }
 
-    set_led(LED5, OFF);
+    set_led(LED5, ON);
 }
 
 // @brief
@@ -88,27 +89,22 @@ void calibrate_imuNprox(void) {
 
 	wait_for_stability();
 
+	calibrate_ir();
+
 	set_led(LED5, ON);
-
-	// calibrate gyro acc and ir with led animation
-	calibrate_acc();
-	chThdSleepMilliseconds(100);
-
-	set_rgb_led(LED6, 10, 0, 0);
+	set_rgb_led(LED6, 0, 10, 0);
 	set_rgb_led(LED4, 10, 0, 0);
 
 	calibrate_gyro();
-	chThdSleepMilliseconds(100);
 
-	set_rgb_led(LED8, 10, 0, 0);
-	set_rgb_led(LED2, 10, 0, 0);
+	set_rgb_led(LED8, 10, 0, 10);
+	set_rgb_led(LED2, 0, 0, 10);
 
-	calibrate_ir();
-	chThdSleepMilliseconds(100);
+	calibrate_acc();
 
 	set_led(LED1, ON);
 
-	chThdSleepMilliseconds(400);
+	chThdSleepMilliseconds(300);
 	clear_leds();
 	readyAnimation();
 
@@ -119,18 +115,10 @@ void calibrate_imuNprox(void) {
 void tune_tof(void) {
 
 	// visualiser le mode
-	set_led(LED7, ON);
-	set_led(LED3, ON);
+	set_rgb_led(LED2, 0, 0, 10);
+	set_rgb_led(LED7, 0, 0, 10);
 
-	wait_for_stability();
-
-	//drive_uphill();
-
-	//start find_balance thread;
-
-	//wait_for_stability();
-
-	chThdSleepMilliseconds(1000);
+	chThdSleepMilliseconds(300);
 
 	originPos = VL53L0X_get_dist_mm();
 

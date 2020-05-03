@@ -29,7 +29,7 @@ static THD_FUNCTION(equilibrium, arg) {
 
     //originPos = get_originPos();
 
-    while (!get_eq()) {
+    while (!get_eq()) { //!chThdShouldTerminateX()
     	//chprintf((BaseSequientialStream*&SD3,"Attente d'équilibre"));
     	chThdSleepMilliseconds(500);
     }

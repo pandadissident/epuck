@@ -33,26 +33,20 @@ static THD_FUNCTION(button, arg) {
 
     button_p = chThdGetSelfX();
 
-	while (1) {
+	while (!chThdShouldTerminateX()) {
 
 		if(button_is_pressed()){
 			CH_IRQ_PROLOGUE();
-
-			//Wakes up button thread
 			chSysLockFromISR();
 			chEvtSignalI(fsm_p, (eventmask_t)1);
 			chSysUnlockFromISR();
-
 			CH_IRQ_EPILOGUE();
 			chThdSleepMilliseconds(1000);
 		} else {
 			CH_IRQ_PROLOGUE();
-
-			//Wakes up button thread
 			chSysLockFromISR();
 			chEvtSignalI(fsm_p, (eventmask_t)0);
 			chSysUnlockFromISR();
-
 			CH_IRQ_EPILOGUE();
 		}
 		chThdSleepMilliseconds(100);
@@ -69,13 +63,15 @@ static THD_FUNCTION(fsm, arg) {
 
     fsm_p = chThdGetSelfX();
 
-    while (1) {
+    while (!chThdShouldTerminateX()) {
 
     	chEvtWaitAny((eventmask_t)1);
 
     	// stop actions
     	pid_regulator_stop();
     	find_equilibrium_stop();
+    	drive_uphill_stop();
+    	stop_social_distancing();
 
     	// reset state
 		clear_leds();
@@ -96,7 +92,7 @@ static THD_FUNCTION(fsm, arg) {
 				break;
 			case MOTOR_TEST :
 				set_body_led(ON);
-				straight_line();
+				start_social_distancing();
 				break;
 			default:
 				set_body_led(ON);
@@ -133,8 +129,41 @@ static void serial_start(void)
 // @brief
 void startingAnimation(void) {
 
-	readyAnimation();
+	//circle on
+	set_led(LED1, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED2, 0, 0, 10);
+	chThdSleepMilliseconds(50);
+	set_led(LED3, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED4, 0, 0, 10);
+	chThdSleepMilliseconds(50);
+	set_led(LED5, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED6, 0, 0, 10);
+	chThdSleepMilliseconds(50);
+	set_led(LED7, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED8, 0, 0, 10);
+	//circle off
+	chThdSleepMilliseconds(200);
+	set_led(LED1, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED2, 0, 0, 0);
+	chThdSleepMilliseconds(50);
+	set_led(LED3, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED4, 0, 0, 0);
+	chThdSleepMilliseconds(50);
+	set_led(LED5, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED6, 0, 0, 0);
+	chThdSleepMilliseconds(50);
+	set_led(LED7, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED8, 0, 0, 0);
 
+	set_body_led(ON);
 }
 
 
@@ -188,7 +217,7 @@ int main(void) {
 	imu_start();
 //	ir_remote_start();
 	spi_comm_start();
-	//VL53L0X_start(); // <-----------
+	VL53L0X_start(); // <-----------
 	serial_start();
 
 	startingAnimation();
@@ -196,7 +225,6 @@ int main(void) {
 
 	// Launch main thread
     chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
-    chThdSleepMilliseconds(100);
 	chThdCreateStatic(button_wa, sizeof(button_wa), NORMALPRIO, button, NULL);
 
     static float dummy_a, dummy_g, dummy_i, dummy_t = 0;

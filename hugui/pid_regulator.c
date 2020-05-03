@@ -5,29 +5,76 @@
 
 #include "pid_regulator.h"
 
+#include "calibration.h"
 #include "motors.h"
-#include "sensors\imu.h"
-#include "sensors\proximity.h"
+#include "sensors/imu.h"
+#include "sensors/proximity.h"
+#include "sensors/VL53L0X/VL53L0X.h"
 
 static bool initialized = FALSE;
 static bool equilibre = FALSE;
 
 static thread_t *pidRegulator_p;
+static thread_t *drive_uphill_p;
+static thread_t *social_distancing_p;
 
-void straight_line(void) {
+// @brief
+static THD_WORKING_AREA(drive_uphill_wa, 256);
+static THD_FUNCTION(drive_uphill, arg) {
 
-	float speed = 10;
+    chRegSetThreadName(__FUNCTION__);
+    (void)arg;
 
-	// pk il éteint la led ici
-	right_motor_set_speed(speed);
-	left_motor_set_speed(speed);
+    float acc = 0;
 
-	return;
+    drive_uphill_p = chThdGetSelfX();
 
+    while (!chThdShouldTerminateX()) {
+    	acc = get_acceleration(Y_AXIS);
+    	if ( acc > 0.1) {
+        	right_motor_set_speed(50*acc*acc);
+        	left_motor_set_speed(50*acc*acc);
+    	} else if ( acc < -0.1) {
+        	right_motor_set_speed(-50*acc*acc);
+        	left_motor_set_speed(-50*acc*acc);
+    	} else {
+        	right_motor_set_speed(0);
+        	left_motor_set_speed(0);
+    	}
+    	chThdSleepMilliseconds(250);
+    }
+}
+
+// @brief
+static THD_WORKING_AREA(social_distancing_wa, 256);
+static THD_FUNCTION(social_distancing, arg) {
+
+    chRegSetThreadName(__FUNCTION__);
+    (void)arg;
+
+    float error, distance = 0;
+
+    social_distancing_p = chThdGetSelfX();
+
+    distance = get_originPos();
+
+    while (!chThdShouldTerminateX()) {
+
+    	error = VL53L0X_get_dist_mm() - distance;
+
+    	if ( abs(error) > 10) {
+        	right_motor_set_speed(5*error);
+        	left_motor_set_speed(5*error);
+    	} else {
+        	right_motor_set_speed(0);
+        	left_motor_set_speed(0);
+    	}
+    	chThdSleepMilliseconds(250);
+    }
 }
 
 // @brief simple PID regulator implementation
-int16_t pid_regulator_align(int dist_lat_r, int dist_lat_l){
+int16_t pid_regulator_align(void){
 
 	float error_align = 0;
 	float speed = 0;
@@ -35,11 +82,14 @@ int16_t pid_regulator_align(int dist_lat_r, int dist_lat_l){
 	static float sum_error_align = 0;
 
 	//error = distance - goal;
-	error_align = dist_lat_r - dist_lat_l;
+	error_align = get_prox(4) + get_prox(5) + get_prox(6) + get_prox(7) - (get_prox(0) + get_prox(1) + get_prox(2) +  get_prox(3));
+    if (get_acceleration(Y_AXIS) < 0) {
+    	error_align = - error_align;
+    }
 	//disables the PID regulator if the error is to small
 	//this avoids to always move as we cannot exactly be where we want and 
 	//the camera is a bit noisy
-	if(fabs(error_align) < ERROR_THRESHOLD_ALIGN){
+	if(fabs(error_align) < 5*ERROR_THRESHOLD_ALIGN){
 		return 0;
 	}
 
@@ -75,8 +125,6 @@ int16_t pid_regulator_angle(float angle){
 			return 0;
 		}
 
-		equilibre = FALSE;
-
 		sum_error_angle += error_angle;
 
 		//we set a maximum and a minimum for the sum to avoid an uncontrolled growth
@@ -92,7 +140,7 @@ int16_t pid_regulator_angle(float angle){
 	}
 
 // @brief
-static THD_WORKING_AREA(pidRegulator_wa, 256);
+static THD_WORKING_AREA(pidRegulator_wa, 1024);
 static THD_FUNCTION(pidRegulator, arg) {
 
     chRegSetThreadName(__FUNCTION__);
@@ -108,40 +156,43 @@ static THD_FUNCTION(pidRegulator, arg) {
     float angle_mes = 0;
     float dt = 0.01;//time window between two measurement
 
-    while(1){
+    while(!chThdShouldTerminateX()){
         time = chVTGetSystemTime();
-        int acc_values[NB_AXIS] = {0,0,0};
-        float gyro_pitch = 0;
-        float acc_angle = 0;
-        float gyro_angle = 0;
+        float acc_values[NB_AXIS] = {0,0,0};
+        float gyro_pitch, acc_angle, gyro_angle, r = 0;
 
-        // calcul de l'angle initial
-        if(!initialized){
-        	acc_values[X_AXIS] = get_acceleration(X_AXIS);
-        	acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
-        	acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
-        	angle_init = asin((float)acc_values[Z_AXIS]/sqrt(pow(acc_values[X_AXIS],2) + pow(acc_values[Y_AXIS],2) + pow(acc_values[Z_AXIS],2)));
-        	gyro_angle = angle_init;
-        	initialized = TRUE;
-        }
-        
+//        // calcul de l'angle initial
+//        if(!initialized){
+//        	acc_values[X_AXIS] = get_acceleration(X_AXIS);
+//        	acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
+//        	acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
+//        	angle_init = asin((float)acc_values[Z_AXIS]/sqrt(pow(acc_values[X_AXIS],2) + pow(acc_values[Y_AXIS],2) + pow(acc_values[Z_AXIS],2)));
+//        	gyro_angle = angle_init;
+//        	initialized = TRUE;
+//        }
+//
         //mesure de l'angle
         acc_values[X_AXIS] = get_acceleration(X_AXIS);
         acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
         acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
-        gyro_pitch = get_gyro_rate(X_AXIS);
+//      gyro_pitch = get_gyro_rate(X_AXIS);
 
-        acc_angle = asin((float)acc_values[Z_AXIS]/sqrt(pow(acc_values[X_AXIS],2) + pow(acc_values[Y_AXIS],2) + pow(acc_values[Z_AXIS],2)))*180/3.14;
+        r = sqrt(acc_values[X_AXIS]*acc_values[X_AXIS] + acc_values[Y_AXIS]*acc_values[Y_AXIS] + acc_values[Z_AXIS]*acc_values[Z_AXIS]);
+        acc_angle = 180 - acos(acc_values[Z_AXIS]/r)*180/3.1415;
+        //acc_direction = acos(acc_values[X_AXIS]/(r*cos(acc_angle)));
+        if (acc_values[Y_AXIS] < 0) {
+        	acc_angle = - acc_angle;
+        }
 
-        gyro_angle -= gyro_pitch*dt;
+//      gyro_angle += gyro_pitch*dt;
 
-        //compenser la dérive du gyro
-        angle_mes = 0.996 * gyro_angle + 0.004 * acc_angle;
+        //compenser la dérive du gyro ??
+        angle_mes = acc_angle; //gyro_angle;//+ 0.04 * ;
         //computes the speed to give to the motors
         //distance_cm is modified by the image processing thread
-        speed = pid_regulator_angle(angle_mes);
+		speed = pid_regulator_angle(angle_mes);
         //computes a correction factor to let the robot rotate to be in front of the line
-        speed_correction = pid_regulator_align(get_prox(2),get_prox(5));
+        speed_correction = pid_regulator_align();
 
         //if the epuck goes straight, don't rotate
         if(abs(speed_correction) < ROTATION_THRESHOLD){
@@ -161,8 +212,25 @@ void pid_regulator_start(void){
 	chThdCreateStatic(pidRegulator_wa, sizeof(pidRegulator_wa), NORMALPRIO, pidRegulator, NULL);
 }
 
+void start_social_distancing(void){
+	chThdCreateStatic(social_distancing_wa, sizeof(social_distancing_wa), NORMALPRIO, social_distancing, NULL);
+}
+
+void stop_social_distancing(void){
+	chThdTerminate(social_distancing_p);
+}
+
+
 void pid_regulator_stop(void){
 	chThdTerminate(pidRegulator_p);
+}
+
+void drive_uphill_start(void){
+	chThdCreateStatic(drive_uphill_wa, sizeof(drive_uphill_wa), NORMALPRIO, drive_uphill, NULL);
+}
+
+void drive_uphill_stop(void){
+	chThdTerminate(drive_uphill_p);
 }
 
 bool get_eq(void){
