@@ -4,7 +4,6 @@
 
 #include <main.h>
 
-#include "serial.h"
 #include "button.h"
 #include "calibration.h"
 #include "leds.h"
@@ -15,13 +14,45 @@
 #include "sensors/imu.h"
 #include "sensors/VL53L0X/VL53L0X.h"
 #include "sensors/proximity.h"
+#include "serial.h"
 #include "spi_comm.h"
-
 
 messagebus_t bus;
 MUTEX_DECL(bus_lock);
 CONDVAR_DECL(bus_condvar);
 
+static thread_t *button_p;
+static thread_t *fsm_p;
+
+// @brief
+static THD_WORKING_AREA(button_wa, 128);
+static THD_FUNCTION(button, arg) {
+
+    (void) arg;
+    chRegSetThreadName(__FUNCTION__);
+
+    button_p = chThdGetSelfX();
+
+	while (!chThdShouldTerminateX()) {
+
+		if(button_is_pressed()){
+			CH_IRQ_PROLOGUE();
+			chSysLockFromISR();
+			chEvtSignalI(fsm_p, (eventmask_t)1);
+			chSysUnlockFromISR();
+			CH_IRQ_EPILOGUE();
+			chThdSleepMilliseconds(1000);
+		} else {
+			CH_IRQ_PROLOGUE();
+			chSysLockFromISR();
+			chEvtSignalI(fsm_p, (eventmask_t)0);
+			chSysUnlockFromISR();
+			CH_IRQ_EPILOGUE();
+		}
+		chThdSleepMilliseconds(100);
+
+	}
+}
 
 // @brief
 static THD_WORKING_AREA(fsm_wa, 2048);
@@ -30,36 +61,53 @@ static THD_FUNCTION(fsm, arg) {
     (void) arg;
     chRegSetThreadName(__FUNCTION__);
 
-    while (1) {
-    	if (button_is_pressed()) {
-       	    clear_leds();
-			set_body_led(OFF);
-			set_front_led(OFF);
-    	    switch (get_selector()) {
-    	    	case CALIB_PHASE_1 :
-    	    		calibrate_imu_prox();
-    	    		break;
-    	    	case CALIB_PHASE_2 :
-    	    		calibrate_tof();
-    	    		break;
-    	    	case MEASUREMENT :
-    	    		measure_mass();
-    	    		break;
-    	    	case MOTOR_TEST :
-    				straight_line();
-    				break;
-    	    	default:
-    	    		chThdSleepMilliseconds(500);
-    	    		break;
-    	    }
-    	    clear_leds();
-			set_body_led(OFF);
-			set_front_led(OFF);
-			right_motor_set_speed(STOP);
-			left_motor_set_speed(STOP);
+    fsm_p = chThdGetSelfX();
+
+    while (!chThdShouldTerminateX()) {
+
+    	chEvtWaitAny((eventmask_t)1);
+
+    	// stop actions
+    	pid_regulator_stop();
+    	find_equilibrium_stop();
+    	drive_uphill_stop();
+    	stop_social_distancing();
+
+    	// reset state
+		clear_leds();
+		set_body_led(OFF);
+		set_front_led(OFF);
+		right_motor_set_speed(STOP);
+		left_motor_set_speed(STOP);
+
+		switch (get_selector()) {
+			case MEASUREMENT :
+				measure_mass();
+				break;
+			case CALIBRATION :
+				calibrate_imuNprox();
+				break;
+			case TOF_TUNING :
+				tune_tof();
+				break;
+			case MOTOR_TEST :
+				set_body_led(ON);
+				start_social_distancing();
+				break;
+			default:
+				set_body_led(ON);
+				chThdSleepMilliseconds(500);
+				break;
     	}
-    	set_front_led(TOGGLE);
-    	chThdSleepMilliseconds(250);
+
+		CH_IRQ_PROLOGUE();
+
+		//Wakes up button thread
+		chSysLockFromISR();
+		chEvtSignalI(fsm_p, (eventmask_t)0);
+		chSysUnlockFromISR();
+
+		CH_IRQ_EPILOGUE();
     }
 }
 
@@ -81,29 +129,62 @@ static void serial_start(void)
 // @brief
 void startingAnimation(void) {
 
-	readyAnimation();
+	//circle on
+	set_led(LED1, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED2, 0, 0, 10);
+	chThdSleepMilliseconds(50);
+	set_led(LED3, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED4, 0, 0, 10);
+	chThdSleepMilliseconds(50);
+	set_led(LED5, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED6, 0, 0, 10);
+	chThdSleepMilliseconds(50);
+	set_led(LED7, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED8, 0, 0, 10);
+	//circle off
+	chThdSleepMilliseconds(200);
+	set_led(LED1, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED2, 0, 0, 0);
+	chThdSleepMilliseconds(50);
+	set_led(LED3, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED4, 0, 0, 0);
+	chThdSleepMilliseconds(50);
+	set_led(LED5, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED6, 0, 0, 0);
+	chThdSleepMilliseconds(50);
+	set_led(LED7, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED8, 0, 0, 0);
 
+	set_body_led(ON);
 }
 
 
 // @brief
 void readyAnimation(void) {
 
-	set_body_led(ON);
-	chThdSleepMilliseconds(100);
-	set_body_led(OFF);
-	chThdSleepMilliseconds(50);
-	set_body_led(ON);
-	chThdSleepMilliseconds(100);
-	set_body_led(OFF);
-	chThdSleepMilliseconds(50);
-	set_body_led(ON);
-	chThdSleepMilliseconds(100);
-	set_body_led(OFF);
-	chThdSleepMilliseconds(50);
-	set_body_led(ON);
+	clear_leds();
 
-	chThdSleepMilliseconds(500);
+	set_body_led(ON);
+	chThdSleepMilliseconds(100);
+	set_body_led(OFF);
+	chThdSleepMilliseconds(50);
+	set_body_led(ON);
+	chThdSleepMilliseconds(100);
+	set_body_led(OFF);
+	chThdSleepMilliseconds(50);
+	set_body_led(ON);
+	chThdSleepMilliseconds(100);
+	set_body_led(OFF);
+	chThdSleepMilliseconds(50);
+	set_body_led(ON);
 
 }
 
@@ -136,15 +217,15 @@ int main(void) {
 	imu_start();
 //	ir_remote_start();
 	spi_comm_start();
-	//VL53L0X_start(); // <-----------
+	VL53L0X_start(); // <-----------
 	serial_start();
 
 	startingAnimation();
+	chThdSleepMilliseconds(1000);
 
 	// Launch main thread
     chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
-
-    set_body_led(OFF);
+	chThdCreateStatic(button_wa, sizeof(button_wa), NORMALPRIO, button, NULL);
 
     static float dummy_a, dummy_g, dummy_i, dummy_t = 0;
 
@@ -154,7 +235,7 @@ int main(void) {
         dummy_a = get_acceleration(X_AXIS);
 		dummy_g = get_gyro_rate(X_AXIS);
 		dummy_i = get_prox(7);
-		//dummy_t = VL53L0X_get_dist_mm();
+		dummy_t = VL53L0X_get_dist_mm();
     }
 }
 

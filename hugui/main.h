@@ -14,8 +14,8 @@ extern messagebus_t bus;
 extern parameter_namespace_t parameter_root;
 
 #define MEASUREMENT 0
-#define CALIB_PHASE_1 1
-#define CALIB_PHASE_2 2
+#define CALIBRATION 1
+#define TOF_TUNING 2
 #define MOTOR_TEST 3
 
 #define STOP 0
@@ -23,22 +23,6 @@ extern parameter_namespace_t parameter_root;
 #define ON 1
 #define TOGGLE 2
 #define ALL 4
-
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-int main(void);
-
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-void startingAnimation(void);
 
 /*! @brief
  *

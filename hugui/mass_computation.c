@@ -4,16 +4,43 @@
 #include <main.h>
 
 #include "mass_computation.h"
-#include "chprintf.h"
+
 #include "calibration.h"
+#include "chprintf.h"
+#include "leds.h"
+#include "pid_regulator.h"
 #include "selector.h"
 #include "sensors\VL53L0X\VL53L0X.h"
-#include "leds.h"
-
+#include "serial.h"
 
 static float masses[3];
+static thread_t *equilibrium_p;
 
-void computeMass(float eqPos, float originPos) {
+// @brief
+static THD_WORKING_AREA(equilibrium_wa, 128);
+static THD_FUNCTION(equilibrium, arg) {
+
+	float eqPos, originPos = 0;
+
+    (void) arg;
+    chRegSetThreadName(__FUNCTION__);
+
+    equilibrium_p = chThdGetSelfX();
+
+    //originPos = get_originPos();
+
+    while (!get_eq()) { //!chThdShouldTerminateX()
+    	//chprintf((BaseSequientialStream*&SD3,"Attente d'équilibre"));
+    	chThdSleepMilliseconds(500);
+    }
+
+	eqPos = VL53L0X_get_dist_mm();
+	compute_mass(eqPos,originPos);
+    readyAnimation();
+
+}
+
+void compute_mass(float eqPos, float originPos) {
 
 	float mass_h = 0;
 	float mass_m = 0;
@@ -30,43 +57,33 @@ void computeMass(float eqPos, float originPos) {
 
 void measure_mass(void) {
 
-	float posEstimate, eqPos, originPos = 0;
-	bool equilibre = FALSE;
-
 	// visualiser le mode
 	set_led(LED5, ON);
 	set_led(LED1, ON);
-	chThdSleepMilliseconds(1000);
 
-	originPos = get_originPos();
+	wait_for_stability();
 
+	// find balanced position and lateral positioning
 	pid_regulator_start();
-	equilibre = get_eq;
-	if(equilibre){
+	find_equilibrium_start();
 
-		eqPos = VL53L0X_get_dist_mm();
-		computeMass(eqPos,originPos);
+	//send mass via bluetooth
+	send_mass();
 
-		chprintf((BaseSequientialStream*&SD3,"Petite masse = %f",masses[2]));
-		chprintf((BaseSequientialStream*&SD3,"Moyenne masse = %f",masses[1]));
-		chprintf((BaseSequientialStream*&SD3,"Grosse masse = %f",masses[0]));
+}
 
-		readyAnimation();
+void send_mass(void) {
 
-	}
+	//chprintf((BaseSequientialStream*&SD3,"Petite masse = %f",masses[2]));
+	//chprintf((BaseSequientialStream*&SD3,"Moyenne masse = %f",masses[1]));
+	//chprintf((BaseSequientialStream*&SD3,"Grosse masse = %f",masses[0]));
 
-	else {
-		chprintf((BaseSequientialStream*&SD3,"Attente d'équilibre"));
-	}
+}
 
-    //launch ir thread for lateral positioning
+void find_equilibrium_start(void) {
+	chThdCreateStatic(equilibrium_wa, sizeof(equilibrium_wa), NORMALPRIO, equilibrium, NULL);
+}
 
-    //driveTo(ORIGIN); if not already
-
-    // Waiting 5 seconds to place weight onto scale
-    //chThdSleepMilliseconds(5000);
-
-
-    //sendMass(mass); //par bluetooth
-
+void find_equilibrium_stop(void) {
+	chThdTerminate(equilibrium_p);
 }
