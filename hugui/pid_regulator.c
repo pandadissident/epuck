@@ -152,42 +152,30 @@ static THD_FUNCTION(pidRegulator, arg) {
 
     int16_t speed = 0;
     int16_t speed_correction = 0;
-    float angle_init = 0;
     float angle_mes = 0;
     float dt = 0.01;//time window between two measurement
 
     while(!chThdShouldTerminateX()){
         time = chVTGetSystemTime();
         float acc_values[NB_AXIS] = {0,0,0};
-        float gyro_pitch, acc_angle, gyro_angle, r = 0;
+        float gyro_pitch, r = 0;
 
-//        // calcul de l'angle initial
-//        if(!initialized){
-//        	acc_values[X_AXIS] = get_acceleration(X_AXIS);
-//        	acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
-//        	acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
-//        	angle_init = asin((float)acc_values[Z_AXIS]/sqrt(pow(acc_values[X_AXIS],2) + pow(acc_values[Y_AXIS],2) + pow(acc_values[Z_AXIS],2)));
-//        	gyro_angle = angle_init;
-//        	initialized = TRUE;
-//        }
+        // calcul de l'angle initial
+        if(!initialized){
+       	acc_values[X_AXIS] = get_acceleration(X_AXIS);
+       	acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
+       	acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
+       	r = sqrt(acc_values[X_AXIS]*acc_values[X_AXIS] + acc_values[Y_AXIS]*acc_values[Y_AXIS] + acc_values[Z_AXIS]*acc_values[Z_AXIS]);
+       	angle_mes = 180 - acos(acc_values[Z_AXIS]/r)*180/3.1415;
+       	initialized = TRUE;
+       }
 //
         //mesure de l'angle
-        acc_values[X_AXIS] = get_acceleration(X_AXIS);
-        acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
-        acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
-//      gyro_pitch = get_gyro_rate(X_AXIS);
 
-        r = sqrt(acc_values[X_AXIS]*acc_values[X_AXIS] + acc_values[Y_AXIS]*acc_values[Y_AXIS] + acc_values[Z_AXIS]*acc_values[Z_AXIS]);
-        acc_angle = 180 - acos(acc_values[Z_AXIS]/r)*180/3.1415;
-        //acc_direction = acos(acc_values[X_AXIS]/(r*cos(acc_angle)));
-        if (acc_values[Y_AXIS] < 0) {
-        	acc_angle = - acc_angle;
-        }
+        gyro_pitch = get_gyro_rate(X_AXIS);
 
-//      gyro_angle += gyro_pitch*dt;
+        angle_mes += gyro_pitch*dt;
 
-        //compenser la dérive du gyro ??
-        angle_mes = acc_angle; //gyro_angle;//+ 0.04 * ;
         //computes the speed to give to the motors
         //distance_cm is modified by the image processing thread
 		speed = pid_regulator_angle(angle_mes);
