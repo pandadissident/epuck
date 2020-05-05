@@ -11,39 +11,11 @@
 #include "sensors/proximity.h"
 #include "sensors/VL53L0X/VL53L0X.h"
 
-static bool initialized = FALSE;
+
 static bool equilibre = FALSE;
 
-static thread_t *pidRegulator_p;
-static thread_t *drive_uphill_p;
-static thread_t *social_distancing_p;
-
-// @brief
-static THD_WORKING_AREA(drive_uphill_wa, 256);
-static THD_FUNCTION(drive_uphill, arg) {
-
-    chRegSetThreadName(__FUNCTION__);
-    (void)arg;
-
-    float acc = 0;
-
-    drive_uphill_p = chThdGetSelfX();
-
-    while (!chThdShouldTerminateX()) {
-    	acc = get_acceleration(Y_AXIS);
-    	if ( acc > 0.1) {
-        	right_motor_set_speed(50*acc*acc);
-        	left_motor_set_speed(50*acc*acc);
-    	} else if ( acc < -0.1) {
-        	right_motor_set_speed(-50*acc*acc);
-        	left_motor_set_speed(-50*acc*acc);
-    	} else {
-        	right_motor_set_speed(0);
-        	left_motor_set_speed(0);
-    	}
-    	chThdSleepMilliseconds(250);
-    }
-}
+static thread_t *pidRegulator_p = NULL;
+static thread_t *social_distancing_p = NULL;
 
 // @brief
 static THD_WORKING_AREA(social_distancing_wa, 256);
@@ -55,7 +27,6 @@ static THD_FUNCTION(social_distancing, arg) {
     float error, distance = 0;
 
     social_distancing_p = chThdGetSelfX();
-
     distance = get_originPos();
 
     while (!chThdShouldTerminateX()) {
@@ -73,152 +44,167 @@ static THD_FUNCTION(social_distancing, arg) {
     }
 }
 
-// @brief simple PID regulator implementation
-int16_t pid_regulator_align(void){
 
-	float error_align = 0;
-	float speed = 0;
+// @brief simple PI regulator implementation
+float pi_yaw_correction(void) {
 
-	static float sum_error_align = 0;
+	static float error[3] = {0};
+	static float output[3] = {0};
+
+	// update variables
+	error[2] = error[1];
+	error[1] = error[0];
+	output[2] = output[1];
+	output[1] = output[0];
 
 	//error = distance - goal;
-	error_align = get_prox(4) + get_prox(5) + get_prox(6) + get_prox(7) - (get_prox(0) + get_prox(1) + get_prox(2) +  get_prox(3));
-    if (get_acceleration(Y_AXIS) < 0) {
-    	error_align = - error_align;
-    }
-	//disables the PID regulator if the error is to small
-	//this avoids to always move as we cannot exactly be where we want and 
-	//the camera is a bit noisy
-	if(fabs(error_align) < 5*ERROR_THRESHOLD_ALIGN){
+	error[0] = get_prox(4) + get_prox(5) + get_prox(6) + get_prox(7) - (get_prox(0) + get_prox(1) + get_prox(2) +  get_prox(3));
+
+	//disables the PID regulator if the error is too small
+	if(fabs(error[0]) < 5*YAW_ERROR_THRESHOLD){
 		return 0;
 	}
 
-	sum_error_align += error_align;
+//	// corrects error sign given the direction where the epuck is heading
+//	if (speed < 0) {
+//		error[0] = - error[0];
+//    }
 
-	//we set a maximum and a minimum for the sum to avoid an uncontrolled growth
-	if(sum_error_align > MAX_SUM_ERROR_ALIGN){
-		sum_error_align = MAX_SUM_ERROR_ALIGN;
-	}else if(sum_error_align < -MAX_SUM_ERROR_ALIGN){
-		sum_error_align = -MAX_SUM_ERROR_ALIGN;
+	output[0] = - rku1*output[1] - rku2*output[2] + rke0*error[0] + rke1*error[1] + rke2*error[2];
+
+	// anti windup
+	if(output[0] > ROTATION_THRESHOLD){
+		output[0] = ROTATION_THRESHOLD;
+	} else if (output[0] < -ROTATION_THRESHOLD) {
+		output[0] = -ROTATION_THRESHOLD;
 	}
 
-	speed = KP_ALIGN * error_align + KI_ALIGN * sum_error_align;
-
-    return (int16_t)speed;
+    return output[0];
 }
 
-// @brief
-int16_t pid_regulator_angle(float angle){
 
-		float error_angle = 0;
-		float speed = 0;
+// @brief simple PI regulator implementation
+float pid_speed(float angle) {
 
-		static float sum_error_angle = 0;
+	static float error[3] = {0};
+	static float output[3] = {0};
 
-		//error = distance - goal;
-		error_angle = angle;
-		//disables the PID regulator if the error is to small
-		//this avoids to always move as we cannot exactly be where we want and
-		//the camera is a bit noisy
-		if(fabs(error_angle) < ERROR_THRESHOLD_ANGLE){
-			equilibre = TRUE;
-			return 0;
-		}
+	// update variables
+	error[2] = error[1];
+	error[1] = error[0];
+	output[2] = output[1];
+	output[1] = output[0];
 
-		sum_error_angle += error_angle;
+	//error = distance - goal
+	error[0] = angle;
 
-		//we set a maximum and a minimum for the sum to avoid an uncontrolled growth
-		if(sum_error_angle > MAX_SUM_ERROR_ANGLE){
-			sum_error_angle = MAX_SUM_ERROR_ANGLE;
-		}else if(sum_error_angle < -MAX_SUM_ERROR_ANGLE){
-			sum_error_angle = -MAX_SUM_ERROR_ANGLE;
-		}
-
-		speed = KP_ANGLE * error_angle + KI_ANGLE * sum_error_angle;
-
-	    return (int16_t)speed;
+	//disables the PID regulator if the error is too small
+	if(fabs(error[0]) < ANGLE_ERROR_THRESHOLD){
+		return 0;
 	}
 
+	output[0] = - sku1*output[1] - sku2*output[2] + ske0*error[0] + ske1*error[1] + ske2*error[2];
+
+	// anti windup
+	if(output[0] > SPEED_THRESHOLD){
+		output[0] = SPEED_THRESHOLD;
+	} else if (output[0] < -SPEED_THRESHOLD) {
+		output[0] = -SPEED_THRESHOLD;
+	}
+
+    return output[0];
+}
+
+float angle_estimation(void) {
+
+    static float dt = 0.01;
+    static float angle, acc_angle, temp, acc = 0;
+    static float acc_values[NB_AXIS] = {0};
+
+	acc_values[X_AXIS] = get_acceleration(X_AXIS);
+	acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
+	acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
+
+	acc = sqrt(pow(acc_values[X_AXIS],2) + pow(acc_values[Y_AXIS],2) + pow(acc_values[Z_AXIS],2));
+
+	if (acc < ACCELERATION_THRESHOLD) {
+	    // mesure angle from gyro
+		temp = atan2(acc_values[Y_AXIS], acc_values[Z_AXIS])*180/M_PI;
+		if (temp > 0) {
+			acc_angle = 180 - temp;
+		} else {
+			acc_angle = - 180 - temp;
+		}
+	} else {
+		return angle = (angle + get_gyro_rate(X_AXIS)*dt);
+	}
+
+	// complementary filter
+    angle = 0.99*(angle + get_gyro_rate(X_AXIS)*dt) + 0.01*(acc_angle);
+
+    return angle;
+}
+
+
 // @brief
-static THD_WORKING_AREA(pidRegulator_wa, 1024);
+static THD_WORKING_AREA(pidRegulator_wa, 2048);
 static THD_FUNCTION(pidRegulator, arg) {
 
-    chRegSetThreadName(__FUNCTION__);
+	chRegSetThreadName(__FUNCTION__);
     (void)arg;
 
     pidRegulator_p = chThdGetSelfX();
 
-    systime_t time;
+    systime_t time = 0;
 
-    int16_t speed = 0;
-    int16_t speed_correction = 0;
-    float angle_mes = 0;
-    float dt = 0.01;//time window between two measurement
+    float speed = 0;
+    float rotation = 0;
+    float angle = 0;
 
     while(!chThdShouldTerminateX()){
-        time = chVTGetSystemTime();
-        float acc_values[NB_AXIS] = {0,0,0};
-        float gyro_pitch, r = 0;
 
-        // calcul de l'angle initial
-        if(!initialized){
-       	acc_values[X_AXIS] = get_acceleration(X_AXIS);
-       	acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
-       	acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
-       	r = sqrt(acc_values[X_AXIS]*acc_values[X_AXIS] + acc_values[Y_AXIS]*acc_values[Y_AXIS] + acc_values[Z_AXIS]*acc_values[Z_AXIS]);
-       	angle_mes = 180 - acos(acc_values[Z_AXIS]/r)*180/3.1415;
-       	initialized = TRUE;
-       }
-//
-        //mesure de l'angle
-
-        gyro_pitch = get_gyro_rate(X_AXIS);
-
-        angle_mes += gyro_pitch*dt;
-
-        //computes the speed to give to the motors
-        //distance_cm is modified by the image processing thread
-		speed = pid_regulator_angle(angle_mes);
-        //computes a correction factor to let the robot rotate to be in front of the line
-        speed_correction = pid_regulator_align();
-
-        //if the epuck goes straight, don't rotate
-        if(abs(speed_correction) < ROTATION_THRESHOLD){
-        	speed_correction = 0;
-        }
+        //computes the angle
+		angle = angle_estimation();
+		//computes speed to which epuck is going to travel
+        speed = pid_speed(angle);
+        //computes a correction factor to let the robot rotate to stay in the path
+		rotation = 0;//pi_yaw_correction();
 
         //applies the speed from the PID regulator and the correction for the rotation
-		right_motor_set_speed(speed - ROTATION_COEFF * speed_correction);
-		left_motor_set_speed(speed + ROTATION_COEFF * speed_correction);
+		right_motor_set_speed(speed - rotation);
+		left_motor_set_speed(speed + rotation);
 
-        //100Hz
+        //sample at 100Hz
         chThdSleepUntilWindowed(time, time + MS2ST(10));
     }
 }
 
 void pid_regulator_start(void){
-	chThdCreateStatic(pidRegulator_wa, sizeof(pidRegulator_wa), NORMALPRIO, pidRegulator, NULL);
+	if (pidRegulator_p == NULL) {
+		chThdCreateStatic(pidRegulator_wa, sizeof(pidRegulator_wa), NORMALPRIO, pidRegulator, NULL);
+	}
+}
+
+void pid_regulator_stop(void){
+	if (pidRegulator_p != NULL) {
+		chThdTerminate(pidRegulator_p);
+		chThdWait(pidRegulator_p);
+		pidRegulator_p = NULL;
+	}
 }
 
 void start_social_distancing(void){
-	chThdCreateStatic(social_distancing_wa, sizeof(social_distancing_wa), NORMALPRIO, social_distancing, NULL);
+	if (social_distancing_p == NULL) {
+		chThdCreateStatic(social_distancing_wa, sizeof(social_distancing_wa), NORMALPRIO, social_distancing, NULL);
+	}
 }
 
 void stop_social_distancing(void){
-	chThdTerminate(social_distancing_p);
-}
-
-
-void pid_regulator_stop(void){
-	chThdTerminate(pidRegulator_p);
-}
-
-void drive_uphill_start(void){
-	chThdCreateStatic(drive_uphill_wa, sizeof(drive_uphill_wa), NORMALPRIO, drive_uphill, NULL);
-}
-
-void drive_uphill_stop(void){
-	chThdTerminate(drive_uphill_p);
+	if (social_distancing_p != NULL) {
+		chThdTerminate(social_distancing_p);
+		chThdWait(social_distancing_p);
+		social_distancing_p = NULL;
+	}
 }
 
 bool get_eq(void){

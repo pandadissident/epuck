@@ -70,7 +70,6 @@ static THD_FUNCTION(fsm, arg) {
     	// stop actions
     	pid_regulator_stop();
     	find_equilibrium_stop();
-    	drive_uphill_stop();
     	stop_social_distancing();
 
     	// reset state
@@ -163,7 +162,9 @@ void startingAnimation(void) {
 	chThdSleepMilliseconds(50);
 	set_rgb_led(LED8, 0, 0, 0);
 
-	set_body_led(ON);
+	chThdSleepMilliseconds(500);
+
+	readyAnimation();
 }
 
 
@@ -217,11 +218,10 @@ int main(void) {
 	imu_start();
 //	ir_remote_start();
 	spi_comm_start();
-	VL53L0X_start(); // <-----------
+	VL53L0X_start();
 	serial_start();
 
 	startingAnimation();
-	chThdSleepMilliseconds(1000);
 
 	// Launch main thread
     chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
