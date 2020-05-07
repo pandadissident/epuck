@@ -14,9 +14,9 @@ extern messagebus_t bus;
 extern parameter_namespace_t parameter_root;
 
 #define MEASUREMENT 0
-#define CALIBRATION 1
-#define TOF_TUNING 2
-#define MOTOR_TEST 3
+#define SENSORS_CALIBRATION 4
+#define TEST 8
+#define ORIGIN_CALIBRATION 12
 
 #define STOP 0
 #define OFF 0
@@ -30,6 +30,8 @@ extern parameter_namespace_t parameter_root;
  *  @param values
  *  @warning
  */
+
+void startingAnimation(void);
 void readyAnimation(void);
 
 #ifdef __cplusplus

@@ -1,8 +1,7 @@
 #include <ch.h>
 #include <hal.h>
-#include <memory_protection.h>
-
 #include <main.h>
+#include <memory_protection.h>
 
 #include "button.h"
 #include "calibration.h"
@@ -26,30 +25,24 @@ static thread_t *fsm_p;
 
 // @brief
 static THD_WORKING_AREA(button_wa, 128);
-static THD_FUNCTION(button, arg) {
+static THD_FUNCTION(button, arg)
+{
 
     (void) arg;
     chRegSetThreadName(__FUNCTION__);
 
     button_p = chThdGetSelfX();
 
-    // debounce
-
 	while (!chThdShouldTerminateX()) {
 
+		// debounce
+
 		if(button_is_pressed()){
-			CH_IRQ_PROLOGUE(); // retirer
-			chSysLockFromISR(); //chSysLock() ?
-			chEvtSignalI(fsm_p, (eventmask_t)1);
-			chSysUnlockFromISR();
-			CH_IRQ_EPILOGUE();
+			chEvtSignal(fsm_p, (eventmask_t)1);
+			// cancel long presses
 			chThdSleepMilliseconds(1000);
 		} else {
-			CH_IRQ_PROLOGUE();
-			chSysLockFromISR();
-			chEvtSignalI(fsm_p, (eventmask_t)0);
-			chSysUnlockFromISR();
-			CH_IRQ_EPILOGUE();
+			chEvtSignal(fsm_p, (eventmask_t)0);
 		}
 		chThdSleepMilliseconds(100);
 
@@ -58,7 +51,8 @@ static THD_FUNCTION(button, arg) {
 
 // @brief
 static THD_WORKING_AREA(fsm_wa, 128);
-static THD_FUNCTION(fsm, arg) {
+static THD_FUNCTION(fsm, arg)
+{
 
     (void) arg;
     chRegSetThreadName(__FUNCTION__);
@@ -71,8 +65,7 @@ static THD_FUNCTION(fsm, arg) {
     	chEvtWaitAny((eventmask_t)1);
 
     	// stop all actions
-    	pid_regulator_stop();
-    	find_equilibrium_stop();
+    	stop_pid_regulator();
     	stop_social_distancing();
 
     	// reset state
@@ -86,14 +79,15 @@ static THD_FUNCTION(fsm, arg) {
 			case MEASUREMENT :
 				measure_mass();
 				break;
-			case CALIBRATION :
-				calibrate_imuNprox();
+			case SENSORS_CALIBRATION :
+				calibrate_imu_prox();
 				break;
-			case TOF_TUNING :
-				tune_tof();
+			case ORIGIN_CALIBRATION :
+				calibrate_tof();
 				break;
-			case MOTOR_TEST :
+			case TEST :
 				set_body_led(ON);
+				send_mass();
 				start_social_distancing();
 				break;
 			default:
@@ -101,13 +95,6 @@ static THD_FUNCTION(fsm, arg) {
 				chThdSleepMilliseconds(500);
 				break;
     	}
-
-		//deletes message
-		CH_IRQ_PROLOGUE();
-		chSysLockFromISR();
-		chEvtSignalI(fsm_p, (eventmask_t)0);
-		chSysUnlockFromISR();
-		CH_IRQ_EPILOGUE();
     }
 }
 
@@ -123,59 +110,60 @@ static void serial_start(void)
 	};
 
 	sdStart(&SD3, &ser_cfg); // UART3.
+
+	return;
 }
 
 
 // @brief
-void startingAnimation(void) {
+void startingAnimation(void)
+{
 
-	toggle_rgb_led(LED2, RED_LED, 100);
-	toggle_rgb_led(LED4, RED_LED, 100);
-	toggle_rgb_led(LED6, RED_LED, 100);
-	toggle_rgb_led(LED8, RED_LED, 100);
+	//circle on
+	set_led(LED1, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED2, 0, 0, 100);
+	chThdSleepMilliseconds(50);
+	set_led(LED3, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED4, 0, 0, 100);
+	chThdSleepMilliseconds(50);
+	set_led(LED5, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED6, 0, 0, 100);
+	chThdSleepMilliseconds(50);
+	set_led(LED7, ON);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED8, 0, 0, 100);
 
-//	//circle on
-//	set_led(LED1, ON);
-//	chThdSleepMilliseconds(50);
-//	set_rgb_led(LED2, 0, 0, 100);
-//	chThdSleepMilliseconds(50);
-//	set_led(LED3, ON);
-//	chThdSleepMilliseconds(50);
-//	set_rgb_led(LED4, 0, 0, 100);
-//	chThdSleepMilliseconds(50);
-//	set_led(LED5, ON);
-//	chThdSleepMilliseconds(50);
-//	set_rgb_led(LED6, 0, 0, 100);
-//	chThdSleepMilliseconds(50);
-//	set_led(LED7, ON);
-//	chThdSleepMilliseconds(50);
-//	set_rgb_led(LED8, 0, 0, 100);
-//	//circle off
-//	chThdSleepMilliseconds(200);
-//	set_led(LED1, OFF);
-//	chThdSleepMilliseconds(50);
-//	set_rgb_led(LED2, 0, 0, 0);
-//	chThdSleepMilliseconds(50);
-//	set_led(LED3, OFF);
-//	chThdSleepMilliseconds(50);
-//	set_rgb_led(LED4, 0, 0, 0);
-//	chThdSleepMilliseconds(50);
-//	set_led(LED5, OFF);
-//	chThdSleepMilliseconds(50);
-//	set_rgb_led(LED6, 0, 0, 0);
-//	chThdSleepMilliseconds(50);
-//	set_led(LED7, OFF);
-//	chThdSleepMilliseconds(50);
-//	set_rgb_led(LED8, 0, 0, 0);
-//
-//	chThdSleepMilliseconds(500);
-//
-//	readyAnimation();
+	//circle off
+	chThdSleepMilliseconds(200);
+	set_led(LED1, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED2, 0, 0, 0);
+	chThdSleepMilliseconds(50);
+	set_led(LED3, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED4, 0, 0, 0);
+	chThdSleepMilliseconds(50);
+	set_led(LED5, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED6, 0, 0, 0);
+	chThdSleepMilliseconds(50);
+	set_led(LED7, OFF);
+	chThdSleepMilliseconds(50);
+	set_rgb_led(LED8, 0, 0, 0);
+
+	chThdSleepMilliseconds(500);
+	readyAnimation();
+
+	return;
 }
 
 
 // @brief
-void readyAnimation(void) {
+void readyAnimation(void)
+{
 
 	clear_leds();
 
@@ -193,10 +181,13 @@ void readyAnimation(void) {
 	chThdSleepMilliseconds(50);
 	set_body_led(ON);
 
+	return;
+
 }
 
 // @brief
-int main(void) {
+int main(void)
+{
 
 	//system init
 	halInit();
@@ -230,18 +221,14 @@ int main(void) {
 	startingAnimation();
 
 	// Launch main thread
-//  chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
-//	chThdCreateStatic(button_wa, sizeof(button_wa), NORMALPRIO, button, NULL);
+	chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
+	chThdCreateStatic(button_wa, sizeof(button_wa), NORMALPRIO, button, NULL);
 
     static float dummy_a, dummy_g, dummy_i, dummy_t = 0;
 
     //infinite loop does nothing
 	while (1) {
         chThdSleepMilliseconds(1000);
-        dummy_a = get_acceleration(X_AXIS);
-		dummy_g = get_gyro_rate(X_AXIS);
-		dummy_i = get_prox(7);
-		dummy_t = VL53L0X_get_dist_mm();
     }
 }
 
