@@ -84,18 +84,16 @@ float pi_yaw_correction(void) {
 
 
 // @brief simple PI regulator implementation
-float pid_speed(float angle) {
+float pd_speed(float angle) {
 
-	static float error[3] = {0};
-	static float output[3] = {0};
+	static float error[2] = {0};
+	static float der_error, speed = 0;
+	static float dt = 0.01;
 
 	// update variables
-	error[2] = error[1];
 	error[1] = error[0];
-	output[2] = output[1];
-	output[1] = output[0];
 
-	//error = distance - goal
+	// proportional error
 	error[0] = angle;
 
 	//disables the PID regulator if the error is too small
@@ -103,48 +101,53 @@ float pid_speed(float angle) {
 		return 0;
 	}
 
-	output[0] = - sku1*output[1] - sku2*output[2] + ske0*error[0] + ske1*error[1] + ske2*error[2];
+	// derivative error with lowpass filter
+	der_error = 0.33*(error[0] - error[1])/dt + 0.67*der_error;
 
-	// anti windup
-	if(output[0] > SPEED_THRESHOLD){
-		output[0] = SPEED_THRESHOLD;
-	} else if (output[0] < -SPEED_THRESHOLD) {
-		output[0] = -SPEED_THRESHOLD;
-	}
+	// non linear for lower speed near zero
+	//speed = pow(KP_SPEED*error[0] + KI_SPEED*int_error + KD_SPEED*der_error,3);
+	speed = KP_SPEED*error[0] + KD_SPEED*der_error;
 
-    return output[0];
+    return speed;
+}
+
+float complementary_lowpass(float input1, float input2) {
+
+	float a = 0.90;
+	float b = 0.99;
+	static float output;
+
+	output = (1-a)*(b*input1 + (1-b)*input2) + a*output;
+
+	return output;
 }
 
 float angle_estimation(void) {
 
     static float dt = 0.01;
-    static float angle, acc_angle, temp, acc = 0;
+    static float angle, acc_angle, gyro_angle, temp, acc = 0;
     static float acc_values[NB_AXIS] = {0};
 
+    // estimate angle through acceleration
 	acc_values[X_AXIS] = get_acceleration(X_AXIS);
 	acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
 	acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
 
-	acc = sqrt(pow(acc_values[X_AXIS],2) + pow(acc_values[Y_AXIS],2) + pow(acc_values[Z_AXIS],2));
-
-	if (acc < ACCELERATION_THRESHOLD) {
-	    // mesure angle from gyro
-		temp = atan2(acc_values[Y_AXIS], acc_values[Z_AXIS])*180/M_PI;
-		if (temp > 0) {
-			acc_angle = 180 - temp;
-		} else {
-			acc_angle = - 180 - temp;
-		}
+	temp = atan2(acc_values[Y_AXIS], acc_values[Z_AXIS])*180/M_PI;
+	if (temp > 0) {
+		acc_angle = temp - 180;
 	} else {
-		return angle = (angle + get_gyro_rate(X_AXIS)*dt);
+		acc_angle = temp + 180;
 	}
 
-	// complementary filter
-    angle = 0.99*(angle + get_gyro_rate(X_AXIS)*dt) + 0.01*(acc_angle);
+	// estimate angle through gyro
+	gyro_angle = angle + get_gyro_rate(X_AXIS)*dt;
 
-    return angle;
+	// complementary filter and invert sign
+    angle = complementary_lowpass(gyro_angle, acc_angle);
+
+    return - angle;
 }
-
 
 // @brief
 static THD_WORKING_AREA(pidRegulator_wa, 2048);
@@ -166,9 +169,9 @@ static THD_FUNCTION(pidRegulator, arg) {
         //computes the angle
 		angle = angle_estimation();
 		//computes speed to which epuck is going to travel
-        speed = pid_speed(angle);
+        speed = pd_speed(angle);
         //computes a correction factor to let the robot rotate to stay in the path
-		rotation = 0;//pi_yaw_correction();
+
 
         //applies the speed from the PID regulator and the correction for the rotation
 		right_motor_set_speed(speed - rotation);

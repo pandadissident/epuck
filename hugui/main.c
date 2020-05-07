@@ -33,11 +33,13 @@ static THD_FUNCTION(button, arg) {
 
     button_p = chThdGetSelfX();
 
+    // debounce
+
 	while (!chThdShouldTerminateX()) {
 
 		if(button_is_pressed()){
-			CH_IRQ_PROLOGUE();
-			chSysLockFromISR();
+			CH_IRQ_PROLOGUE(); // retirer
+			chSysLockFromISR(); //chSysLock() ?
 			chEvtSignalI(fsm_p, (eventmask_t)1);
 			chSysUnlockFromISR();
 			CH_IRQ_EPILOGUE();
@@ -55,7 +57,7 @@ static THD_FUNCTION(button, arg) {
 }
 
 // @brief
-static THD_WORKING_AREA(fsm_wa, 2048);
+static THD_WORKING_AREA(fsm_wa, 128);
 static THD_FUNCTION(fsm, arg) {
 
     (void) arg;
@@ -65,9 +67,10 @@ static THD_FUNCTION(fsm, arg) {
 
     while (!chThdShouldTerminateX()) {
 
+    	// waits for a message from button
     	chEvtWaitAny((eventmask_t)1);
 
-    	// stop actions
+    	// stop all actions
     	pid_regulator_stop();
     	find_equilibrium_stop();
     	stop_social_distancing();
@@ -99,13 +102,11 @@ static THD_FUNCTION(fsm, arg) {
 				break;
     	}
 
+		//deletes message
 		CH_IRQ_PROLOGUE();
-
-		//Wakes up button thread
 		chSysLockFromISR();
 		chEvtSignalI(fsm_p, (eventmask_t)0);
 		chSysUnlockFromISR();
-
 		CH_IRQ_EPILOGUE();
     }
 }
@@ -128,43 +129,48 @@ static void serial_start(void)
 // @brief
 void startingAnimation(void) {
 
-	//circle on
-	set_led(LED1, ON);
-	chThdSleepMilliseconds(50);
-	set_rgb_led(LED2, 0, 0, 10);
-	chThdSleepMilliseconds(50);
-	set_led(LED3, ON);
-	chThdSleepMilliseconds(50);
-	set_rgb_led(LED4, 0, 0, 10);
-	chThdSleepMilliseconds(50);
-	set_led(LED5, ON);
-	chThdSleepMilliseconds(50);
-	set_rgb_led(LED6, 0, 0, 10);
-	chThdSleepMilliseconds(50);
-	set_led(LED7, ON);
-	chThdSleepMilliseconds(50);
-	set_rgb_led(LED8, 0, 0, 10);
-	//circle off
-	chThdSleepMilliseconds(200);
-	set_led(LED1, OFF);
-	chThdSleepMilliseconds(50);
-	set_rgb_led(LED2, 0, 0, 0);
-	chThdSleepMilliseconds(50);
-	set_led(LED3, OFF);
-	chThdSleepMilliseconds(50);
-	set_rgb_led(LED4, 0, 0, 0);
-	chThdSleepMilliseconds(50);
-	set_led(LED5, OFF);
-	chThdSleepMilliseconds(50);
-	set_rgb_led(LED6, 0, 0, 0);
-	chThdSleepMilliseconds(50);
-	set_led(LED7, OFF);
-	chThdSleepMilliseconds(50);
-	set_rgb_led(LED8, 0, 0, 0);
+	toggle_rgb_led(LED2, RED_LED, 100);
+	toggle_rgb_led(LED4, RED_LED, 100);
+	toggle_rgb_led(LED6, RED_LED, 100);
+	toggle_rgb_led(LED8, RED_LED, 100);
 
-	chThdSleepMilliseconds(500);
-
-	readyAnimation();
+//	//circle on
+//	set_led(LED1, ON);
+//	chThdSleepMilliseconds(50);
+//	set_rgb_led(LED2, 0, 0, 100);
+//	chThdSleepMilliseconds(50);
+//	set_led(LED3, ON);
+//	chThdSleepMilliseconds(50);
+//	set_rgb_led(LED4, 0, 0, 100);
+//	chThdSleepMilliseconds(50);
+//	set_led(LED5, ON);
+//	chThdSleepMilliseconds(50);
+//	set_rgb_led(LED6, 0, 0, 100);
+//	chThdSleepMilliseconds(50);
+//	set_led(LED7, ON);
+//	chThdSleepMilliseconds(50);
+//	set_rgb_led(LED8, 0, 0, 100);
+//	//circle off
+//	chThdSleepMilliseconds(200);
+//	set_led(LED1, OFF);
+//	chThdSleepMilliseconds(50);
+//	set_rgb_led(LED2, 0, 0, 0);
+//	chThdSleepMilliseconds(50);
+//	set_led(LED3, OFF);
+//	chThdSleepMilliseconds(50);
+//	set_rgb_led(LED4, 0, 0, 0);
+//	chThdSleepMilliseconds(50);
+//	set_led(LED5, OFF);
+//	chThdSleepMilliseconds(50);
+//	set_rgb_led(LED6, 0, 0, 0);
+//	chThdSleepMilliseconds(50);
+//	set_led(LED7, OFF);
+//	chThdSleepMilliseconds(50);
+//	set_rgb_led(LED8, 0, 0, 0);
+//
+//	chThdSleepMilliseconds(500);
+//
+//	readyAnimation();
 }
 
 
@@ -218,18 +224,18 @@ int main(void) {
 	imu_start();
 //	ir_remote_start();
 	spi_comm_start();
-	VL53L0X_start();
+	//VL53L0X_start();
 	serial_start();
 
 	startingAnimation();
 
 	// Launch main thread
-    chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
-	chThdCreateStatic(button_wa, sizeof(button_wa), NORMALPRIO, button, NULL);
+//  chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
+//	chThdCreateStatic(button_wa, sizeof(button_wa), NORMALPRIO, button, NULL);
 
     static float dummy_a, dummy_g, dummy_i, dummy_t = 0;
 
-    //infinite loop
+    //infinite loop does nothing
 	while (1) {
         chThdSleepMilliseconds(1000);
         dummy_a = get_acceleration(X_AXIS);

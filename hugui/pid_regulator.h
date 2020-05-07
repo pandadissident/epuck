@@ -13,18 +13,18 @@ extern parameter_namespace_t parameter_root;
 #define KI_YAW		0.5
 #define KD_YAW		0
 
-#define KP_SPEED	50
+#define KP_SPEED	10
 #define KI_SPEED	0
-#define KD_SPEED	5
+#define KD_SPEED	80
 
 #define N 			20 		//filter coefficient
 #define TS 			0.01 	// PID sampling period
 
-#define SPEED_THRESHOLD 			(MOTOR_SPEED_LIMIT*4/5)
+#define SPEED_THRESHOLD 			10
 #define ROTATION_THRESHOLD 			(MOTOR_SPEED_LIMIT/5)
-#define ANGLE_ERROR_THRESHOLD		1.0f //[°] because of the noise of the imu
+#define ANGLE_ERROR_THRESHOLD		0.5f //[°] because of the noise of the imu
 #define YAW_ERROR_THRESHOLD			5.0f //[mW/m²] because of the noise of the ir receiver
-#define ACCELERATION_THRESHOLD		9.5f
+#define ACCELERATION_THRESHOLD		10.0f
 
 #define a0	(1+N*TS)
 #define a1	-(2+N*TS)
