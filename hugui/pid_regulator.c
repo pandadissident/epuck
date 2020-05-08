@@ -23,7 +23,7 @@ static float angle = 0;
 static float distance = 0;
 
 #define sSAMPLES	5
-#define sTHRESHOLD	1
+#define sTHRESHOLD	0.001
 
 // @brief
 static THD_WORKING_AREA(assessStability_wa, 1024);
@@ -77,9 +77,9 @@ static THD_FUNCTION(pidRegulator, arg)
         //computes the angle
 		angle = angle_estimation();
 		//computes speed to which epuck is going to travel
-        speed = 250;//pd_speed(angle);
+        speed = pd_speed(angle);
         //computes a correction factor to let the robot rotate to stay in the path
-        rotation = pi_yaw_correction(speed);
+        rotation = ROTATION_FACTOR*pi_yaw_correction(speed);
 
         //applies the speed from the PID regulator and the correction for the rotation
 		right_motor_set_speed(speed - rotation);
@@ -87,7 +87,7 @@ static THD_FUNCTION(pidRegulator, arg)
 
         //sample at 100Hz
 		time = chVTGetSystemTime();
-        chThdSleepUntilWindowed(time, time + MS2ST(10));
+        chThdSleepUntilWindowed(time, time + MS2ST(1000*TS));
     }
 }
 
@@ -95,7 +95,7 @@ static THD_FUNCTION(pidRegulator, arg)
 void drive_uphill(void)
 {
 	float speed, rotation, angle, gyro = 0;
-    systime_t time = 0;
+    systime_t time, start = 0;
 
 	angle = angle_estimation();
 
@@ -105,7 +105,19 @@ void drive_uphill(void)
 		speed = -250;
 	}
 
-	while (1) {//gyro < PITCH_THRESHOLD) {
+	// stabilise EPuck for 2
+	start = chVTGetSystemTime();
+	while (time < start + S2ST(2)) {
+		rotation = pi_yaw_correction(speed);
+		right_motor_set_speed(speed - rotation);
+		left_motor_set_speed(speed + rotation);
+
+		//sample at 100Hz
+		time = chVTGetSystemTime();
+        chThdSleepUntilWindowed(time, time + MS2ST(1000*TS));
+	}
+
+	while (gyro < PITCH_THRESHOLD) {
 		gyro = fabs(get_gyro_rate(X_AXIS));
 		rotation = pi_yaw_correction(speed);
 		right_motor_set_speed(speed - rotation);
@@ -113,7 +125,7 @@ void drive_uphill(void)
 
 		//sample at 100Hz
 		time = chVTGetSystemTime();
-        chThdSleepUntilWindowed(time, time + MS2ST(10));
+        chThdSleepUntilWindowed(time, time + MS2ST(1000*TS));
 	}
 
 	right_motor_set_speed(STOP);
@@ -140,21 +152,21 @@ float pi_yaw_correction(float speed)
 	error[0] += (get_prox(6) - get_prox(1));	// front
 	error[0] += (get_prox(7) - get_prox(0));	// front
 
-	// corrects error sign given the direction where the epuck is heading
-	if (speed < 0) {
-		error[0] = - error[0];
-    }
-
 	output[0] = - KU1*output[1] - KU2*output[2] + KE0*error[0] + KE1*error[1] + KE2*error[2];
 
 	// anti windup
-	if(output[0] > ROTATION_SPEED_THRESHOLD){
-		output[0] = ROTATION_SPEED_THRESHOLD;
-	} else if (output[0] < -ROTATION_SPEED_THRESHOLD) {
-		output[0] = -ROTATION_SPEED_THRESHOLD;
+	if(output[0] > MOTOR_SPEED_LIMIT){
+		output[0] = MOTOR_SPEED_LIMIT;
+	} else if (output[0] < -MOTOR_SPEED_LIMIT) {
+		output[0] = -MOTOR_SPEED_LIMIT;
 	}
 
-    return output[0];
+	// corrects error sign given the direction where the epuck is heading
+	if (speed > 0) {
+		return output[0];
+    } else {
+    	return -output[0];
+    }
 }
 
 // @brief simple PI regulator implementation
@@ -204,7 +216,6 @@ float complementary_lowpass(float input1, float input2)
 // @brief
 float angle_estimation(void)
 {
-    static float dt = 0.01;
     static float angle, acc_angle, gyro_angle, temp = 0;
     static int16_t acc_values[NB_AXIS] = {0};
 
@@ -219,7 +230,7 @@ float angle_estimation(void)
 	}
 
 	// estimate angle through gyro
-	gyro_angle = angle + get_gyro_rate(X_AXIS)*dt;
+	gyro_angle = angle + get_gyro_rate(X_AXIS)*TS;
 
 	// complementary filter
     angle = complementary_lowpass(gyro_angle, acc_angle);

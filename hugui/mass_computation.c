@@ -18,17 +18,20 @@ void measure_mass(void)
 {
 	wait_for_stability();
 
-	drive_uphill();
+//	drive_uphill();
 
 	start_pid_regulator();
 
-	start_assess_stability();
+//	start_assess_stability();
 
 //    while (!get_equilibrium()) {
 //    	chThdSleepMilliseconds(500);
 //    }
 //
 //	send_mass();
+
+	right_motor_set_speed(STOP);
+	left_motor_set_speed(STOP);
 
 	readyAnimation();
 	return;

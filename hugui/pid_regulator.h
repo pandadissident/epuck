@@ -3,18 +3,17 @@
 
 // constants for the different parts of the project
 #define KP_YAW		2
-#define KI_YAW		0.25
-#define KD_YAW		0
-#define N 			10 		//filter coefficient
-#define TS 			0.01 	// PID sampling period
+#define KI_YAW		1.5
+#define KD_YAW		0.01
+#define N 			0.5 		// filter coefficient
+#define TS 			0.01 		// PID sampling period
 
 #define KP_SPEED	30
 #define KI_SPEED	0
 #define KD_SPEED	450
 
 // Thresholds
-//#define SPEED_THRESHOLD 			10
-#define ROTATION_SPEED_THRESHOLD 	(MOTOR_SPEED_LIMIT/5)
+#define ROTATION_FACTOR 			0.005
 #define PITCH_ERROR_THRESHOLD		0.7 //[°] because of the noise of the imu
 #define YAW_ERROR_THRESHOLD			4*10.0 //[mW/m²] because of the noise of the ir receiver
 #define ACCELERATION_THRESHOLD		10.0
