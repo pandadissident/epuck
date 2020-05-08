@@ -6,17 +6,17 @@
 #define KI_YAW		0.5
 #define KD_YAW		0
 
-#define KP_SPEED	5
+#define KP_SPEED	30
 #define KI_SPEED	0
-#define KD_SPEED	200
+#define KD_SPEED	450
 
 #define N 			20 		//filter coefficient
 #define TS 			0.01 	// PID sampling period
 
 #define SPEED_THRESHOLD 			10
 #define ROTATION_THRESHOLD 			(MOTOR_SPEED_LIMIT/5)
-#define ANGLE_ERROR_THRESHOLD		0.5f //[°] because of the noise of the imu
-#define YAW_ERROR_THRESHOLD			5.0f //[mW/m²] because of the noise of the ir receiver
+#define ANGLE_ERROR_THRESHOLD		0.7f //[Â°] because of the noise of the imu
+#define YAW_ERROR_THRESHOLD			5.0f //[mW/mÂ²] because of the noise of the ir receiver
 #define ACCELERATION_THRESHOLD		10.0f
 #define TIPPING_THRESHOLD			0.2f
 
@@ -48,8 +48,9 @@ float complementary_lowpass(float input1, float input2);
 float angle_estimation(void);
 void start_pid_regulator(void);
 void stop_pid_regulator(void);
-void start_social_distancing(void);
-void stop_social_distancing(void);
+void start_assess_stability(void);
+void stop_assess_stability(void);
 bool get_equilibrium(void);
+float get_distance(void);
 
 #endif /* PID_REGULATOR_H */

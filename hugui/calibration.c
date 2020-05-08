@@ -13,9 +13,11 @@
 #include "sensors/proximity.h"
 #include "sensors/VL53L0X/VL53L0X.h"
 
-
-static float originPos = 0;
+// threads
 static thread_t *waitingLed_p;
+
+// static variables
+static float originPosition = 0;
 
 // @brief makes led blink
 static THD_WORKING_AREA(waitingLed_wa, 128);
@@ -31,14 +33,14 @@ static THD_FUNCTION(waitingLed, arg) {
     	chThdSleepMilliseconds(500);
     }
 
-    set_led(LED5, ON);
+    set_led(LED5, OFF);
 }
 
 // @brief
 void wait_for_stability(void) {
 
 	uint16_t i = 0;
-	int16_t altSum[SAMPLES][NB_AXIS] = {0}; //acceleration circular buffer of last 3 sec
+	int16_t altSum[SAMPLES][NB_AXIS] = {0}; //acceleration circular buffer of samples
 	float tot = 0; //takes wide range of values
 	bool unstable = TRUE;
 
@@ -58,15 +60,14 @@ void wait_for_stability(void) {
 			for (uint8_t j = 0 ; j < SAMPLES ; j += 2) {
 				tot += fabs(altSum[j][X_AXIS] - altSum[j+1][X_AXIS]) + fabs(altSum[j][Y_AXIS] - altSum[j+1][Y_AXIS]) + fabs(altSum[j][Z_AXIS] - altSum[j+1][Z_AXIS]);
 			}
-			if ((i > 3*SAMPLES) && (tot < (float)THRESHOLD)) {
+			if ((i > 3*SAMPLES) && (tot < STABILITY_THRESHOLD)) {
 				unstable = FALSE;
 			}
 		}
 
 		i++;
 
-		// prevent overflow and reset
-
+		// prevent overflow and resets
 		if (i >= MAX_ITERATIONS) {
 			i = 0;
 			for (uint8_t j = 0 ; j < SAMPLES ; j++) {
@@ -82,23 +83,26 @@ void wait_for_stability(void) {
 
 	// kill blink led
 	chThdTerminate(waitingLed_p);
+	chThdWait(waitingLed_p);
+	waitingLed_p = NULL;
 }
 
 // @brief calibrates imu and ir sensors aka proximity sensors
-void calibrate_imuNprox(void) {
-
+void calibrate_imu_prox(void)
+{
 	wait_for_stability();
+
+    set_led(LED5, ON);
 
 	calibrate_ir();
 
-	set_led(LED5, ON);
-	set_rgb_led(LED6, 0, 10, 0);
-	set_rgb_led(LED4, 10, 0, 0);
+	set_rgb_led(LED6, 0, 100, 100);
+	set_rgb_led(LED4, 0, 100, 100);
 
 	calibrate_gyro();
 
-	set_rgb_led(LED8, 10, 0, 10);
-	set_rgb_led(LED2, 0, 0, 10);
+	set_rgb_led(LED8, 100, 100, 100);
+	set_rgb_led(LED2, 100, 100, 100);
 
 	calibrate_acc();
 
@@ -112,22 +116,19 @@ void calibrate_imuNprox(void) {
 }
 
 // @brief calibrates imu
-void tune_tof(void) {
+void calibrate_tof(void)
+{
+	//drive_uphill();
 
-	// visualiser le mode
-	set_rgb_led(LED2, 0, 0, 10);
-	set_rgb_led(LED7, 0, 0, 10);
+	//start_pid_regulator();
 
-	chThdSleepMilliseconds(300);
-
-	originPos = VL53L0X_get_dist_mm();
+	originPosition = VL53L0X_get_dist_mm();
 
 	readyAnimation();
-
 	return;
 }
 
 // @brief calibrates imu
-float get_originPos(void) {
-	return originPos;
+float get_pos_zero(void) {
+	return originPosition;
 }

@@ -14,12 +14,8 @@
 #include "serial.h"
 
 
-void measure_mass(void) {
-
-	// visualiser le mode
-	set_led(LED5, ON);
-	set_led(LED1, ON);
-
+void measure_mass(void)
+{
 	wait_for_stability();
 
 	drive_uphill();
@@ -31,8 +27,6 @@ void measure_mass(void) {
 //    	chThdSleepMilliseconds(500);
 //    }
 
-	//stop_pid_regulator();
-
 	//send_mass();
 
 	readyAnimation();
@@ -40,16 +34,14 @@ void measure_mass(void) {
 
 }
 
-void send_mass(void) {
-
+void send_mass(void)
+{
 	float mass_h, mass_m, mass_l = 0;
 	static float originPos, eqPos = 0;
 
 	mass_h = M_EPUCK*(originPos-eqPos)/(L_BASCULE/4);
 	mass_m = M_EPUCK*(originPos-eqPos)/(L_BASCULE/2);
 	mass_l = M_EPUCK*(originPos-eqPos)/(3*L_BASCULE/4);
-
-	//chSequentialStreamWrite((BaseSequentialStream *)&SD3, (uint8_t*)&gyro, sizeof(gyro));
 
 	//chprintf((BaseSequentialStream *)&SD3,"Petite masse = %f",mass_l));
 	//chprintf((BaseSequentialStream *)&SD3,"Moyenne masse = %f",mass_m));

@@ -2,7 +2,7 @@
 #define CALIBRATION_H
 
 #define SAMPLES 				8
-#define STABILITY_THRESHOLD 	SAMPLES*50
+#define STABILITY_THRESHOLD 	SAMPLES*75
 #define MAX_ITERATIONS 			65528 //= floor((2^16-1)/SAMPLES)*SAMPLES
 
 /*! @brief

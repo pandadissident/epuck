@@ -66,7 +66,7 @@ static THD_FUNCTION(fsm, arg)
 
     	// stop all actions
     	stop_pid_regulator();
-    	stop_social_distancing();
+    	stop_assess_stability();
 
     	// reset state
 		clear_leds();
@@ -87,8 +87,8 @@ static THD_FUNCTION(fsm, arg)
 				break;
 			case TEST :
 				set_body_led(ON);
+				startingAnimation();
 				send_mass();
-				start_social_distancing();
 				break;
 			default:
 				set_body_led(ON);
@@ -215,7 +215,7 @@ int main(void)
 	imu_start();
 //	ir_remote_start();
 	spi_comm_start();
-	//VL53L0X_start();
+	VL53L0X_start();
 	serial_start();
 
 	startingAnimation();
@@ -224,7 +224,6 @@ int main(void)
 	chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
 	chThdCreateStatic(button_wa, sizeof(button_wa), NORMALPRIO, button, NULL);
 
-    static float dummy_a, dummy_g, dummy_i, dummy_t = 0;
 
     //infinite loop does nothing
 	while (1) {
