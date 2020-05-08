@@ -1,7 +1,8 @@
 #include <ch.h>
 #include <hal.h>
-#include <math.h>
 #include <main.h>
+#include <math.h>
+
 #include <chprintf.h>
 
 #include "pid_regulator.h"
@@ -12,16 +13,19 @@
 #include "sensors/proximity.h"
 #include "sensors/VL53L0X/VL53L0X.h"
 
+// threads
+static thread_t *pidRegulator_p = NULL;
+static thread_t *assessStability_p = NULL;
+
+// static variables
 static bool equilibre = FALSE;
 static float angle = 0;
 static float distance = 0;
 
-static thread_t *pidRegulator_p = NULL;
-static thread_t *assessStability_p = NULL;
-
 #define sSAMPLES	5
 #define sTHRESHOLD	1
 
+// @brief
 static THD_WORKING_AREA(assessStability_wa, 1024);
 static THD_FUNCTION(assessStability, arg)
 {
@@ -49,7 +53,7 @@ static THD_FUNCTION(assessStability, arg)
         }
 
     	i++;
-    	chprintf((BaseSequentialStream *)&SD3, "\n\n-- TOTAL -- : %.3f\n\n", sum);
+    	chprintf((BaseSequentialStream *)&SD3, "STABILITY TOTAL -- : %.3f\n", sum);
         chThdSleepMilliseconds(100);
     }
 }
@@ -72,48 +76,48 @@ static THD_FUNCTION(pidRegulator, arg)
 
         //computes the angle
 		angle = angle_estimation();
-		chprintf((BaseSequentialStream *)&SD3, "Angle : %.3f\n", angle);
 		//computes speed to which epuck is going to travel
-        speed = pd_speed(angle);
-        chprintf((BaseSequentialStream *)&SD3, "Speed : %.3f\n", speed);
+        speed = 250;//pd_speed(angle);
         //computes a correction factor to let the robot rotate to stay in the path
         rotation = pi_yaw_correction(speed);
-        chprintf((BaseSequentialStream *)&SD3, "Rotation : %.3f\n", rotation);
-    	chprintf((BaseSequentialStream *)&SD3, "\n");
 
         //applies the speed from the PID regulator and the correction for the rotation
 		right_motor_set_speed(speed - rotation);
 		left_motor_set_speed(speed + rotation);
 
         //sample at 100Hz
+		time = chVTGetSystemTime();
         chThdSleepUntilWindowed(time, time + MS2ST(10));
     }
 }
 
-
+// @brief
 void drive_uphill(void)
 {
-	float angle, gyro = 0;
+	float speed, rotation, angle, gyro = 0;
+    systime_t time = 0;
 
 	angle = angle_estimation();
 
 	if ( angle > 0 ) {
-		right_motor_set_speed(250);
-		left_motor_set_speed(250);
+		speed = 250;
 	} else {
-		right_motor_set_speed(-250);
-		left_motor_set_speed(-250);
+		speed = -250;
 	}
 
-	chThdSleepMilliseconds(100);
-
-	while (gyro < TIPPING_THRESHOLD) {
-		chThdSleepMilliseconds(50);
+	while (1) {//gyro < PITCH_THRESHOLD) {
 		gyro = fabs(get_gyro_rate(X_AXIS));
+		rotation = pi_yaw_correction(speed);
+		right_motor_set_speed(speed - rotation);
+		left_motor_set_speed(speed + rotation);
+
+		//sample at 100Hz
+		time = chVTGetSystemTime();
+        chThdSleepUntilWindowed(time, time + MS2ST(10));
 	}
 
-	right_motor_set_speed(0);
-	left_motor_set_speed(0);
+	right_motor_set_speed(STOP);
+	left_motor_set_speed(STOP);
 
 	return;
 }
@@ -133,15 +137,8 @@ float pi_yaw_correction(float speed)
 	//error = distance - goal;
 	error[0] =  (get_prox(4) - get_prox(3)); 	// back
 	error[0] += (get_prox(5) - get_prox(2));	// sides
-	error[0] += 0.75*(get_prox(6) - get_prox(1));	// front
-	error[0] += 0.25*(get_prox(7) - get_prox(0));	// front
-
-	//chprintf((BaseSequentialStream *)&SD3, "yaw error : %.3f\n", error[0]);
-
-	//disables the PID regulator if the error is too small
-	if(fabs(error[0]) < 4*YAW_ERROR_THRESHOLD){
-		return 0;
-	}
+	error[0] += (get_prox(6) - get_prox(1));	// front
+	error[0] += (get_prox(7) - get_prox(0));	// front
 
 	// corrects error sign given the direction where the epuck is heading
 	if (speed < 0) {
@@ -151,10 +148,10 @@ float pi_yaw_correction(float speed)
 	output[0] = - KU1*output[1] - KU2*output[2] + KE0*error[0] + KE1*error[1] + KE2*error[2];
 
 	// anti windup
-	if(output[0] > ROTATION_THRESHOLD){
-		output[0] = ROTATION_THRESHOLD;
-	} else if (output[0] < -ROTATION_THRESHOLD) {
-		output[0] = -ROTATION_THRESHOLD;
+	if(output[0] > ROTATION_SPEED_THRESHOLD){
+		output[0] = ROTATION_SPEED_THRESHOLD;
+	} else if (output[0] < -ROTATION_SPEED_THRESHOLD) {
+		output[0] = -ROTATION_SPEED_THRESHOLD;
 	}
 
     return output[0];
@@ -169,7 +166,7 @@ float pd_speed(float angle)
 	error = angle;
 
 	//disables the PID regulator if the error is too small
-	if(fabs(error) < ANGLE_ERROR_THRESHOLD){
+	if(fabs(error) < PITCH_ERROR_THRESHOLD){
 		error = 0;
 	}
 
@@ -186,6 +183,7 @@ float pd_speed(float angle)
     return speed;
 }
 
+// @brief
 float complementary_lowpass(float input1, float input2)
 {
 	float cutoff = 0.8;
@@ -203,6 +201,7 @@ float complementary_lowpass(float input1, float input2)
 	return output;
 }
 
+// @brief
 float angle_estimation(void)
 {
     static float dt = 0.01;
@@ -222,12 +221,13 @@ float angle_estimation(void)
 	// estimate angle through gyro
 	gyro_angle = angle + get_gyro_rate(X_AXIS)*dt;
 
-	// complementary filter and invert sign
+	// complementary filter
     angle = complementary_lowpass(gyro_angle, acc_angle);
 
-    return - angle;
+    return -angle;
 }
 
+// @brief
 void start_pid_regulator(void)
 {
 	if (pidRegulator_p == NULL) {
@@ -236,6 +236,7 @@ void start_pid_regulator(void)
 	return;
 }
 
+// @brief
 void stop_pid_regulator(void)
 {
 	if (pidRegulator_p != NULL) {
@@ -246,6 +247,7 @@ void stop_pid_regulator(void)
 	return;
 }
 
+// @brief
 void start_assess_stability(void)
 {
 	if (assessStability_p == NULL) {
@@ -254,6 +256,7 @@ void start_assess_stability(void)
 	return;
 }
 
+// @brief
 void stop_assess_stability(void)
 {
 	if (pidRegulator_p != NULL) {
@@ -264,12 +267,13 @@ void stop_assess_stability(void)
 	return;
 }
 
+// @brief
 bool get_equilibrium(void)
 {
 	return equilibre;
 }
 
-
+// @brief
 float get_distance(void)
 {
 	return distance;

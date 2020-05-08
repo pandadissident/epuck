@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-#include "camera/dcmi_camera.h"
+#include "camera/dcmi_camera.h"		// no use but avoiding warnings without changing the epuck-main-processor project
 #include "msgbus/messagebus.h"
 #include "parameter/parameter.h"
 
@@ -30,7 +30,6 @@ extern parameter_namespace_t parameter_root;
  *  @param values
  *  @warning
  */
-
 void startingAnimation(void);
 void readyAnimation(void);
 

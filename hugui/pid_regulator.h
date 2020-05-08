@@ -1,30 +1,29 @@
 #ifndef PID_REGULATOR_H
 #define PID_REGULATOR_H
 
-//constants for the differents parts of the project
+// constants for the different parts of the project
 #define KP_YAW		2
-#define KI_YAW		0.5
+#define KI_YAW		0.25
 #define KD_YAW		0
+#define N 			10 		//filter coefficient
+#define TS 			0.01 	// PID sampling period
 
 #define KP_SPEED	30
 #define KI_SPEED	0
 #define KD_SPEED	450
 
-#define N 			20 		//filter coefficient
-#define TS 			0.01 	// PID sampling period
+// Thresholds
+//#define SPEED_THRESHOLD 			10
+#define ROTATION_SPEED_THRESHOLD 	(MOTOR_SPEED_LIMIT/5)
+#define PITCH_ERROR_THRESHOLD		0.7 //[°] because of the noise of the imu
+#define YAW_ERROR_THRESHOLD			4*10.0 //[mW/m²] because of the noise of the ir receiver
+#define ACCELERATION_THRESHOLD		10.0
+#define PITCH_THRESHOLD				0.4
 
-#define SPEED_THRESHOLD 			10
-#define ROTATION_THRESHOLD 			(MOTOR_SPEED_LIMIT/5)
-#define ANGLE_ERROR_THRESHOLD		0.7f //[°] because of the noise of the imu
-#define YAW_ERROR_THRESHOLD			5.0f //[mW/m²] because of the noise of the ir receiver
-#define ACCELERATION_THRESHOLD		10.0f
-#define TIPPING_THRESHOLD			0.2f
-
+// compute numerical pid terms
 #define A0	(1+N*TS)
 #define A1	-(2+N*TS)
 #define A2	1
-
-// PI constants for rotation correction
 #define B0		(KP_YAW*A0 + KI_YAW*TS*A0 + KD_YAW*N)
 #define B1		(KP_YAW*A1 - KI_YAW*TS - 2*KD_YAW*N)
 #define B2		(KP_YAW + KD_YAW*N)

@@ -1,19 +1,19 @@
 #include <ch.h>
+#include <chprintf.h>
 #include <hal.h>
-#include <math.h>
 #include <main.h>
+#include <math.h>
 
 #include "mass_computation.h"
 
 #include "calibration.h"
-#include "chprintf.h"
 #include "leds.h"
 #include "pid_regulator.h"
 #include "selector.h"
 #include "sensors\VL53L0X\VL53L0X.h"
 #include "serial.h"
 
-
+// @brief
 void measure_mass(void)
 {
 	wait_for_stability();
@@ -22,31 +22,35 @@ void measure_mass(void)
 
 	start_pid_regulator();
 
+	start_assess_stability();
+
 //    while (!get_equilibrium()) {
-//    	//chprintf((BaseSequientialStream*&SD3,"Attente d'équilibre"));
 //    	chThdSleepMilliseconds(500);
 //    }
-
-	//send_mass();
+//
+//	send_mass();
 
 	readyAnimation();
 	return;
-
 }
 
+// @brief
 void send_mass(void)
 {
-	float mass_h, mass_m, mass_l = 0;
+	float massBig, massMedium, massSmall = 0;
 	static float originPos, eqPos = 0;
 
-	mass_h = M_EPUCK*(originPos-eqPos)/(L_BASCULE/4);
-	mass_m = M_EPUCK*(originPos-eqPos)/(L_BASCULE/2);
-	mass_l = M_EPUCK*(originPos-eqPos)/(3*L_BASCULE/4);
+	originPos = get_pos_zero();
+	eqPos = get_distance();
 
-	//chprintf((BaseSequentialStream *)&SD3,"Petite masse = %f",mass_l));
-	//chprintf((BaseSequentialStream *)&SD3,"Moyenne masse = %f",mass_m));
-	//chprintf((BaseSequentialStream *)&SD3,"Grosse masse = %f",mass_h));
+	massBig = M_EPUCK*(originPos-eqPos)/(L_BASCULE/4);
+	massMedium = M_EPUCK*(originPos-eqPos)/(L_BASCULE/2);
+	massSmall = M_EPUCK*(originPos-eqPos)/(3*L_BASCULE/4);
+
+	chprintf((BaseSequentialStream *)&SD3, "RESULTATS :/n");
+	chprintf((BaseSequentialStream *)&SD3, "Petite masse  = %f/n", massSmall);
+	chprintf((BaseSequentialStream *)&SD3, "Masse moyenne = %f/n", massMedium);
+	chprintf((BaseSequentialStream *)&SD3, "Grosse masse  = %f/n", massBig);
 
 	return;
-
 }

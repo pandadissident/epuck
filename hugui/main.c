@@ -1,7 +1,8 @@
 #include <ch.h>
+#include <chprintf.h>
 #include <hal.h>
-#include <main.h>
 #include <memory_protection.h>
+#include <main.h>
 
 #include "button.h"
 #include "calibration.h"
@@ -20,6 +21,7 @@ messagebus_t bus;
 MUTEX_DECL(bus_lock);
 CONDVAR_DECL(bus_condvar);
 
+// threads
 static thread_t *button_p;
 static thread_t *fsm_p;
 
@@ -27,7 +29,6 @@ static thread_t *fsm_p;
 static THD_WORKING_AREA(button_wa, 128);
 static THD_FUNCTION(button, arg)
 {
-
     (void) arg;
     chRegSetThreadName(__FUNCTION__);
 
@@ -35,7 +36,7 @@ static THD_FUNCTION(button, arg)
 
 	while (!chThdShouldTerminateX()) {
 
-		// debounce
+		// debounce algo here ?
 
 		if(button_is_pressed()){
 			chEvtSignal(fsm_p, (eventmask_t)1);
@@ -45,7 +46,6 @@ static THD_FUNCTION(button, arg)
 			chEvtSignal(fsm_p, (eventmask_t)0);
 		}
 		chThdSleepMilliseconds(100);
-
 	}
 }
 
@@ -53,7 +53,6 @@ static THD_FUNCTION(button, arg)
 static THD_WORKING_AREA(fsm_wa, 128);
 static THD_FUNCTION(fsm, arg)
 {
-
     (void) arg;
     chRegSetThreadName(__FUNCTION__);
 
@@ -61,40 +60,51 @@ static THD_FUNCTION(fsm, arg)
 
     while (!chThdShouldTerminateX()) {
 
-    	// waits for a message from button
+    	// waits for a message from button thread
     	chEvtWaitAny((eventmask_t)1);
 
     	// stop all actions
     	stop_pid_regulator();
     	stop_assess_stability();
-
-    	// reset state
-		clear_leds();
-		set_body_led(OFF);
-		set_front_led(OFF);
 		right_motor_set_speed(STOP);
 		left_motor_set_speed(STOP);
 
+    	// reset led state
+		clear_leds();
+		set_body_led(OFF);
+		set_front_led(OFF);
+
+		// simple fsm
 		switch (get_selector()) {
 			case MEASUREMENT :
+				chprintf((BaseSequentialStream *)&SD3, "Mesure de la masse...\n");
 				measure_mass();
+				chprintf((BaseSequentialStream *)&SD3, "Termine\n");
 				break;
 			case SENSORS_CALIBRATION :
+				chprintf((BaseSequentialStream *)&SD3, "Premiere etape de calibration...\n");
 				calibrate_imu_prox();
+				chprintf((BaseSequentialStream *)&SD3, "Calibration terminee\n");
 				break;
 			case ORIGIN_CALIBRATION :
+				chprintf((BaseSequentialStream *)&SD3, "Seconde etape de calibration...\n");
 				calibrate_tof();
+				chprintf((BaseSequentialStream *)&SD3, "Calibration terminee\n");
 				break;
 			case TEST :
 				set_body_led(ON);
+				chprintf((BaseSequentialStream *)&SD3, "Envoie de la masse...\n");
 				startingAnimation();
 				send_mass();
+				chprintf((BaseSequentialStream *)&SD3, "Termine\n");
 				break;
 			default:
 				set_body_led(ON);
+				chprintf((BaseSequentialStream *)&SD3, " - STOP -\n");
 				chThdSleepMilliseconds(500);
 				break;
     	}
+		chprintf((BaseSequentialStream *)&SD3, "\nEN ATTENTE D'INSTRUCTIONS\n");
     }
 }
 
@@ -118,7 +128,6 @@ static void serial_start(void)
 // @brief
 void startingAnimation(void)
 {
-
 	//circle on
 	set_led(LED1, ON);
 	chThdSleepMilliseconds(50);
@@ -156,7 +165,6 @@ void startingAnimation(void)
 
 	chThdSleepMilliseconds(500);
 	readyAnimation();
-
 	return;
 }
 
@@ -164,7 +172,6 @@ void startingAnimation(void)
 // @brief
 void readyAnimation(void)
 {
-
 	clear_leds();
 
 	set_body_led(ON);
@@ -182,13 +189,11 @@ void readyAnimation(void)
 	set_body_led(ON);
 
 	return;
-
 }
 
 // @brief
 int main(void)
 {
-
 	//system init
 	halInit();
 	chSysInit();
@@ -204,16 +209,9 @@ int main(void)
 	chThdSleepMilliseconds(100);
 
 	// Init the peripherals
-//	usb_start();
-//	dcmi_start();
-//	po8030_start();
 	motors_init();
 	proximity_start();
-//	battery_level_start();
-//	dac_start();
-//	exti_start();
 	imu_start();
-//	ir_remote_start();
 	spi_comm_start();
 	VL53L0X_start();
 	serial_start();
@@ -224,8 +222,9 @@ int main(void)
 	chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
 	chThdCreateStatic(button_wa, sizeof(button_wa), NORMALPRIO, button, NULL);
 
+	chprintf((BaseSequentialStream *)&SD3, "EN ATTENTE D'INSTRUCTIONS\n");
 
-    //infinite loop does nothing
+    //infinite loop that does nothing
 	while (1) {
         chThdSleepMilliseconds(1000);
     }

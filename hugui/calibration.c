@@ -21,14 +21,14 @@ static float originPosition = 0;
 
 // @brief makes led blink
 static THD_WORKING_AREA(waitingLed_wa, 128);
-static THD_FUNCTION(waitingLed, arg) {
-
+static THD_FUNCTION(waitingLed, arg)
+{
     chRegSetThreadName(__FUNCTION__);
     (void)arg;
 
     waitingLed_p = chThdGetSelfX();
 
-    while(!chThdShouldTerminateX()){
+    while(!chThdShouldTerminateX()) {
     	set_led(LED5, TOGGLE);
     	chThdSleepMilliseconds(500);
     }
@@ -37,14 +37,12 @@ static THD_FUNCTION(waitingLed, arg) {
 }
 
 // @brief
-void wait_for_stability(void) {
-
+void wait_for_stability(void)
+{
 	uint16_t i = 0;
 	int16_t altSum[SAMPLES][NB_AXIS] = {0}; //acceleration circular buffer of samples
 	float tot = 0; //takes wide range of values
 	bool unstable = TRUE;
-
-	systime_t time;
 
 	// blink led
 	chThdCreateStatic(waitingLed_wa, sizeof(waitingLed_wa), NORMALPRIO, waitingLed, NULL);
@@ -53,7 +51,6 @@ void wait_for_stability(void) {
 	while (unstable) {
 
 		get_acc_all(altSum[i % SAMPLES]);
-		time = chVTGetSystemTime();
 
 		if (i % 2) {
 			tot = 0;
@@ -77,10 +74,8 @@ void wait_for_stability(void) {
 			}
 		}
 
-		//reduced the sample rate
-		chThdSleepUntilWindowed(time, time + MS2ST(150));
+		chThdSleepMilliseconds(100);
 	}
-
 	// kill blink led
 	chThdTerminate(waitingLed_p);
 	chThdWait(waitingLed_p);
@@ -118,9 +113,17 @@ void calibrate_imu_prox(void)
 // @brief calibrates imu
 void calibrate_tof(void)
 {
+	set_front_led(ON);
+
 	//drive_uphill();
 
 	//start_pid_regulator();
+
+	//start_assess_stability();
+
+	//    while (!get_equilibrium()) {
+	//    	chThdSleepMilliseconds(500);
+	//    }
 
 	originPosition = VL53L0X_get_dist_mm();
 
