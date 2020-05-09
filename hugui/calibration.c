@@ -115,15 +115,13 @@ void calibrate_tof(void)
 {
 	set_front_led(ON);
 
-	//drive_uphill();
+	start_pid_regulator();
 
-	//start_pid_regulator();
-
-	//start_assess_stability();
-
-	//    while (!get_equilibrium()) {
-	//    	chThdSleepMilliseconds(500);
-	//    }
+//	start_assess_stability();
+//
+//	while (!get_equilibrium()) {
+//		chThdSleepMilliseconds(500);
+//	}
 
 	originPosition = VL53L0X_get_dist_mm();
 

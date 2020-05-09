@@ -94,8 +94,8 @@ static THD_FUNCTION(pidRegulator, arg)
 // @brief
 void drive_uphill(void)
 {
-	float speed, rotation, angle, gyro = 0;
-    systime_t time, start = 0;
+	float speed, rotation, angle, pitch, roll, yaw = 0;
+    systime_t time = 0;
 
 	angle = angle_estimation();
 
@@ -105,20 +105,10 @@ void drive_uphill(void)
 		speed = -250;
 	}
 
-	// stabilise EPuck for 2
-	start = chVTGetSystemTime();
-	while (time < start + S2ST(2)) {
-		rotation = pi_yaw_correction(speed);
-		right_motor_set_speed(speed - rotation);
-		left_motor_set_speed(speed + rotation);
-
-		//sample at 100Hz
-		time = chVTGetSystemTime();
-        chThdSleepUntilWindowed(time, time + MS2ST(1000*TS));
-	}
-
-	while (gyro < PITCH_THRESHOLD) {
-		gyro = fabs(get_gyro_rate(X_AXIS));
+	while ((pitch < PITCH_THRESHOLD) | (roll > PITCH_THRESHOLD) | (yaw > PITCH_THRESHOLD)) {
+		pitch = 0.75*pitch + 0.25*fabs(get_gyro_rate(X_AXIS));
+		roll = 0.75*roll + 0.25*fabs(get_gyro_rate(Y_AXIS));
+		yaw = 0.75*yaw + 0.25*fabs(get_gyro_rate(Z_AXIS));
 		rotation = pi_yaw_correction(speed);
 		right_motor_set_speed(speed - rotation);
 		left_motor_set_speed(speed + rotation);
@@ -147,18 +137,23 @@ float pi_yaw_correction(float speed)
 	output[1] = output[0];
 
 	//error = distance - goal;
-	error[0] =  (get_prox(4) - get_prox(3)); 	// back
 	error[0] += (get_prox(5) - get_prox(2));	// sides
-	error[0] += (get_prox(6) - get_prox(1));	// front
-	error[0] += (get_prox(7) - get_prox(0));	// front
+
+	// adds front or back sensors input depending on direction
+	if (speed > 0) {
+		error[0] += 0*(get_prox(6) - get_prox(1));	// front
+		error[0] += 0.5*(get_prox(7) - get_prox(0));	// front
+    } else {
+    	error[0] =  (get_prox(4) - get_prox(3)); 	// back
+    }
 
 	output[0] = - KU1*output[1] - KU2*output[2] + KE0*error[0] + KE1*error[1] + KE2*error[2];
 
-	// anti windup
-	if(output[0] > MOTOR_SPEED_LIMIT){
-		output[0] = MOTOR_SPEED_LIMIT;
-	} else if (output[0] < -MOTOR_SPEED_LIMIT) {
-		output[0] = -MOTOR_SPEED_LIMIT;
+	// anti windup & DAC saturation
+	if(output[0] > MOTOR_SPEED_LIMIT/5){
+		output[0] = MOTOR_SPEED_LIMIT/5;
+	} else if (output[0] < -MOTOR_SPEED_LIMIT/5) {
+		output[0] = -MOTOR_SPEED_LIMIT/5;
 	}
 
 	// corrects error sign given the direction where the epuck is heading
@@ -236,6 +231,17 @@ float angle_estimation(void)
     angle = complementary_lowpass(gyro_angle, acc_angle);
 
     return -angle;
+}
+
+// @brief
+void mesure_position(void)
+{
+//	rotation = 0.5*pi_yaw_correction(speed);
+//
+//	VL53L0X_get_dist_mm();
+//
+//	right_motor_set_speed(-rotation);
+//	left_motor_set_speed(+rotation);
 }
 
 // @brief
