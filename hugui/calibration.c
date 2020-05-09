@@ -104,8 +104,6 @@ void calibrate_imu_prox(void)
 	set_led(LED1, ON);
 
 	chThdSleepMilliseconds(300);
-	clear_leds();
-	readyAnimation();
 
 	return;
 }
@@ -113,19 +111,23 @@ void calibrate_imu_prox(void)
 // @brief calibrates imu
 void calibrate_tof(void)
 {
-	set_front_led(ON);
+	drive_uphill();
 
 	start_pid_regulator();
+	start_assess_stability();
 
-//	start_assess_stability();
-//
-//	while (!get_equilibrium()) {
-//		chThdSleepMilliseconds(500);
-//	}
+	while (!get_equilibrium()) {
+		chThdSleepMilliseconds(500);
+	}
 
+	set_front_led(ON);
+	chThdSleepMilliseconds(200);
 	originPosition = VL53L0X_get_dist_mm();
+	chThdSleepMilliseconds(200);
+	set_front_led(OFF);
 
-	readyAnimation();
+	chThdSleepMilliseconds(200);
+
 	return;
 }
 

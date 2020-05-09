@@ -21,21 +21,19 @@ void measure_mass(void)
 	drive_uphill();
 
 	start_pid_regulator();
-
 	start_assess_stability();
 
-//    while (!get_equilibrium()) {
-//    	chThdSleepMilliseconds(500);
-//    }
+    while (!get_equilibrium()) {
+    	set_front_led(TOGGLE);
+    	chThdSleepMilliseconds(500);
+    }
 
-//	mesure_position();
-//
+    set_front_led(OFF);
+
+	mesure_position();
+
 //	send_mass();
-//
-//	right_motor_set_speed(STOP);
-//	left_motor_set_speed(STOP);
-//
-//	readyAnimation();
+
 	return;
 }
 
@@ -54,11 +52,11 @@ void send_mass(void)
 	massSmall = M_EPUCK*(originPos-eqPos)/(3*L_BASCULE/4);
 
 	chprintf((BaseSequentialStream *)&SD3, "RESULTATS :\n");
-	chThdSleepMilliseconds(1000);
+	chThdSleepMilliseconds(100);
 	chprintf((BaseSequentialStream *)&SD3, "Petite masse  = %.2f\n", massSmall);
-	chThdSleepMilliseconds(1000);
+	chThdSleepMilliseconds(100);
 	chprintf((BaseSequentialStream *)&SD3, "Masse moyenne = %.2f\n", massMedium);
-	chThdSleepMilliseconds(1000);
+	chThdSleepMilliseconds(100);
 	chprintf((BaseSequentialStream *)&SD3, "Grosse masse  = %.2f\n", massBig);
 
 	return;

@@ -15,7 +15,7 @@ extern parameter_namespace_t parameter_root;
 
 #define MEASUREMENT 0
 #define SENSORS_CALIBRATION 4
-#define TEST 8
+#define BLUETOOTH_TEST 8
 #define ORIGIN_CALIBRATION 12
 
 #define STOP 0

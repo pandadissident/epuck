@@ -91,7 +91,7 @@ static THD_FUNCTION(fsm, arg)
 				calibrate_tof();
 				chprintf((BaseSequentialStream *)&SD3, "Calibration terminee\n");
 				break;
-			case TEST :
+			case BLUETOOTH_TEST :
 				set_body_led(ON);
 				chprintf((BaseSequentialStream *)&SD3, "Envoie de la masse...\n");
 				startingAnimation();
@@ -105,6 +105,7 @@ static THD_FUNCTION(fsm, arg)
 				break;
     	}
 		chprintf((BaseSequentialStream *)&SD3, "\nEN ATTENTE D'INSTRUCTIONS\n");
+		readyAnimation();
     }
 }
 
