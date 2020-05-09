@@ -3,8 +3,6 @@
 #include <main.h>
 #include <math.h>
 
-#include <chprintf.h>
-
 #include "pid_regulator.h"
 
 #include "calibration.h"
@@ -23,7 +21,7 @@ static float angle = 0;
 static float distance = 0;
 
 #define sSAMPLES	5
-#define sTHRESHOLD	0.001
+#define sTHRESHOLD	0.01
 
 // @brief
 static THD_WORKING_AREA(assessStability_wa, 1024);
@@ -32,28 +30,28 @@ static THD_FUNCTION(assessStability, arg)
 	chRegSetThreadName(__FUNCTION__);
     (void)arg;
 
-    int i = 0;
-    float sum = 0;
-    float angle_buffer[sSAMPLES] = {0};
+    float sum = 10;
+    systime_t time = 0;
+    systime_t start = 0;
 
     assessStability_p = chThdGetSelfX();
+	start = chVTGetSystemTime();
 
     while (!chThdShouldTerminateX()) {
 
-    	angle_buffer[i % sSAMPLES] = angle;
+    	// lowpass filter
+    	sum = 0.85*sum + 0.15*angle;
 
-        sum += 1/sSAMPLES*angle_buffer[i % sSAMPLES];
-        sum -= 1/sSAMPLES*angle_buffer[(i+1) % sSAMPLES];
-
-        if ( (sum < sTHRESHOLD) & (i > sSAMPLES)) {
+    	// waits for 3 seconds before assessing stability
+        if ((fabs(sum) < sTHRESHOLD) & (time > start + S2ST(3))) {
         	stop_pid_regulator();
-        	distance = VL53L0X_get_dist_mm();
+        	right_motor_set_speed(STOP);
+        	left_motor_set_speed(STOP);
         	equilibre = TRUE;
         	chThdExit((msg_t)"");
         }
 
-    	i++;
-    	chprintf((BaseSequentialStream *)&SD3, "STABILITY TOTAL -- : %.3f\n", sum);
+        time = chVTGetSystemTime();
         chThdSleepMilliseconds(100);
     }
 }
@@ -87,14 +85,17 @@ static THD_FUNCTION(pidRegulator, arg)
 
         //sample at 100Hz
 		time = chVTGetSystemTime();
-        chThdSleepUntilWindowed(time, time + MS2ST(1000*TS));
+        chThdSleepUntilWindowed(time, time + S2ST(TS));
     }
 }
 
 // @brief
 void drive_uphill(void)
 {
-	float speed, rotation, angle, pitch, roll, yaw = 0;
+	float speed, rotation, angle = 0;
+	float pitch = 0;
+	float roll = 0;
+	float yaw = 0;
     systime_t time = 0;
 
 	angle = angle_estimation();
@@ -106,16 +107,20 @@ void drive_uphill(void)
 	}
 
 	while ((pitch < PITCH_THRESHOLD) | (roll > PITCH_THRESHOLD) | (yaw > PITCH_THRESHOLD)) {
+
+		// lowpass filter for pitch roll and yaw
 		pitch = 0.75*pitch + 0.25*fabs(get_gyro_rate(X_AXIS));
 		roll = 0.75*roll + 0.25*fabs(get_gyro_rate(Y_AXIS));
 		yaw = 0.75*yaw + 0.25*fabs(get_gyro_rate(Z_AXIS));
+
+		// correcting path
 		rotation = pi_yaw_correction(speed);
 		right_motor_set_speed(speed - rotation);
 		left_motor_set_speed(speed + rotation);
 
 		//sample at 100Hz
 		time = chVTGetSystemTime();
-        chThdSleepUntilWindowed(time, time + MS2ST(1000*TS));
+        chThdSleepUntilWindowed(time, time + S2ST(TS));
 	}
 
 	right_motor_set_speed(STOP);
@@ -137,14 +142,14 @@ float pi_yaw_correction(float speed)
 	output[1] = output[0];
 
 	//error = distance - goal;
-	error[0] += (get_prox(5) - get_prox(2));	// sides
+	error[0] = (get_prox(5) - get_prox(2));	// sides 45 deg
 
 	// adds front or back sensors input depending on direction
 	if (speed > 0) {
-		error[0] += 0*(get_prox(6) - get_prox(1));	// front
-		error[0] += 0.5*(get_prox(7) - get_prox(0));	// front
+		//error[0] += (get_prox(7) - get_prox(0));		// front 10deg
+		error[0] += 0.5*(get_prox(6) - get_prox(1));	// front 20deg
     } else {
-    	error[0] =  (get_prox(4) - get_prox(3)); 	// back
+    	error[0] +=  (get_prox(4) - get_prox(3)); 		// back 165deg
     }
 
 	output[0] = - KU1*output[1] - KU2*output[2] + KE0*error[0] + KE1*error[1] + KE2*error[2];
@@ -199,8 +204,8 @@ float complementary_lowpass(float input1, float input2)
 	static bool initialiased = FALSE;
 
 	if(!initialiased) {
-		output = (input1+input2)/2;
 		initialiased = TRUE;
+		return output = (input1+input2)/2;
 	}
 
 	output = (1-cutoff)*(gyro_pond*input1 + (1-gyro_pond)*input2) + cutoff*output;
@@ -233,15 +238,25 @@ float angle_estimation(void)
     return -angle;
 }
 
+#define THRESHOLDx 5
+
 // @brief
 void mesure_position(void)
 {
-//	rotation = 0.5*pi_yaw_correction(speed);
-//
-//	VL53L0X_get_dist_mm();
-//
-//	right_motor_set_speed(-rotation);
-//	left_motor_set_speed(+rotation);
+	float error = 0;
+
+	error =  get_prox(6) + get_prox(3) - get_prox(4) - get_prox(1);
+
+	while (fabs(error) > THRESHOLDx) {
+		error = 0.5*error + 0.5*(get_prox(6) + get_prox(3) - get_prox(4) - get_prox(1));
+		right_motor_set_speed(-error);
+		left_motor_set_speed(+error);
+        chThdSleepMilliseconds(50);
+	}
+
+	distance = VL53L0X_get_dist_mm();
+
+	return;
 }
 
 // @brief
