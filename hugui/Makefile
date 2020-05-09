@@ -17,5 +17,10 @@ CSRC += ./main.c \
 #Header folders to include
 INCDIR += 
 
+# Compiler without optimisation options here. Comment to add TOF 
+#USE_OPT = -ggdb -fomit-frame-pointer -falign-functions=16
+#USE_OPT += -fno-strict-aliasing
+#USE_OPT += -fstack-protector-all -L .
+
 #Jump to the main Makefile
 include $(GLOBAL_PATH)/Makefile

@@ -1,7 +1,7 @@
 #include <ch.h>
+#include <chprintf.h>
 #include <hal.h>
 #include <memory_protection.h>
-
 #include <main.h>
 
 #include "button.h"
@@ -21,13 +21,14 @@ messagebus_t bus;
 MUTEX_DECL(bus_lock);
 CONDVAR_DECL(bus_condvar);
 
+// threads
 static thread_t *button_p;
 static thread_t *fsm_p;
 
 // @brief
 static THD_WORKING_AREA(button_wa, 128);
-static THD_FUNCTION(button, arg) {
-
+static THD_FUNCTION(button, arg)
+{
     (void) arg;
     chRegSetThreadName(__FUNCTION__);
 
@@ -35,29 +36,23 @@ static THD_FUNCTION(button, arg) {
 
 	while (!chThdShouldTerminateX()) {
 
+		// debounce algo here ?
+
 		if(button_is_pressed()){
-			CH_IRQ_PROLOGUE();
-			chSysLockFromISR();
-			chEvtSignalI(fsm_p, (eventmask_t)1);
-			chSysUnlockFromISR();
-			CH_IRQ_EPILOGUE();
+			chEvtSignal(fsm_p, (eventmask_t)1);
+			// cancel long presses
 			chThdSleepMilliseconds(1000);
 		} else {
-			CH_IRQ_PROLOGUE();
-			chSysLockFromISR();
-			chEvtSignalI(fsm_p, (eventmask_t)0);
-			chSysUnlockFromISR();
-			CH_IRQ_EPILOGUE();
+			chEvtSignal(fsm_p, (eventmask_t)0);
 		}
 		chThdSleepMilliseconds(100);
-
 	}
 }
 
 // @brief
-static THD_WORKING_AREA(fsm_wa, 2048);
-static THD_FUNCTION(fsm, arg) {
-
+static THD_WORKING_AREA(fsm_wa, 128);
+static THD_FUNCTION(fsm, arg)
+{
     (void) arg;
     chRegSetThreadName(__FUNCTION__);
 
@@ -65,49 +60,51 @@ static THD_FUNCTION(fsm, arg) {
 
     while (!chThdShouldTerminateX()) {
 
+    	// waits for a message from button thread
     	chEvtWaitAny((eventmask_t)1);
 
-    	// stop actions
-    	pid_regulator_stop();
-    	find_equilibrium_stop();
-    	drive_uphill_stop();
-    	stop_social_distancing();
-
-    	// reset state
-		clear_leds();
-		set_body_led(OFF);
-		set_front_led(OFF);
+    	// stop all actions
+    	stop_pid_regulator();
+    	stop_assess_stability();
 		right_motor_set_speed(STOP);
 		left_motor_set_speed(STOP);
 
+    	// reset led state
+		clear_leds();
+		set_body_led(OFF);
+		set_front_led(OFF);
+
+		// simple fsm
 		switch (get_selector()) {
 			case MEASUREMENT :
+				chprintf((BaseSequentialStream *)&SD3, "Mesure de la masse...\n");
 				measure_mass();
+				chprintf((BaseSequentialStream *)&SD3, "Termine\n");
 				break;
-			case CALIBRATION :
-				calibrate_imuNprox();
+			case SENSORS_CALIBRATION :
+				chprintf((BaseSequentialStream *)&SD3, "Premiere etape de calibration...\n");
+				calibrate_imu_prox();
+				chprintf((BaseSequentialStream *)&SD3, "Calibration terminee\n");
 				break;
-			case TOF_TUNING :
-				tune_tof();
+			case ORIGIN_CALIBRATION :
+				chprintf((BaseSequentialStream *)&SD3, "Seconde etape de calibration...\n");
+				calibrate_tof();
+				chprintf((BaseSequentialStream *)&SD3, "Calibration terminee\n");
 				break;
-			case MOTOR_TEST :
+			case TEST :
 				set_body_led(ON);
-				start_social_distancing();
+				chprintf((BaseSequentialStream *)&SD3, "Envoie de la masse...\n");
+				startingAnimation();
+				send_mass();
+				chprintf((BaseSequentialStream *)&SD3, "Termine\n");
 				break;
 			default:
 				set_body_led(ON);
+				chprintf((BaseSequentialStream *)&SD3, " - STOP -\n");
 				chThdSleepMilliseconds(500);
 				break;
     	}
-
-		CH_IRQ_PROLOGUE();
-
-		//Wakes up button thread
-		chSysLockFromISR();
-		chEvtSignalI(fsm_p, (eventmask_t)0);
-		chSysUnlockFromISR();
-
-		CH_IRQ_EPILOGUE();
+		chprintf((BaseSequentialStream *)&SD3, "\nEN ATTENTE D'INSTRUCTIONS\n");
     }
 }
 
@@ -123,28 +120,31 @@ static void serial_start(void)
 	};
 
 	sdStart(&SD3, &ser_cfg); // UART3.
+
+	return;
 }
 
 
 // @brief
-void startingAnimation(void) {
-
+void startingAnimation(void)
+{
 	//circle on
 	set_led(LED1, ON);
 	chThdSleepMilliseconds(50);
-	set_rgb_led(LED2, 0, 0, 10);
+	set_rgb_led(LED2, 0, 0, 100);
 	chThdSleepMilliseconds(50);
 	set_led(LED3, ON);
 	chThdSleepMilliseconds(50);
-	set_rgb_led(LED4, 0, 0, 10);
+	set_rgb_led(LED4, 0, 0, 100);
 	chThdSleepMilliseconds(50);
 	set_led(LED5, ON);
 	chThdSleepMilliseconds(50);
-	set_rgb_led(LED6, 0, 0, 10);
+	set_rgb_led(LED6, 0, 0, 100);
 	chThdSleepMilliseconds(50);
 	set_led(LED7, ON);
 	chThdSleepMilliseconds(50);
-	set_rgb_led(LED8, 0, 0, 10);
+	set_rgb_led(LED8, 0, 0, 100);
+
 	//circle off
 	chThdSleepMilliseconds(200);
 	set_led(LED1, OFF);
@@ -163,13 +163,15 @@ void startingAnimation(void) {
 	chThdSleepMilliseconds(50);
 	set_rgb_led(LED8, 0, 0, 0);
 
-	set_body_led(ON);
+	chThdSleepMilliseconds(500);
+	readyAnimation();
+	return;
 }
 
 
 // @brief
-void readyAnimation(void) {
-
+void readyAnimation(void)
+{
 	clear_leds();
 
 	set_body_led(ON);
@@ -186,11 +188,12 @@ void readyAnimation(void) {
 	chThdSleepMilliseconds(50);
 	set_body_led(ON);
 
+	return;
 }
 
 // @brief
-int main(void) {
-
+int main(void)
+{
 	//system init
 	halInit();
 	chSysInit();
@@ -206,36 +209,24 @@ int main(void) {
 	chThdSleepMilliseconds(100);
 
 	// Init the peripherals
-//	usb_start();
-//	dcmi_start();
-//	po8030_start();
 	motors_init();
 	proximity_start();
-//	battery_level_start();
-//	dac_start();
-//	exti_start();
 	imu_start();
-//	ir_remote_start();
 	spi_comm_start();
-	VL53L0X_start(); // <-----------
+	VL53L0X_start();
 	serial_start();
 
 	startingAnimation();
-	chThdSleepMilliseconds(1000);
 
 	// Launch main thread
-    chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
+	chThdCreateStatic(fsm_wa, sizeof(fsm_wa), NORMALPRIO, fsm, NULL);
 	chThdCreateStatic(button_wa, sizeof(button_wa), NORMALPRIO, button, NULL);
 
-    static float dummy_a, dummy_g, dummy_i, dummy_t = 0;
+	chprintf((BaseSequentialStream *)&SD3, "EN ATTENTE D'INSTRUCTIONS\n");
 
-    //infinite loop
+    //infinite loop that does nothing
 	while (1) {
         chThdSleepMilliseconds(1000);
-        dummy_a = get_acceleration(X_AXIS);
-		dummy_g = get_gyro_rate(X_AXIS);
-		dummy_i = get_prox(7);
-		dummy_t = VL53L0X_get_dist_mm();
     }
 }
 

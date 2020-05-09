@@ -1,44 +1,9 @@
 #ifndef CALIBRATION_H
 #define CALIBRATION_H
 
-#include "msgbus/messagebus.h"
-#include "parameter/parameter.h"
-
-#define SAMPLES 8
-#define THRESHOLD SAMPLES*100
-#define MAX_ITERATIONS 65528 //= floor((2^16-1)/SAMPLES)*SAMPLES
-#define RED 100, 0, 0
-#define GREEN 0, 100, 0
-#define BLUE 0, 0, 100
-
-
-// Robot wide IPC bus
-extern messagebus_t bus;
-extern parameter_namespace_t parameter_root;
-
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-void calibrate_imuNprox(void);
-
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-void tune_tof(void);
-
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-float get_originPos(void);
+#define SAMPLES 				8
+#define STABILITY_THRESHOLD 	SAMPLES*75
+#define MAX_ITERATIONS 			65528 //= floor((2^16-1)/SAMPLES)*SAMPLES
 
 /*! @brief
  *
@@ -47,5 +12,8 @@ float get_originPos(void);
  *  @warning
  */
 void wait_for_stability(void);
+void calibrate_imu_prox(void);
+void calibrate_tof(void);
+float get_pos_zero(void);
 
 #endif

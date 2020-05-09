@@ -1,7 +1,9 @@
 #include <ch.h>
 #include <hal.h>
-#include <math.h>
 #include <main.h>
+#include <math.h>
+
+#include <chprintf.h>
 
 #include "pid_regulator.h"
 
@@ -11,228 +13,285 @@
 #include "sensors/proximity.h"
 #include "sensors/VL53L0X/VL53L0X.h"
 
-static bool initialized = FALSE;
+// threads
+static thread_t *pidRegulator_p = NULL;
+static thread_t *assessStability_p = NULL;
+
+// static variables
 static bool equilibre = FALSE;
+static float angle = 0;
+static float distance = 0;
 
-static thread_t *pidRegulator_p;
-static thread_t *drive_uphill_p;
-static thread_t *social_distancing_p;
-
-// @brief
-static THD_WORKING_AREA(drive_uphill_wa, 256);
-static THD_FUNCTION(drive_uphill, arg) {
-
-    chRegSetThreadName(__FUNCTION__);
-    (void)arg;
-
-    float acc = 0;
-
-    drive_uphill_p = chThdGetSelfX();
-
-    while (!chThdShouldTerminateX()) {
-    	acc = get_acceleration(Y_AXIS);
-    	if ( acc > 0.1) {
-        	right_motor_set_speed(50*acc*acc);
-        	left_motor_set_speed(50*acc*acc);
-    	} else if ( acc < -0.1) {
-        	right_motor_set_speed(-50*acc*acc);
-        	left_motor_set_speed(-50*acc*acc);
-    	} else {
-        	right_motor_set_speed(0);
-        	left_motor_set_speed(0);
-    	}
-    	chThdSleepMilliseconds(250);
-    }
-}
+#define sSAMPLES	5
+#define sTHRESHOLD	0.001
 
 // @brief
-static THD_WORKING_AREA(social_distancing_wa, 256);
-static THD_FUNCTION(social_distancing, arg) {
-
-    chRegSetThreadName(__FUNCTION__);
+static THD_WORKING_AREA(assessStability_wa, 1024);
+static THD_FUNCTION(assessStability, arg)
+{
+	chRegSetThreadName(__FUNCTION__);
     (void)arg;
 
-    float error, distance = 0;
+    int i = 0;
+    float sum = 0;
+    float angle_buffer[sSAMPLES] = {0};
 
-    social_distancing_p = chThdGetSelfX();
-
-    distance = get_originPos();
+    assessStability_p = chThdGetSelfX();
 
     while (!chThdShouldTerminateX()) {
 
-    	error = VL53L0X_get_dist_mm() - distance;
+    	angle_buffer[i % sSAMPLES] = angle;
 
-    	if ( abs(error) > 10) {
-        	right_motor_set_speed(5*error);
-        	left_motor_set_speed(5*error);
-    	} else {
-        	right_motor_set_speed(0);
-        	left_motor_set_speed(0);
-    	}
-    	chThdSleepMilliseconds(250);
+        sum += 1/sSAMPLES*angle_buffer[i % sSAMPLES];
+        sum -= 1/sSAMPLES*angle_buffer[(i+1) % sSAMPLES];
+
+        if ( (sum < sTHRESHOLD) & (i > sSAMPLES)) {
+        	stop_pid_regulator();
+        	distance = VL53L0X_get_dist_mm();
+        	equilibre = TRUE;
+        	chThdExit((msg_t)"");
+        }
+
+    	i++;
+    	chprintf((BaseSequentialStream *)&SD3, "STABILITY TOTAL -- : %.3f\n", sum);
+        chThdSleepMilliseconds(100);
     }
 }
-
-// @brief simple PID regulator implementation
-int16_t pid_regulator_align(void){
-
-	float error_align = 0;
-	float speed = 0;
-
-	static float sum_error_align = 0;
-
-	//error = distance - goal;
-	error_align = get_prox(4) + get_prox(5) + get_prox(6) + get_prox(7) - (get_prox(0) + get_prox(1) + get_prox(2) +  get_prox(3));
-    if (get_acceleration(Y_AXIS) < 0) {
-    	error_align = - error_align;
-    }
-	//disables the PID regulator if the error is to small
-	//this avoids to always move as we cannot exactly be where we want and 
-	//the camera is a bit noisy
-	if(fabs(error_align) < 5*ERROR_THRESHOLD_ALIGN){
-		return 0;
-	}
-
-	sum_error_align += error_align;
-
-	//we set a maximum and a minimum for the sum to avoid an uncontrolled growth
-	if(sum_error_align > MAX_SUM_ERROR_ALIGN){
-		sum_error_align = MAX_SUM_ERROR_ALIGN;
-	}else if(sum_error_align < -MAX_SUM_ERROR_ALIGN){
-		sum_error_align = -MAX_SUM_ERROR_ALIGN;
-	}
-
-	speed = KP_ALIGN * error_align + KI_ALIGN * sum_error_align;
-
-    return (int16_t)speed;
-}
-
-// @brief
-int16_t pid_regulator_angle(float angle){
-
-		float error_angle = 0;
-		float speed = 0;
-
-		static float sum_error_angle = 0;
-
-		//error = distance - goal;
-		error_angle = angle;
-		//disables the PID regulator if the error is to small
-		//this avoids to always move as we cannot exactly be where we want and
-		//the camera is a bit noisy
-		if(fabs(error_angle) < ERROR_THRESHOLD_ANGLE){
-			equilibre = TRUE;
-			return 0;
-		}
-
-		sum_error_angle += error_angle;
-
-		//we set a maximum and a minimum for the sum to avoid an uncontrolled growth
-		if(sum_error_angle > MAX_SUM_ERROR_ANGLE){
-			sum_error_angle = MAX_SUM_ERROR_ANGLE;
-		}else if(sum_error_angle < -MAX_SUM_ERROR_ANGLE){
-			sum_error_angle = -MAX_SUM_ERROR_ANGLE;
-		}
-
-		speed = KP_ANGLE * error_angle + KI_ANGLE * sum_error_angle;
-
-	    return (int16_t)speed;
-	}
 
 // @brief
 static THD_WORKING_AREA(pidRegulator_wa, 1024);
-static THD_FUNCTION(pidRegulator, arg) {
-
-    chRegSetThreadName(__FUNCTION__);
+static THD_FUNCTION(pidRegulator, arg)
+{
+	chRegSetThreadName(__FUNCTION__);
     (void)arg;
 
     pidRegulator_p = chThdGetSelfX();
 
-    systime_t time;
+    systime_t time = 0;
 
-    int16_t speed = 0;
-    int16_t speed_correction = 0;
-    float angle_init = 0;
-    float angle_mes = 0;
-    float dt = 0.01;//time window between two measurement
+    float speed = 0;
+    float rotation = 0;
 
-    while(!chThdShouldTerminateX()){
-        time = chVTGetSystemTime();
-        float acc_values[NB_AXIS] = {0,0,0};
-        float gyro_pitch, acc_angle, gyro_angle, r = 0;
+    while(!chThdShouldTerminateX()) {
 
-//        // calcul de l'angle initial
-//        if(!initialized){
-//        	acc_values[X_AXIS] = get_acceleration(X_AXIS);
-//        	acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
-//        	acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
-//        	angle_init = asin((float)acc_values[Z_AXIS]/sqrt(pow(acc_values[X_AXIS],2) + pow(acc_values[Y_AXIS],2) + pow(acc_values[Z_AXIS],2)));
-//        	gyro_angle = angle_init;
-//        	initialized = TRUE;
-//        }
-//
-        //mesure de l'angle
-        acc_values[X_AXIS] = get_acceleration(X_AXIS);
-        acc_values[Y_AXIS] = get_acceleration(Y_AXIS);
-        acc_values[Z_AXIS] = get_acceleration(Z_AXIS);
-//      gyro_pitch = get_gyro_rate(X_AXIS);
-
-        r = sqrt(acc_values[X_AXIS]*acc_values[X_AXIS] + acc_values[Y_AXIS]*acc_values[Y_AXIS] + acc_values[Z_AXIS]*acc_values[Z_AXIS]);
-        acc_angle = 180 - acos(acc_values[Z_AXIS]/r)*180/3.1415;
-        //acc_direction = acos(acc_values[X_AXIS]/(r*cos(acc_angle)));
-        if (acc_values[Y_AXIS] < 0) {
-        	acc_angle = - acc_angle;
-        }
-
-//      gyro_angle += gyro_pitch*dt;
-
-        //compenser la dérive du gyro ??
-        angle_mes = acc_angle; //gyro_angle;//+ 0.04 * ;
-        //computes the speed to give to the motors
-        //distance_cm is modified by the image processing thread
-		speed = pid_regulator_angle(angle_mes);
-        //computes a correction factor to let the robot rotate to be in front of the line
-        speed_correction = pid_regulator_align();
-
-        //if the epuck goes straight, don't rotate
-        if(abs(speed_correction) < ROTATION_THRESHOLD){
-        	speed_correction = 0;
-        }
+        //computes the angle
+		angle = angle_estimation();
+		//computes speed to which epuck is going to travel
+        speed = pd_speed(angle);
+        //computes a correction factor to let the robot rotate to stay in the path
+        rotation = ROTATION_FACTOR*pi_yaw_correction(speed);
 
         //applies the speed from the PID regulator and the correction for the rotation
-		right_motor_set_speed(speed - ROTATION_COEFF * speed_correction);
-		left_motor_set_speed(speed + ROTATION_COEFF * speed_correction);
+		right_motor_set_speed(speed - rotation);
+		left_motor_set_speed(speed + rotation);
 
-        //100Hz
-        chThdSleepUntilWindowed(time, time + MS2ST(10));
+        //sample at 100Hz
+		time = chVTGetSystemTime();
+        chThdSleepUntilWindowed(time, time + MS2ST(1000*TS));
     }
 }
 
-void pid_regulator_start(void){
-	chThdCreateStatic(pidRegulator_wa, sizeof(pidRegulator_wa), NORMALPRIO, pidRegulator, NULL);
+// @brief
+void drive_uphill(void)
+{
+	float speed, rotation, angle, pitch, roll, yaw = 0;
+    systime_t time = 0;
+
+	angle = angle_estimation();
+
+	if ( angle > 0 ) {
+		speed = 250;
+	} else {
+		speed = -250;
+	}
+
+	while ((pitch < PITCH_THRESHOLD) | (roll > PITCH_THRESHOLD) | (yaw > PITCH_THRESHOLD)) {
+		pitch = 0.75*pitch + 0.25*fabs(get_gyro_rate(X_AXIS));
+		roll = 0.75*roll + 0.25*fabs(get_gyro_rate(Y_AXIS));
+		yaw = 0.75*yaw + 0.25*fabs(get_gyro_rate(Z_AXIS));
+		rotation = pi_yaw_correction(speed);
+		right_motor_set_speed(speed - rotation);
+		left_motor_set_speed(speed + rotation);
+
+		//sample at 100Hz
+		time = chVTGetSystemTime();
+        chThdSleepUntilWindowed(time, time + MS2ST(1000*TS));
+	}
+
+	right_motor_set_speed(STOP);
+	left_motor_set_speed(STOP);
+
+	return;
 }
 
-void start_social_distancing(void){
-	chThdCreateStatic(social_distancing_wa, sizeof(social_distancing_wa), NORMALPRIO, social_distancing, NULL);
+// @brief numerical PI regulator implementation
+float pi_yaw_correction(float speed)
+{
+	static float error[3] = {0};
+	static float output[3] = {0};
+
+	// update variables
+	error[2] = error[1];
+	error[1] = error[0];
+	output[2] = output[1];
+	output[1] = output[0];
+
+	//error = distance - goal;
+	error[0] += (get_prox(5) - get_prox(2));	// sides
+
+	// adds front or back sensors input depending on direction
+	if (speed > 0) {
+		error[0] += 0*(get_prox(6) - get_prox(1));	// front
+		error[0] += 0.5*(get_prox(7) - get_prox(0));	// front
+    } else {
+    	error[0] =  (get_prox(4) - get_prox(3)); 	// back
+    }
+
+	output[0] = - KU1*output[1] - KU2*output[2] + KE0*error[0] + KE1*error[1] + KE2*error[2];
+
+	// anti windup & DAC saturation
+	if(output[0] > MOTOR_SPEED_LIMIT/5){
+		output[0] = MOTOR_SPEED_LIMIT/5;
+	} else if (output[0] < -MOTOR_SPEED_LIMIT/5) {
+		output[0] = -MOTOR_SPEED_LIMIT/5;
+	}
+
+	// corrects error sign given the direction where the epuck is heading
+	if (speed > 0) {
+		return output[0];
+    } else {
+    	return -output[0];
+    }
 }
 
-void stop_social_distancing(void){
-	chThdTerminate(social_distancing_p);
+// @brief simple PI regulator implementation
+float pd_speed(float angle)
+{
+	static float error, der_error, speed = 0;
+
+	// proportional error
+	error = angle;
+
+	//disables the PID regulator if the error is too small
+	if(fabs(error) < PITCH_ERROR_THRESHOLD){
+		error = 0;
+	}
+
+	// derivative error with lowpass filter
+	der_error = 0.9*der_error - 0.1*get_gyro_rate(X_AXIS);
+
+	//disables the PID regulator if the error is too small
+	if(fabs(der_error) < 0.01){
+		der_error = 0;
+	}
+
+	speed = KP_SPEED*error + KD_SPEED*der_error;
+
+    return speed;
 }
 
+// @brief
+float complementary_lowpass(float input1, float input2)
+{
+	float cutoff = 0.8;
+	float gyro_pond = 0.85;
+	static float output = 0;
+	static bool initialiased = FALSE;
 
-void pid_regulator_stop(void){
-	chThdTerminate(pidRegulator_p);
+	if(!initialiased) {
+		output = (input1+input2)/2;
+		initialiased = TRUE;
+	}
+
+	output = (1-cutoff)*(gyro_pond*input1 + (1-gyro_pond)*input2) + cutoff*output;
+
+	return output;
 }
 
-void drive_uphill_start(void){
-	chThdCreateStatic(drive_uphill_wa, sizeof(drive_uphill_wa), NORMALPRIO, drive_uphill, NULL);
+// @brief
+float angle_estimation(void)
+{
+    static float angle, acc_angle, gyro_angle, temp = 0;
+    static int16_t acc_values[NB_AXIS] = {0};
+
+    // estimate angle through acceleration
+    get_acc_all(acc_values);
+
+	temp = atan2(acc_values[Y_AXIS], acc_values[Z_AXIS])*180/M_PI;
+	if (temp > 0) {
+		acc_angle = temp - 180;
+	} else {
+		acc_angle = temp + 180;
+	}
+
+	// estimate angle through gyro
+	gyro_angle = angle + get_gyro_rate(X_AXIS)*TS;
+
+	// complementary filter
+    angle = complementary_lowpass(gyro_angle, acc_angle);
+
+    return -angle;
 }
 
-void drive_uphill_stop(void){
-	chThdTerminate(drive_uphill_p);
+// @brief
+void mesure_position(void)
+{
+//	rotation = 0.5*pi_yaw_correction(speed);
+//
+//	VL53L0X_get_dist_mm();
+//
+//	right_motor_set_speed(-rotation);
+//	left_motor_set_speed(+rotation);
 }
 
-bool get_eq(void){
+// @brief
+void start_pid_regulator(void)
+{
+	if (pidRegulator_p == NULL) {
+		chThdCreateStatic(pidRegulator_wa, sizeof(pidRegulator_wa), NORMALPRIO, pidRegulator, NULL);
+	}
+	return;
+}
+
+// @brief
+void stop_pid_regulator(void)
+{
+	if (pidRegulator_p != NULL) {
+		chThdTerminate(pidRegulator_p);
+		chThdWait(pidRegulator_p);
+		pidRegulator_p = NULL;
+	}
+	return;
+}
+
+// @brief
+void start_assess_stability(void)
+{
+	if (assessStability_p == NULL) {
+		chThdCreateStatic(assessStability_wa, sizeof(assessStability_wa), NORMALPRIO, assessStability, NULL);
+	}
+	return;
+}
+
+// @brief
+void stop_assess_stability(void)
+{
+	if (pidRegulator_p != NULL) {
+		chThdTerminate(assessStability_p);
+		chThdWait(assessStability_p);
+		assessStability_p = NULL;
+	}
+	return;
+}
+
+// @brief
+bool get_equilibrium(void)
+{
 	return equilibre;
+}
+
+// @brief
+float get_distance(void)
+{
+	return distance;
 }

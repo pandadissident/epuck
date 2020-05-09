@@ -1,66 +1,36 @@
 #ifndef PID_REGULATOR_H
 #define PID_REGULATOR_H
 
-#include "msgbus/messagebus.h"
-#include "parameter/parameter.h"
+// constants for the different parts of the project
+#define KP_YAW		2
+#define KI_YAW		2
+#define KD_YAW		5
+#define N 			0.5			// filter coefficient
+#define TS 			0.01 		// PID sampling period
 
-// Robot wide IPC bus
-extern messagebus_t bus;
-extern parameter_namespace_t parameter_root;
+#define KP_SPEED	4
+#define KI_SPEED	0
+#define KD_SPEED	275
 
-//constants for the differents parts of the project
+// Thresholds
+#define ROTATION_FACTOR 			0.025
+#define PITCH_ERROR_THRESHOLD		0.7 //[Â°] because of the noise of the imu
+#define YAW_ERROR_THRESHOLD			4*10.0 //[mW/mÂ²] because of the noise of the ir receiver
+#define ACCELERATION_THRESHOLD		10.0
+#define PITCH_THRESHOLD				0.4
 
-#define ROTATION_THRESHOLD		10
-#define ROTATION_COEFF			0.1f
-
-#define ERROR_THRESHOLD_ALIGN	10.0f//[mW/m²] because of the noise of the ir receiver
-#define ERROR_THRESHOLD_ANGLE	1.0f//[°] because of the noise of the imu
-#define KP_ALIGN				1.0f
-#define KP_ANGLE				10.0f
-#define KI_ALIGN				0.1f
-#define KI_ANGLE				0.1f	//must not be zero
-#define MAX_SUM_ERROR_ALIGN		(MOTOR_SPEED_LIMIT/3)
-#define MAX_SUM_ERROR_ANGLE		(MOTOR_SPEED_LIMIT/3)
-
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-void start_social_distancing(void);
-
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-void stop_social_distancing(void);
-
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-void straight_line(void);
-
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-void pid_regulator_start(void);
-
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-void pid_regulator_stop(void);
+// compute numerical pid terms
+#define A0	(1+N*TS)
+#define A1	-(2+N*TS)
+#define A2	1
+#define B0		(KP_YAW*A0 + KI_YAW*TS*A0 + KD_YAW*N)
+#define B1		(KP_YAW*A1 - KI_YAW*TS - 2*KD_YAW*N)
+#define B2		(KP_YAW + KD_YAW*N)
+#define KU1	(A1/A0)
+#define KU2	(A2/A0)
+#define KE0	(B0/A0)
+#define KE1	(B1/A0)
+#define KE2	(B2/A0)
 
 
 /*! @brief
@@ -69,22 +39,18 @@ void pid_regulator_stop(void);
  *  @param values
  *  @warning
  */
-void drive_uphill_start(void);
+void drive_uphill(void);
+float pi_yaw_correction(float speed);
+float pd_speed(float angle);
+float complementary_lowpass(float input1, float input2);
+float angle_estimation(void);
+void mesure_position(void);
+void start_pid_regulator(void);
+void stop_pid_regulator(void);
+void start_assess_stability(void);
+void stop_assess_stability(void);
+bool get_equilibrium(void);
+float get_distance(void);
 
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-void drive_uphill_stop(void);
-
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
-bool get_eq(void);
 
 #endif /* PID_REGULATOR_H */
