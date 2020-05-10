@@ -17,7 +17,7 @@
 static thread_t *waitingLed_p;
 
 // static variables
-static float originPosition = 0;
+static uint16_t originPosition = 0;
 
 // @brief makes led blink
 static THD_WORKING_AREA(waitingLed_wa, 128);
@@ -36,7 +36,6 @@ static THD_FUNCTION(waitingLed, arg)
     set_led(LED5, OFF);
 }
 
-// @brief
 void wait_for_stability(void)
 {
 	uint16_t i = 0;
@@ -82,7 +81,6 @@ void wait_for_stability(void)
 	waitingLed_p = NULL;
 }
 
-// @brief calibrates imu and ir sensors aka proximity sensors
 void calibrate_imu_prox(void)
 {
 	wait_for_stability();
@@ -108,7 +106,6 @@ void calibrate_imu_prox(void)
 	return;
 }
 
-// @brief calibrates imu
 void calibrate_tof(void)
 {
 	drive_uphill();
@@ -116,7 +113,7 @@ void calibrate_tof(void)
 	start_pid_regulator();
 	start_assess_stability();
 
-	while (!get_equilibrium()) {
+	while (!equilibrium_found()) {
 		chThdSleepMilliseconds(500);
 	}
 
@@ -131,7 +128,6 @@ void calibrate_tof(void)
 	return;
 }
 
-// @brief calibrates imu
-float get_pos_zero(void) {
+uint16_t get_pos_zero(void) {
 	return originPosition;
 }

@@ -13,7 +13,6 @@
 #include "sensors\VL53L0X\VL53L0X.h"
 #include "serial.h"
 
-// @brief
 void measure_mass(void)
 {
 	wait_for_stability();
@@ -23,7 +22,7 @@ void measure_mass(void)
 	start_pid_regulator();
 	start_assess_stability();
 
-    while (!get_equilibrium()) {
+    while (!equilibrium_found()) {
     	set_front_led(TOGGLE);
     	chThdSleepMilliseconds(500);
     }
@@ -32,17 +31,16 @@ void measure_mass(void)
 
 	mesure_position();
 
-//	send_mass();
+	send_mass();
 
 	return;
 }
 
 
-// @brief
 void send_mass(void)
 {
+	float originPos, eqPos = 0;
 	float massBig, massMedium, massSmall = 0;
-	static float originPos, eqPos = 0;
 
 	originPos = get_pos_zero();
 	eqPos = get_distance();

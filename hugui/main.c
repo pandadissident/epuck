@@ -25,7 +25,7 @@ CONDVAR_DECL(bus_condvar);
 static thread_t *button_p;
 static thread_t *fsm_p;
 
-// @brief
+// @brief thread to watch if button is pressed
 static THD_WORKING_AREA(button_wa, 128);
 static THD_FUNCTION(button, arg)
 {
@@ -35,8 +35,6 @@ static THD_FUNCTION(button, arg)
     button_p = chThdGetSelfX();
 
 	while (!chThdShouldTerminateX()) {
-
-		// debounce algo here ?
 
 		if(button_is_pressed()){
 			chEvtSignal(fsm_p, (eventmask_t)1);
@@ -49,7 +47,7 @@ static THD_FUNCTION(button, arg)
 	}
 }
 
-// @brief
+// @brief main FSM machine
 static THD_WORKING_AREA(fsm_wa, 128);
 static THD_FUNCTION(fsm, arg)
 {
@@ -109,8 +107,6 @@ static THD_FUNCTION(fsm, arg)
     }
 }
 
-
-// @brief
 static void serial_start(void)
 {
 	static SerialConfig ser_cfg = {
@@ -125,8 +121,6 @@ static void serial_start(void)
 	return;
 }
 
-
-// @brief
 void startingAnimation(void)
 {
 	//circle on
@@ -169,8 +163,6 @@ void startingAnimation(void)
 	return;
 }
 
-
-// @brief
 void readyAnimation(void)
 {
 	clear_leds();
@@ -192,7 +184,6 @@ void readyAnimation(void)
 	return;
 }
 
-// @brief
 int main(void)
 {
 	//system init
@@ -214,7 +205,7 @@ int main(void)
 	proximity_start();
 	imu_start();
 	spi_comm_start();
-	VL53L0X_start();
+	//VL53L0X_start();
 	serial_start();
 
 	startingAnimation();
