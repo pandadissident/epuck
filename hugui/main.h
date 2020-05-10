@@ -24,13 +24,10 @@ extern parameter_namespace_t parameter_root;
 #define TOGGLE 2
 #define ALL 4
 
-/*! @brief
- *
- *  @param
- *  @param values
- *  @warning
- */
+// @brief fun starting animation
 void startingAnimation(void);
+
+// @brief animation to indicate that process suceeded
 void readyAnimation(void);
 
 #ifdef __cplusplus
