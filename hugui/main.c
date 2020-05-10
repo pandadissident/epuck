@@ -205,7 +205,7 @@ int main(void)
 	proximity_start();
 	imu_start();
 	spi_comm_start();
-	//VL53L0X_start();
+	VL53L0X_start();
 	serial_start();
 
 	startingAnimation();
