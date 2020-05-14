@@ -69,7 +69,7 @@ static THD_FUNCTION(pidRegulator, arg)
 
     float speed = 0;
     float rotationSpeed = 0;
-    systime_t time = 0;
+//    systime_t time = 0;
 
     while(!chThdShouldTerminateX()) {
 
@@ -84,9 +84,11 @@ static THD_FUNCTION(pidRegulator, arg)
 		right_motor_set_speed((int16_t)(speed - ROTATION_FACTOR*rotationSpeed));
 		left_motor_set_speed((int16_t)(speed + ROTATION_FACTOR*rotationSpeed));
 
-        //sample at 100Hz
-		time = chVTGetSystemTime();
-        chThdSleepUntilWindowed(time, time + S2ST(TS));
+		//sample at 100Hz
+//		time = chVTGetSystemTime();
+//      chThdSleepUntilWindowed(time, time + S2ST(TS)); // does not work !?
+//		alternative (bad) solution, since one loop takes around 1ms to 2ms
+		chThdSleepMilliseconds(8);
     }
 }
 
@@ -113,7 +115,7 @@ void drive_uphill(void)
 	float yawRate = 0;
 	float speed = 0;
 	float rotation = 0;
-    systime_t time = 0;
+//    systime_t time = 0;
 
 	angle = angle_estimation(); //
 
@@ -140,8 +142,10 @@ void drive_uphill(void)
 		left_motor_set_speed((int16_t)(speed + ROTATION_FACTOR*rotation));
 
 		//sample at 100Hz
-		time = chVTGetSystemTime();
-        chThdSleepUntilWindowed(time, time + S2ST(TS));
+//		time = chVTGetSystemTime();
+//      chThdSleepUntilWindowed(time, time + S2ST(TS)); // does not work !?
+//		alternative (bad) solution, since one loop takes around 2ms
+		chThdSleepMilliseconds(7);
 	}
 
 	right_motor_set_speed(STOP);
