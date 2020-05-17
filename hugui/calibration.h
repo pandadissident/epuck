@@ -14,6 +14,9 @@ void calibrate_imu_prox(void);
 // @brief calibrates the bascule and find origin
 void calibrate_tof(void);
 
+// @brief returns averaged value of distance mesured by the TOF sensor
+uint16_t tof_distance(void);
+
 // @brief returns calibrated origin
 uint16_t get_pos_zero(void);
 

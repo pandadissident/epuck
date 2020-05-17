@@ -22,8 +22,8 @@ MUTEX_DECL(bus_lock);
 CONDVAR_DECL(bus_condvar);
 
 // threads
-static thread_t *button_p;
-static thread_t *fsm_p;
+static thread_t *button_p = NULL;
+static thread_t *fsm_p = NULL;
 
 // @brief thread to watch if button is pressed
 static THD_WORKING_AREA(button_wa, 128);
@@ -102,7 +102,8 @@ static THD_FUNCTION(fsm, arg)
 				chThdSleepMilliseconds(500);
 				break;
     	}
-		chprintf((BaseSequentialStream *)&SD3, "\nEN ATTENTE D'INSTRUCTIONS\n");
+		chprintf((BaseSequentialStream *)&SD3, "\nEN ATTENTE ");
+		chprintf((BaseSequentialStream *)&SD3, "D'INSTRUCTIONS\n");
 		readyAnimation();
     }
 }
@@ -216,9 +217,13 @@ int main(void)
 
 	chprintf((BaseSequentialStream *)&SD3, "EN ATTENTE D'INSTRUCTIONS\n");
 
+	float dummy = 0;
+
     //infinite loop that does nothing
 	while (1) {
         chThdSleepMilliseconds(1000);
+        dummy = VL53L0X_get_dist_mm();
+        chprintf((BaseSequentialStream *)&SD3, "mm = %.2f\n", dummy);
     }
 }
 

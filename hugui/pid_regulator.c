@@ -39,8 +39,8 @@ static THD_FUNCTION(assessStability, arg)
 
     while (!chThdShouldTerminateX()) {
 
-    	// update buffer with lowpass angle filtering
-    	angle_buffer[i % STAB_SAMPLES] = STAB_CUTOFF*angle_buffer[(i-1) % STAB_SAMPLES] + (1-STAB_CUTOFF)*angle;
+    	// update buffer with current angle
+    	angle_buffer[i % STAB_SAMPLES] = angle;
         time = chVTGetSystemTime();
 
     	// waiting for 3 seconds before assessing stability
@@ -50,10 +50,11 @@ static THD_FUNCTION(assessStability, arg)
         	right_motor_set_speed(STOP);
         	left_motor_set_speed(STOP);
         	equilibre = TRUE;
-        	chThdExit((msg_t)"");
+    		chThdTerminate(assessStability_p);
+    		assessStability_p = NULL;
         }
-        chprintf((BaseSequentialStream *)&SD3, "Angle = %.2f\n", angle);
-        chThdSleepMilliseconds(100);
+        chprintf((BaseSequentialStream *)&SD3, "angle: %.2f\n", angle);
+        chThdSleepMilliseconds(50);
         i++;
     }
 }
@@ -69,14 +70,14 @@ static THD_FUNCTION(pidRegulator, arg)
 
     float speed = 0;
     float rotationSpeed = 0;
-//    systime_t time = 0;
+    systime_t time = 0;
 
     while(!chThdShouldTerminateX()) {
 
         //computes the angle
-		angle = angle_estimation();
+		angle_estimation();
 		//computes speed to which epuck is going to travel
-        speed = pd_speed(angle);
+        speed = pd_speed();
         //computes a correction factor to let the robot rotate to stay in the path
         rotationSpeed = ROTATION_FACTOR*pid_yaw_correction(speed);
 
@@ -84,11 +85,9 @@ static THD_FUNCTION(pidRegulator, arg)
 		right_motor_set_speed((int16_t)(speed - ROTATION_FACTOR*rotationSpeed));
 		left_motor_set_speed((int16_t)(speed + ROTATION_FACTOR*rotationSpeed));
 
-		//sample at 100Hz
-//		time = chVTGetSystemTime();
-//      chThdSleepUntilWindowed(time, time + S2ST(TS)); // does not work !?
-//		alternative (bad) solution, since one loop takes around 1ms to 2ms
-		chThdSleepMilliseconds(8);
+        //sample at 100Hz
+		time = chVTGetSystemTime();
+        chThdSleepUntilWindowed(time, time + S2ST(TS));
     }
 }
 
@@ -115,11 +114,12 @@ void drive_uphill(void)
 	float yawRate = 0;
 	float speed = 0;
 	float rotation = 0;
-//    systime_t time = 0;
+    float acc_angle = 0;
 
-	angle = angle_estimation(); //
+    // estimate angle through acceleration direction
+    acc_angle = atan2(get_acceleration(Y_AXIS), get_acceleration(Z_AXIS))*180/M_PI;
 
-	if ( angle > 0 ) {
+	if (acc_angle > 0) {
 		speed = INITIAL_SPEED;
 	} else {
 		speed = -INITIAL_SPEED;
@@ -129,23 +129,20 @@ void drive_uphill(void)
 	left_motor_set_speed((int16_t)(speed));
 	chThdSleepMilliseconds(200);
 
-	while ((pitchRate < PITCH_RATE_THRESHOLD) | (rollRate > PITCH_RATE_THRESHOLD) | (yawRate > PITCH_RATE_THRESHOLD)) {
+	while ((fabs(pitchRate) < PITCH_RATE_THRESHOLD) | (fabs(rollRate) > PITCH_RATE_THRESHOLD) | (fabs(yawRate) > PITCH_RATE_THRESHOLD)) {
 
 		// lowpass filter for pitch roll and yaw
-		pitchRate = UPHILL_CUTOFF*pitchRate + (1-UPHILL_CUTOFF)*fabs(get_gyro_rate(X_AXIS));
-		rollRate  = UPHILL_CUTOFF*rollRate  + (1-UPHILL_CUTOFF)*fabs(get_gyro_rate(Y_AXIS));
-		yawRate   = UPHILL_CUTOFF*yawRate   + (1-UPHILL_CUTOFF)*fabs(get_gyro_rate(Z_AXIS));
+		pitchRate = UPHILL_CUTOFF*pitchRate + (1-UPHILL_CUTOFF)*get_gyro_rate(X_AXIS);
+		rollRate  = UPHILL_CUTOFF*rollRate  + (1-UPHILL_CUTOFF)*get_gyro_rate(Y_AXIS);
+		yawRate   = UPHILL_CUTOFF*yawRate   + (1-UPHILL_CUTOFF)*get_gyro_rate(Z_AXIS);
 
 		// correcting path
 		rotation = pid_yaw_correction(speed);
 		right_motor_set_speed((int16_t)(speed - ROTATION_FACTOR*rotation));
 		left_motor_set_speed((int16_t)(speed + ROTATION_FACTOR*rotation));
 
-		//sample at 100Hz
-//		time = chVTGetSystemTime();
-//      chThdSleepUntilWindowed(time, time + S2ST(TS)); // does not work !?
-//		alternative (bad) solution, since one loop takes around 2ms
-		chThdSleepMilliseconds(7);
+		//sample at around 100Hz - loops take 1ms to 2ms
+		chThdSleepMilliseconds(8);
 	}
 
 	right_motor_set_speed(STOP);
@@ -193,14 +190,14 @@ float pid_yaw_correction(float speed)
     }
 }
 
-float pd_speed(float angle)
+float pd_speed(void)
 {
 	static float error = 0;
 	float der_error = 0;
 	float speed = 0;
 
 	// proportional error
-	error = angle;
+	error = -angle;
 
 	// derivative error with lowpass filter
 	der_error = PD_SPEED_CUTOFF*der_error - (1-PD_SPEED_CUTOFF)*get_gyro_rate(X_AXIS);
@@ -225,16 +222,13 @@ float complementary_lowpass(float input1, float input2)
 	return output;
 }
 
-float angle_estimation(void)
+void angle_estimation(void)
 {
-    static float angle = 0;
-    static float acc_angle = 0;
-    static float gyro_angle = 0;
-    static int16_t acc_values[NB_AXIS] = {0};
+    float acc_angle = 0;
+    float gyro_angle = 0;
 
     // estimate angle through acceleration direction
-    get_acc_all(acc_values);
-    acc_angle = atan2(acc_values[Y_AXIS], acc_values[Z_AXIS])*180/M_PI;
+    acc_angle = atan2(get_acceleration(Y_AXIS), get_acceleration(Z_AXIS))*180/M_PI;
 	if (acc_angle > 0) {
 		acc_angle -= 180;
 	} else {
@@ -245,9 +239,10 @@ float angle_estimation(void)
 	gyro_angle = angle + get_gyro_rate(X_AXIS)*TS;
 
 	// complementary filter to obtain usable angle estimation
+	// this value is a static global updated for th whole file
     angle = complementary_lowpass(gyro_angle, acc_angle);
 
-    return -angle;
+    return;
 }
 
 void mesure_position(void)
@@ -267,7 +262,7 @@ void mesure_position(void)
 	right_motor_set_speed(STOP);
 	left_motor_set_speed(STOP);
 
-	distance = VL53L0X_get_dist_mm();
+	distance = tof_distance();
 
 	return;
 }
@@ -311,6 +306,12 @@ void stop_assess_stability(void)
 bool equilibrium_found(void)
 {
 	return equilibre;
+}
+
+void reset_equilibrium(void)
+{
+	equilibre = FALSE;
+	return;
 }
 
 uint16_t get_distance(void)

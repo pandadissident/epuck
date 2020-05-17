@@ -15,6 +15,7 @@
 
 void measure_mass(void)
 {
+	reset_equilibrium();
 	wait_for_stability();
 
 	drive_uphill();
@@ -39,23 +40,37 @@ void measure_mass(void)
 
 void send_mass(void)
 {
-	float originPos, eqPos = 0;
-	float massBig, massMedium, massSmall = 0;
+	float distance = 0;
+	float massBig = 0;
+	float massMedium = 0;
+	float massSmall = 0;
 
-	originPos = get_pos_zero();
-	eqPos = get_distance();
+	distance = get_pos_zero() - get_distance();
 
-	massBig = M_EPUCK*(originPos-eqPos)/(L_BASCULE/4);
-	massMedium = M_EPUCK*(originPos-eqPos)/(L_BASCULE/2);
-	massSmall = M_EPUCK*(originPos-eqPos)/(3*L_BASCULE/4);
+	//empiric factor correction because epuck tends to overestimate values when farther away
+	distance *= CORRECTION;
 
-	chprintf((BaseSequentialStream *)&SD3, "RESULTATS :\n");
-	chThdSleepMilliseconds(100);
-	chprintf((BaseSequentialStream *)&SD3, "Petite masse  = %.2f\n", massSmall);
-	chThdSleepMilliseconds(100);
-	chprintf((BaseSequentialStream *)&SD3, "Masse moyenne = %.2f\n", massMedium);
-	chThdSleepMilliseconds(100);
-	chprintf((BaseSequentialStream *)&SD3, "Grosse masse  = %.2f\n", massBig);
+	massBig = M_EPUCK*distance/L_BASCULE*8;
+	massMedium = M_EPUCK*distance/L_BASCULE*4;
+	massSmall = M_EPUCK*distance/L_BASCULE*8/3;
+
+	chprintf((BaseSequentialStream *)&SD3, "\nRESULTATS :\n");
+	chThdSleepMilliseconds(5);
+	chprintf((BaseSequentialStream *)&SD3, "Petite masse");
+	chThdSleepMilliseconds(5);
+	chprintf((BaseSequentialStream *)&SD3, "  = %.2f\n", massSmall);
+	chThdSleepMilliseconds(5);
+	chprintf((BaseSequentialStream *)&SD3, "Masse moyenne");
+	chThdSleepMilliseconds(5);
+	chprintf((BaseSequentialStream *)&SD3, " = %.2f\n", massMedium);
+	chThdSleepMilliseconds(5);
+	chprintf((BaseSequentialStream *)&SD3, "Grosse masse");
+	chThdSleepMilliseconds(5);
+	chprintf((BaseSequentialStream *)&SD3, "  = %.2f\n", massBig);
+	chThdSleepMilliseconds(5);
+	chprintf((BaseSequentialStream *)&SD3, "distance");
+	chThdSleepMilliseconds(5);
+	chprintf((BaseSequentialStream *)&SD3, "  = %.2f\n", distance);
 
 	return;
 }

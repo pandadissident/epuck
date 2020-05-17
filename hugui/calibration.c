@@ -14,7 +14,7 @@
 #include "sensors/VL53L0X/VL53L0X.h"
 
 // threads
-static thread_t *waitingLed_p;
+static thread_t *waitingLed_p = NULL;
 
 // static variables
 static uint16_t originPosition = 0;
@@ -108,6 +108,9 @@ void calibrate_imu_prox(void)
 
 void calibrate_tof(void)
 {
+	reset_equilibrium();
+	wait_for_stability();
+
 	drive_uphill();
 
 	start_pid_regulator();
@@ -117,15 +120,29 @@ void calibrate_tof(void)
 		chThdSleepMilliseconds(500);
 	}
 
-	set_front_led(ON);
-	chThdSleepMilliseconds(200);
-	originPosition = VL53L0X_get_dist_mm();
-	chThdSleepMilliseconds(200);
-	set_front_led(OFF);
+	// is only used to rotate the EPuck
+	mesure_position();
+
+	originPosition = tof_distance();
 
 	chThdSleepMilliseconds(200);
 
 	return;
+}
+
+uint16_t tof_distance(void)
+{
+	uint16_t distance = 0;
+	uint8_t i = 0;
+
+	set_front_led(ON);
+	for (i = 0; i<SAMPLES; i++) {
+		distance += VL53L0X_get_dist_mm()/SAMPLES;
+		chThdSleepMilliseconds(50);
+	}
+	set_front_led(OFF);
+
+	return distance;
 }
 
 uint16_t get_pos_zero(void) {

@@ -2,7 +2,8 @@
 #define MASS_COMPUTATION_H_
 
 #define M_EPUCK		140 			//masse epuck en g
-#define L_BASCULE	500				// longueur de la bascule de mesure en mm
+#define L_BASCULE	600				// longueur de la bascule de mesure en mm
+#define CORRECTION  0.9
 
 // @brief algorithm to mesure a given mass on the bascule
 void measure_mass(void);
