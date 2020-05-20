@@ -74,7 +74,9 @@ static THD_FUNCTION(pidRegulator, arg)
 
     while(!chThdShouldTerminateX()) {
 
-        //computes the angle
+		time = chVTGetSystemTime();
+
+    	//computes the angle
 		angle_estimation();
 		//computes speed to which epuck is going to travel
         speed = pd_speed();
@@ -86,8 +88,7 @@ static THD_FUNCTION(pidRegulator, arg)
 		left_motor_set_speed((int16_t)(speed + ROTATION_FACTOR*rotationSpeed));
 
         //sample at 100Hz
-		time = chVTGetSystemTime();
-        chThdSleepUntilWindowed(time, time + S2ST(TS));
+        chThdSleepUntilWindowed(time, time + MS2ST(1000*TS));
     }
 }
 

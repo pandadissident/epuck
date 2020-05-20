@@ -22,7 +22,6 @@ MUTEX_DECL(bus_lock);
 CONDVAR_DECL(bus_condvar);
 
 // threads
-static thread_t *button_p = NULL;
 static thread_t *fsm_p = NULL;
 
 // @brief thread to watch if button is pressed
@@ -31,8 +30,6 @@ static THD_FUNCTION(button, arg)
 {
     (void) arg;
     chRegSetThreadName(__FUNCTION__);
-
-    button_p = chThdGetSelfX();
 
 	while (!chThdShouldTerminateX()) {
 
@@ -48,7 +45,7 @@ static THD_FUNCTION(button, arg)
 }
 
 // @brief main FSM machine
-static THD_WORKING_AREA(fsm_wa, 128);
+static THD_WORKING_AREA(fsm_wa, 1024);
 static THD_FUNCTION(fsm, arg)
 {
     (void) arg;
@@ -102,8 +99,7 @@ static THD_FUNCTION(fsm, arg)
 				chThdSleepMilliseconds(500);
 				break;
     	}
-		chprintf((BaseSequentialStream *)&SD3, "\nEN ATTENTE ");
-		chprintf((BaseSequentialStream *)&SD3, "D'INSTRUCTIONS\n");
+		chprintf((BaseSequentialStream *)&SD3, "\nEN ATTENTE D'INSTRUCTIONS\n");
 		readyAnimation();
     }
 }
